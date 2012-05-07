@@ -2,10 +2,10 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://yoursite.com
-title: My Octopress Blog
-subtitle: A blogging framework for hackers.
-author: Your Name
+url: http://jackphil.github.com
+title: 眼中无码，心中有码
+subtitle: 我所思，故我在，我格物，故致知
+author: Jack Phil
 simple_search: http://google.com/search
 description:
 
