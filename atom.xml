@@ -1,101 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
 
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <title>眼中无码，心中有码</title>
-  <meta name="author" content="Jack Phil">
-
-  
-  <meta name="description" content="作为一个pythoner，知道jekyll/octopress是ruby所写后，首先想到的是有没有相应的pythonic工具，这里有一个不完全列表 尝试过hyde 它最吸引我的是支持我喜爱的Asciidoc
-可是默认模板实在太丑陋
-文档简陋，没用过django，连添加文章的命令都没有， &hellip;">
-  
-
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  
-  <link rel="canonical" href="http://jackphil.github.com">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="/javascripts/ender.js"></script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <link href="/atom.xml" rel="alternate" title="眼中无码，心中有码" type="application/atom+xml">
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
-  
-
-</head>
-
-<body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">眼中无码，心中有码</a></h1>
-  
-    <h2>我所思，故我在，我格物，故致知</h2>
-  
-</hgroup>
-
-</header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="http://google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:jackphil.github.com" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
-</ul>
-
-</nav>
-  <div id="main">
-    <div id="content">
-      <div class="blog-index">
-  
-  
-  
-    <article>
-      
-  <header>
+  <title><![CDATA[眼中无码，心中有码]]></title>
+  <link href="http://jackphil.github.com/atom.xml" rel="self"/>
+  <link href="http://jackphil.github.com/"/>
+  <updated>2012-05-07T23:38:17+08:00</updated>
+  <id>http://jackphil.github.com/</id>
+  <author>
+    <name><![CDATA[Jack Phil]]></name>
     
-      <h1 class="entry-title"><a href="/blog/2012/05/07/octopressdi-%5B%3F%5D-pian-%3Aan-zhuang-%2C-rubyyi-ji-qing-liang-ji-biao-ji-yu-yan/">Octopress第一篇：安装、ruby以及轻量级标记语言</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
 
   
-
-
-<time datetime="2012-05-07T23:23:00+08:00" pubdate data-updated="true">May 7<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>作为一个pythoner，知道jekyll/octopress是ruby所写后，首先想到的是有没有相应的pythonic工具，<a href="http://wiki.python.org/moin/PythonBlogSoftware">这里</a>有一个不完全列表</p>
+  <entry>
+    <title type="html"><![CDATA[Octopress第一篇：安装、ruby以及轻量级标记语言]]></title>
+    <link href="http://jackphil.github.com/blog/2012/05/07/octopressdi-%5B%3F%5D-pian-%3Aan-zhuang-%2C-rubyyi-ji-qing-liang-ji-biao-ji-yu-yan/"/>
+    <updated>2012-05-07T23:23:00+08:00</updated>
+    <id>http://jackphil.github.com/blog/2012/05/07/octopressdi-[?]-pian-:an-zhuang-,-rubyyi-ji-qing-liang-ji-biao-ji-yu-yan</id>
+    <content type="html"><![CDATA[<p>作为一个pythoner，知道jekyll/octopress是ruby所写后，首先想到的是有没有相应的pythonic工具，<a href="http://wiki.python.org/moin/PythonBlogSoftware">这里</a>有一个不完全列表</p>
 
 <p>尝试过<a href="http://ringce.com/hyde">hyde</a></p>
 
@@ -184,69 +107,7 @@
 <li>markdown足够简单，可以现学现用，学习成本低。简单文档使用markdown，复杂文档可以使用Asciidoc</li>
 </ul>
 
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
-</div>
-<aside class="sidebar">
-  
-    <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/2012/05/07/octopressdi-%5B%3F%5D-pian-%3Aan-zhuang-%2C-rubyyi-ji-qing-liang-ji-biao-ji-yu-yan/">Octopress第一篇：安装、ruby以及轻量级标记语言</a>
-      </li>
-    
-  </ul>
-</section>
-
-
-
-
-
-
-  
-</aside>
-
-    </div>
-  </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2012 - Jack Phil -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
-
-</footer>
-  
-
-
-
-
-
-
-
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
-
-
-
-
-
-</body>
-</html>
+</feed>
