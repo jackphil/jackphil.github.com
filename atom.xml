@@ -4,7 +4,7 @@
   <title><![CDATA[眼中无码，心中有码]]></title>
   <link href="http://jackphil.github.com/atom.xml" rel="self"/>
   <link href="http://jackphil.github.com/"/>
-  <updated>2012-05-07T23:51:56+08:00</updated>
+  <updated>2012-05-08T22:26:52+08:00</updated>
   <id>http://jackphil.github.com/</id>
   <author>
     <name><![CDATA[Jack Phil]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Octopress第一篇：安装、ruby以及轻量级标记语言]]></title>
-    <link href="http://jackphil.github.com/blog/2012/05/07/octopressdi-%5B%3F%5D-pian-%3Aan-zhuang-%2C-rubyyi-ji-qing-liang-ji-biao-ji-yu-yan/"/>
+    <link href="http://jackphil.github.com/blog/2012/05/07/octopress-setup-others/"/>
     <updated>2012-05-07T23:23:00+08:00</updated>
-    <id>http://jackphil.github.com/blog/2012/05/07/octopressdi-[?]-pian-:an-zhuang-,-rubyyi-ji-qing-liang-ji-biao-ji-yu-yan</id>
+    <id>http://jackphil.github.com/blog/2012/05/07/octopress-setup-others</id>
     <content type="html"><![CDATA[<p>作为一个pythoner，知道jekyll/octopress是ruby所写后，首先想到的是有没有相应的pythonic工具，<a href="http://wiki.python.org/moin/PythonBlogSoftware">这里</a>有一个不完全列表</p>
 
 <p>尝试过<a href="http://ringce.com/hyde">hyde</a></p>

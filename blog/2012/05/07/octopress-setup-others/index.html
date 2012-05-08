@@ -20,7 +20,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://jackphil.github.com/blog/2012/05/07/octopressdi-%5B%3F%5D-pian-%3Aan-zhuang-%2C-rubyyi-ji-qing-liang-ji-biao-ji-yu-yan">
+  <link rel="canonical" href="http://jackphil.github.com/blog/2012/05/07/octopress-setup-others">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -211,9 +211,24 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jackphil.github.com/blog/2012/05/07/octopressdi-%5B%3F%5D-pian-%3Aan-zhuang-%2C-rubyyi-ji-qing-liang-ji-biao-ji-yu-yan/" data-via="" data-counturl="http://jackphil.github.com/blog/2012/05/07/octopressdi-%5B%3F%5D-pian-%3Aan-zhuang-%2C-rubyyi-ji-qing-liang-ji-biao-ji-yu-yan/" >Tweet</a>
   
   
+  
+  <!-- Baidu Button BEGIN -->
+  <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare">
+     <a class="bds_qzone"></a>
+     <a class="bds_tsina"></a>
+     <a class="bds_tqq"></a>
+     <a class="bds_renren"></a>
+     <span class="bds_more">更多</span>
+     <a class="shareCount"></a>
+  </div>
+  <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=685719" ></script>
+  <script type="text/javascript" id="bdshell_js"></script>
+  <script type="text/javascript">
+    document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours();
+  </script>
+  <!-- Baidu Button END -->
   
 </div>
 
@@ -225,6 +240,12 @@
   </footer>
 </article>
 
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
 </div>
 
 <aside class="sidebar">
@@ -234,10 +255,56 @@
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2012/05/07/octopressdi-%5B%3F%5D-pian-%3Aan-zhuang-%2C-rubyyi-ji-qing-liang-ji-biao-ji-yu-yan/">Octopress第一篇：安装、ruby以及轻量级标记语言</a>
+        <a href="/blog/2012/05/07/octopress-setup-others/">Octopress第一篇：安装、ruby以及轻量级标记语言</a>
       </li>
     
   </ul>
+</section>
+
+<section>
+  <h1>新浪微博</h1>
+  <ul id="weibo">
+    <li>
+    <iframe
+      width="100%"
+      height="550"
+      class="share_self"
+      frameborder="0"
+      scrolling="no"
+      src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=2039087523&verifier=e0a18d12&dpc=1">
+    </iframe>
+    </li>
+  </ul>
+</section>
+
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/jackphil">@jackphil</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'jackphil',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
 
 
@@ -259,21 +326,27 @@
 </footer>
   
 
+<script type="text/javascript">
+      var disqus_shortname = 'jpblog1';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://jackphil.github.com/blog/2012/05/07/octopress-setup-others/';
+        var disqus_url = 'http://jackphil.github.com/blog/2012/05/07/octopress-setup-others/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
 
 
 
 
 
 
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
 
 
 
