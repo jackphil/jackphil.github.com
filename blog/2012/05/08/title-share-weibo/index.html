@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>眼中无码，心中有码</title>
+  <title>Octopress第二弹：中文文件名、分享按钮、侧边栏上微博秀、disqus评论 - 眼中无码，心中有码</title>
   <meta name="author" content="Jack Phil">
 
   
@@ -19,7 +19,7 @@ rake new_post["My first post"] # 不建议在这里使用中文标点 Octopress�
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://jackphil.github.com">
+  <link rel="canonical" href="http://jackphil.github.com/blog/2012/05/08/title-share-weibo">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -63,15 +63,12 @@ rake new_post["My first post"] # 不建议在这里使用中文标点 Octopress�
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2012/05/08/title-share-weibo/">Octopress第二弹：中文文件名、分享按钮、侧边栏上微博秀、disqus评论</a></h1>
+      <h1 class="entry-title">Octopress第二弹：中文文件名、分享按钮、侧边栏上微博秀、disqus评论</h1>
     
     
       <p class="meta">
@@ -94,7 +91,7 @@ rake new_post["My first post"] # 不建议在这里使用中文标点 Octopress�
   </header>
 
 
-  <div class="entry-content"><p>今天对博客进行了一番装修和调整，我对美工要求不高，对现在的样子基本满意了</p>
+<div class="entry-content"><p>今天对博客进行了一番装修和调整，我对美工要求不高，对现在的样子基本满意了</p>
 
 <h2>不要在文件名中使用中文标点</h2>
 
@@ -186,22 +183,16 @@ rake new_post["My first post"] # 不建议在这里使用中文标点 Octopress�
 </ul>
 
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/05/07/octopress-setup-others/">Octopress第一篇：安装、ruby以及轻量级标记语言</a></h1>
-    
-    
-      <p class="meta">
-        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jack Phil</span></span>
+
+      
 
 
 
@@ -213,115 +204,53 @@ rake new_post["My first post"] # 不建议在这里使用中文标点 Octopress�
   
 
 
-<time datetime="2012-05-07T23:23:00+08:00" pubdate data-updated="true">May 7<span>th</span>, 2012</time>
-        
-      </p>
+<time datetime="2012-05-08T22:32:00+08:00" pubdate data-updated="true">May 8<span>th</span>, 2012</time>
+      
+
+
+    </p>
     
-  </header>
-
-
-  <div class="entry-content"><p>作为一个pythoner，知道jekyll/octopress是ruby所写后，首先想到的是有没有相应的pythonic工具，<a href="http://wiki.python.org/moin/PythonBlogSoftware">这里</a>有一个不完全列表</p>
-
-<p>尝试过<a href="http://ringce.com/hyde">hyde</a></p>
-
-<ul>
-<li>它最吸引我的是支持我喜爱的Asciidoc</li>
-<li>可是默认模板实在太丑陋</li>
-<li>文档简陋，没用过django，连添加文章的命令都没有，手动拷贝修改了一篇默认生成的文章，折腾很久都没能把文章添加到默认首页，当然也许是我学艺不精，但我已经不喜欢它了</li>
-<li>看上去完成度这么低的项目，看github上仓库的最近提交，居然都是a year ago</li>
-</ul>
-
-
-<p>看了下<a href="http://tinkerer.bitbucket.org/index.html">Tinkerer</a>，界面不错，基于Sphinx，可惜对此不感兴趣</p>
-
-<p>还有一个列表里没提到的<a href="https://github.com/ametaireau/pelican">pelican</a>，貌似用的人还不多</p>
-
-<p>最近python-cn列表里有人<a href="https://groups.google.com/forum/?fromgroups#!topic/python-cn/Xh1LGTGW20A">兴高采烈</a>的开了个octopress博客，正好我前段时间也看过教程，想趁机了解一下ruby，于是决定试一把octopress</p>
-
-<h2>安装</h2>
-
-<p><a href="http://octopress.org/docs/">Octopress的文档</a>清晰明了，网上安装记录、教程一搜一大堆，我也不啰嗦，做个备忘，罗列一下命令，谈一点想法吧</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>bash &lt; &lt;(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer) # 还需要在.bashrc中添加一些配置
-</span><span class='line'>rvm install 1.9.2
-</span><span class='line'>rvm use 1.9.2 --default
-</span><span class='line'>git clone git://github.com/imathis/octopress.git octopress
-</span><span class='line'>cd octopress # 会询问你是否信任.rvmrc文件，选择yes
-</span><span class='line'>gem install bundler
-</span><span class='line'>bundle install
-</span><span class='line'>bundle update # 不执行，则下一步rake会报版本不匹配
-</span><span class='line'>rake install
-</span><span class='line'>rake setup_github_pages</span></code></pre></td></tr></table></div></figure>
-
-
-<p>下面是日常使用的命令：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rake new_post["My first post"]
-</span><span class='line'>rake generate # 第一次使用，最好先编辑一下_config.yml
-</span><span class='line'>rake preview # 本地查看，地址是http://localhost:4000
-</span><span class='line'>rake deploy
-</span><span class='line'>git add . # 以下几句是把markdown源文件也提交到仓库
-</span><span class='line'>git commit -m 'your message'
-</span><span class='line'>git push origin source</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>关于Ruby</h2>
-
-<p>这是我第一次真正和ruby打交道，在我的Archlinux系统上也没有因为依赖关系而装上ruby。于是我想有没有一种绿色、非root方式安装ruby。</p>
-
-<p>我需要一个独立于系统的python环境时，就直接把archlinux的python包解压缩到用户目录，所以一度也想对ruby这么干。但在仔细阅读安装教程和了解了各命令的用途后，非常惊讶，ruby的方式是那么干净、简单和清晰。</p>
-
-<p>是的，这就是我第一次使用rvm、gem、bundle、rake之后的感受。而python下的virtualenv、setuptools、pip之类，就显得丑陋了。网上也有人发出过<a href="http://grokcode.com/746/dear-python-why-are-you-so-ugly/">亲爱的python，你为什么这么丑</a>的疑问，在比较过ruby和python应用的用户界面后，ruby的性感，python的丑陋更是一目了然</p>
-
-<p>这不由让我想起了之前从GNOME转到KDE时见异思迁的痛苦，同一个功能，比如ftp客户端，KDE下的应用总是比GNOME无论是从界面还是细节上，都更能抓住我的心，但当时还在用Ubuntu，GNOME是默认的桌面环境，当时还被一些诸如“GNOME更开放更自由”之类开源原教旨主义观点困扰，着实纠结了一番。</p>
-
-<p>好吧，作为近10年的pythoner，我还没叛变，我只是对眼前漂亮的日本妞吹了吹口哨，回头搂住洋老婆扬长而去。“那妞虽漂亮，可惜是个日本人，而且我更了解我老婆，能力强，人脉广，有个好工作，在google上班呢，过日子还得找这样的”，我想</p>
-
-<h2>关于轻量级标记语言</h2>
-
-<p>我最早使用的轻量级标记语言是<a href="http://docutils.sourceforge.net/">reStructuredText</a>，后来学过docbook(哦，这个不算轻量级了吧)，但没真正用它写过任何东西。</p>
-
-<p>现在最喜欢的的是<a href="http://www.methods.co.nz/asciidoc/">Asciidoc</a>，可惜rst已经成了事实上的标准</p>
-
-<p>我从没用过markdown，这也是我几乎纠结一下午的原因，我不想再学一门标记语言，Octopress显然不支持我最喜欢的Asciidoc，退而求其次想用rst，如有可能，只使用纯pythonic工具，这也是作为一个python的强迫症吧，但在看了一下<a href="https://github.com/xdissent/jekyll-rst">jekyll-rst</a>后，我发现不太喜欢这种python/ruby混合的方式，也许是年纪大了经不起折腾，也许是我的洁癖又犯了，也许两者都有……</p>
-
-<p>所以最后还是选择了markdown，给了自己两个理由，人是需要理由的动物：</p>
-
-<ul>
-<li>markdown语言中立，跨语言性更好。比如rst就没有php的实现，而我可以在wordpress中使用markdown</li>
-<li>markdown足够简单，可以现学现用，学习成本低。简单文档使用markdown，复杂文档可以使用Asciidoc</li>
-</ul>
-
-</div>
+      <div class="sharing">
   
   
-
-
-    </article>
   
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
+  
+  <!-- Baidu Button BEGIN -->
+  <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare">
+     <a class="bds_qzone"></a>
+     <a class="bds_tsina"></a>
+     <a class="bds_tqq"></a>
+     <a class="bds_renren"></a>
+     <span class="bds_more">更多</span>
+     <a class="shareCount"></a>
   </div>
+  <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=685719" ></script>
+  <script type="text/javascript" id="bdshell_js"></script>
+  <script type="text/javascript">
+    document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours();
+  </script>
+  <!-- Baidu Button END -->
+  
 </div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/05/07/octopress-setup-others/" title="Previous Post: Octopress第一篇：安装、ruby以及轻量级标记语言">&laquo; Octopress第一篇：安装、ruby以及轻量级标记语言</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
 <aside class="sidebar">
   
     <section>
@@ -359,7 +288,7 @@ rake new_post["My first post"] # 不建议在这里使用中文标点 Octopress�
 <section>
   <h1>GitHub Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   
   <a href="https://github.com/jackphil">@jackphil</a> on GitHub
@@ -393,6 +322,7 @@ rake new_post["My first post"] # 不建议在这里使用中文标点 Octopress�
   
 </aside>
 
+
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -407,7 +337,10 @@ rake new_post["My first post"] # 不建议在这里使用中文标点 Octopress�
       var disqus_shortname = 'jpblog1';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://jackphil.github.com/blog/2012/05/08/title-share-weibo/';
+        var disqus_url = 'http://jackphil.github.com/blog/2012/05/08/title-share-weibo/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

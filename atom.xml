@@ -4,7 +4,7 @@
   <title><![CDATA[眼中无码，心中有码]]></title>
   <link href="http://jackphil.github.com/atom.xml" rel="self"/>
   <link href="http://jackphil.github.com/"/>
-  <updated>2012-05-08T22:26:52+08:00</updated>
+  <updated>2012-05-16T14:42:35+08:00</updated>
   <id>http://jackphil.github.com/</id>
   <author>
     <name><![CDATA[Jack Phil]]></name>
@@ -12,6 +12,105 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress第二弹：中文文件名、分享按钮、侧边栏上微博秀、disqus评论]]></title>
+    <link href="http://jackphil.github.com/blog/2012/05/08/title-share-weibo/"/>
+    <updated>2012-05-08T22:32:00+08:00</updated>
+    <id>http://jackphil.github.com/blog/2012/05/08/title-share-weibo</id>
+    <content type="html"><![CDATA[<p>今天对博客进行了一番装修和调整，我对美工要求不高，对现在的样子基本满意了</p>
+
+<h2>不要在文件名中使用中文标点</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake new_post["My first post"] # 不建议在这里使用中文标点</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Octopress可以把中文文件名转换成拼音，但中文标点会造成一些麻烦，使得url中包含一些奇怪的符号，有时会造成问题。我曾碰到过在本地预览时能显示文章列表，但不能打开文章，显示找不到文件。将文件名改为英文后解决。需要说明的是提交到github在线浏览没有这个问题</p>
+
+<p>这里说的是文件名，并不影响你的文章标题中包含中文标点。你可以在文章内文的yaml front matter中的title字段随意使用中文标点，</p>
+
+<h2>分享按钮</h2>
+
+<p>我选择了<a href="http://share.baidu.com">百度分享</a>，将获得的代码添加到source/_includes/post/sharing.html，你也可以依样画葫芦，把代码放在模板if结构中，</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>{% if site.baidu_share %}
+</span><span class='line'>代码
+</span><span class='line'>{$ endif %}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>别忘了在_config.yml定义一下开关，如</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'># 百度分享
+</span><span class='line'>baidu_share: true</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>微薄秀</h2>
+
+<p>微博秀参考了<a href="http://programus.github.com/blog/2012/03/03/add-weibo-sidebar-into-octopress/">程序猎人的文章</a>，不过</p>
+
+<ul>
+<li>偷懒，直接用了从<a href="http://weibo.com/tool/weiboshow">微博秀</a>得来的代码，没有把url中的参数作变量替换。</li>
+<li>根据<em>confit.yml中default_asides的注释，把weibo.html放在了/source/</em>includes/custom/asides/目录下</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>{% if site.weibo_sina %}
+</span><span class='line'>&lt;section&gt;
+</span><span class='line'>  &lt;h1&gt;新浪微博&lt;/h1&gt;
+</span><span class='line'>  &lt;ul id="weibo"&gt;
+</span><span class='line'>    &lt;li&gt;
+</span><span class='line'>      &lt;iframe 
+</span><span class='line'>        width="100%" 
+</span><span class='line'>        height="550" 
+</span><span class='line'>        class="share_self" 
+</span><span class='line'>        frameborder="0" 
+</span><span class='line'>        scrolling="no" 
+</span><span class='line'>        src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=2039187623&verifier=e0a28d12&dpc=1"&gt;
+</span><span class='line'>      &lt;/iframe&gt;
+</span><span class='line'>    &lt;/li&gt;
+</span><span class='line'>  &lt;/ul&gt;
+</span><span class='line'>&lt;/section&gt;
+</span><span class='line'>{% endif %}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>`</p>
+
+<p>别忘了在_config.yml中的default_asides列表中添加微博秀并在文件尾添加开关</p>
+
+<h2>DISQUS评论</h2>
+
+<p>DISQUS评论功能是内置的，开启很简单</p>
+
+<ul>
+<li>注册DISQUS帐号，添加站点</li>
+<li>在_config.yml中用填入site shortname即可</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Octopress第一篇：安装、ruby以及轻量级标记语言]]></title>
