@@ -4,7 +4,7 @@
   <title><![CDATA[眼中无码，心中有码]]></title>
   <link href="http://jackphil.github.com/atom.xml" rel="self"/>
   <link href="http://jackphil.github.com/"/>
-  <updated>2012-05-16T14:42:35+08:00</updated>
+  <updated>2012-05-16T16:53:53+08:00</updated>
   <id>http://jackphil.github.com/</id>
   <author>
     <name><![CDATA[Jack Phil]]></name>
@@ -14,11 +14,39 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Archlinux更新记录20120516]]></title>
+    <link href="http://jackphil.github.com/blog/2012/05/16/archlinuxgeng-xin-ji-lu-20120516/"/>
+    <updated>2012-05-16T15:27:00+08:00</updated>
+    <id>http://jackphil.github.com/blog/2012/05/16/archlinuxgeng-xin-ji-lu-20120516</id>
+    <content type="html"><![CDATA[<p>某次更新系统后重启，发现有触目的红色警告，由于屏幕滚动很快，没看清具体是什么内容。遂去/etc/rc.local中添加一句read，以使启动最后暂停，等待用户输入，任意键继续。</p>
+
+<p>这次看清是ALSA出错了</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Unknown hardware "foo" "bar" ...
+</span><span class='line'>Hardware is initialized using a guess method</span></code></pre></td></tr></table></div></figure>
+
+
+<p>搜索后发现可能跟内核升级有关，解决也很简单</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo alsactl -f /var/lib/alsa/asound.state store</span></code></pre></td></tr></table></div></figure>
+
+
+<p>参考：<a href="https://wiki.archlinux.org/index.php/Advanced_Linux_Sound_Architecture#Error_.27Unkown_hardware.27_Appears_After_a_Kernel_Update">Error &#8216;Unkown hardware&#8217; Appears After a Kernel Update</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Octopress第二弹：中文文件名、分享按钮、侧边栏上微博秀、disqus评论]]></title>
     <link href="http://jackphil.github.com/blog/2012/05/08/title-share-weibo/"/>
     <updated>2012-05-08T22:32:00+08:00</updated>
     <id>http://jackphil.github.com/blog/2012/05/08/title-share-weibo</id>
     <content type="html"><![CDATA[<p>今天对博客进行了一番装修和调整，我对美工要求不高，对现在的样子基本满意了</p>
+
+<!--more-->
+
 
 <h2>不要在文件名中使用中文标点</h2>
 
@@ -106,7 +134,7 @@
 
 <ul>
 <li>注册DISQUS帐号，添加站点</li>
-<li>在_config.yml中用填入site shortname即可</li>
+<li>在_config.yml中填入site shortname即可</li>
 </ul>
 
 ]]></content>
@@ -134,6 +162,9 @@
 <p>还有一个列表里没提到的<a href="https://github.com/ametaireau/pelican">pelican</a>，貌似用的人还不多</p>
 
 <p>最近python-cn列表里有人<a href="https://groups.google.com/forum/?fromgroups#!topic/python-cn/Xh1LGTGW20A">兴高采烈</a>的开了个octopress博客，正好我前段时间也看过教程，想趁机了解一下ruby，于是决定试一把octopress</p>
+
+<!--more-->
+
 
 <h2>安装</h2>
 

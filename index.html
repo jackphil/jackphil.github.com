@@ -9,8 +9,10 @@
   <meta name="author" content="Jack Phil">
 
   
-  <meta name="description" content="今天对博客进行了一番装修和调整，我对美工要求不高，对现在的样子基本满意了 不要在文件名中使用中文标点 1
-rake new_post["My first post"] # 不建议在这里使用中文标点 Octopress可以把中文文件名转换成拼音，但中文标点会造成一些麻烦， &hellip;">
+  <meta name="description" content="某次更新系统后重启，发现有触目的红色警告，由于屏幕滚动很快，没看清具体是什么内容。遂去/etc/rc.local中添加一句read，以使启动最后暂停，等待用户输入，任意键继续。 这次看清是ALSA出错了 1
+2
+Unknown hardware "foo" "bar" ...
+Hardware &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -71,6 +73,58 @@ rake new_post["My first post"] # 不建议在这里使用中文标点 Octopress�
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2012/05/16/archlinuxgeng-xin-ji-lu-20120516/">Archlinux更新记录20120516</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-16T15:27:00+08:00" pubdate data-updated="true">May 16<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>某次更新系统后重启，发现有触目的红色警告，由于屏幕滚动很快，没看清具体是什么内容。遂去/etc/rc.local中添加一句read，以使启动最后暂停，等待用户输入，任意键继续。</p>
+
+<p>这次看清是ALSA出错了</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Unknown hardware "foo" "bar" ...
+</span><span class='line'>Hardware is initialized using a guess method</span></code></pre></td></tr></table></div></figure>
+
+
+<p>搜索后发现可能跟内核升级有关，解决也很简单</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo alsactl -f /var/lib/alsa/asound.state store</span></code></pre></td></tr></table></div></figure>
+
+
+<p>参考：<a href="https://wiki.archlinux.org/index.php/Advanced_Linux_Sound_Architecture#Error_.27Unkown_hardware.27_Appears_After_a_Kernel_Update">Error &#8216;Unkown hardware&#8217; Appears After a Kernel Update</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2012/05/08/title-share-weibo/">Octopress第二弹：中文文件名、分享按钮、侧边栏上微博秀、disqus评论</a></h1>
     
     
@@ -96,97 +150,12 @@ rake new_post["My first post"] # 不建议在这里使用中文标点 Octopress�
 
   <div class="entry-content"><p>今天对博客进行了一番装修和调整，我对美工要求不高，对现在的样子基本满意了</p>
 
-<h2>不要在文件名中使用中文标点</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rake new_post["My first post"] # 不建议在这里使用中文标点</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Octopress可以把中文文件名转换成拼音，但中文标点会造成一些麻烦，使得url中包含一些奇怪的符号，有时会造成问题。我曾碰到过在本地预览时能显示文章列表，但不能打开文章，显示找不到文件。将文件名改为英文后解决。需要说明的是提交到github在线浏览没有这个问题</p>
-
-<p>这里说的是文件名，并不影响你的文章标题中包含中文标点。你可以在文章内文的yaml front matter中的title字段随意使用中文标点，</p>
-
-<h2>分享按钮</h2>
-
-<p>我选择了<a href="http://share.baidu.com">百度分享</a>，将获得的代码添加到source/_includes/post/sharing.html，你也可以依样画葫芦，把代码放在模板if结构中，</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>{% if site.baidu_share %}
-</span><span class='line'>代码
-</span><span class='line'>{$ endif %}</span></code></pre></td></tr></table></div></figure>
-
-
-<p>别忘了在_config.yml定义一下开关，如</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'># 百度分享
-</span><span class='line'>baidu_share: true</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>微薄秀</h2>
-
-<p>微博秀参考了<a href="http://programus.github.com/blog/2012/03/03/add-weibo-sidebar-into-octopress/">程序猎人的文章</a>，不过</p>
-
-<ul>
-<li>偷懒，直接用了从<a href="http://weibo.com/tool/weiboshow">微博秀</a>得来的代码，没有把url中的参数作变量替换。</li>
-<li>根据<em>confit.yml中default_asides的注释，把weibo.html放在了/source/</em>includes/custom/asides/目录下</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>{% if site.weibo_sina %}
-</span><span class='line'>&lt;section&gt;
-</span><span class='line'>  &lt;h1&gt;新浪微博&lt;/h1&gt;
-</span><span class='line'>  &lt;ul id="weibo"&gt;
-</span><span class='line'>    &lt;li&gt;
-</span><span class='line'>      &lt;iframe 
-</span><span class='line'>        width="100%" 
-</span><span class='line'>        height="550" 
-</span><span class='line'>        class="share_self" 
-</span><span class='line'>        frameborder="0" 
-</span><span class='line'>        scrolling="no" 
-</span><span class='line'>        src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=2039187623&verifier=e0a28d12&dpc=1"&gt;
-</span><span class='line'>      &lt;/iframe&gt;
-</span><span class='line'>    &lt;/li&gt;
-</span><span class='line'>  &lt;/ul&gt;
-</span><span class='line'>&lt;/section&gt;
-</span><span class='line'>{% endif %}</span></code></pre></td></tr></table></div></figure>
-
-
-<p>`</p>
-
-<p>别忘了在_config.yml中的default_asides列表中添加微博秀并在文件尾添加开关</p>
-
-<h2>DISQUS评论</h2>
-
-<p>DISQUS评论功能是内置的，开启很简单</p>
-
-<ul>
-<li>注册DISQUS帐号，添加站点</li>
-<li>在_config.yml中用填入site shortname即可</li>
-</ul>
-
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/05/08/title-share-weibo/">阅读全文</a>
+    </footer>
   
 
 
@@ -238,79 +207,12 @@ rake new_post["My first post"] # 不建议在这里使用中文标点 Octopress�
 
 <p>最近python-cn列表里有人<a href="https://groups.google.com/forum/?fromgroups#!topic/python-cn/Xh1LGTGW20A">兴高采烈</a>的开了个octopress博客，正好我前段时间也看过教程，想趁机了解一下ruby，于是决定试一把octopress</p>
 
-<h2>安装</h2>
-
-<p><a href="http://octopress.org/docs/">Octopress的文档</a>清晰明了，网上安装记录、教程一搜一大堆，我也不啰嗦，做个备忘，罗列一下命令，谈一点想法吧</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>bash &lt; &lt;(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer) # 还需要在.bashrc中添加一些配置
-</span><span class='line'>rvm install 1.9.2
-</span><span class='line'>rvm use 1.9.2 --default
-</span><span class='line'>git clone git://github.com/imathis/octopress.git octopress
-</span><span class='line'>cd octopress # 会询问你是否信任.rvmrc文件，选择yes
-</span><span class='line'>gem install bundler
-</span><span class='line'>bundle install
-</span><span class='line'>bundle update # 不执行，则下一步rake会报版本不匹配
-</span><span class='line'>rake install
-</span><span class='line'>rake setup_github_pages</span></code></pre></td></tr></table></div></figure>
-
-
-<p>下面是日常使用的命令：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rake new_post["My first post"]
-</span><span class='line'>rake generate # 第一次使用，最好先编辑一下_config.yml
-</span><span class='line'>rake preview # 本地查看，地址是http://localhost:4000
-</span><span class='line'>rake deploy
-</span><span class='line'>git add . # 以下几句是把markdown源文件也提交到仓库
-</span><span class='line'>git commit -m 'your message'
-</span><span class='line'>git push origin source</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>关于Ruby</h2>
-
-<p>这是我第一次真正和ruby打交道，在我的Archlinux系统上也没有因为依赖关系而装上ruby。于是我想有没有一种绿色、非root方式安装ruby。</p>
-
-<p>我需要一个独立于系统的python环境时，就直接把archlinux的python包解压缩到用户目录，所以一度也想对ruby这么干。但在仔细阅读安装教程和了解了各命令的用途后，非常惊讶，ruby的方式是那么干净、简单和清晰。</p>
-
-<p>是的，这就是我第一次使用rvm、gem、bundle、rake之后的感受。而python下的virtualenv、setuptools、pip之类，就显得丑陋了。网上也有人发出过<a href="http://grokcode.com/746/dear-python-why-are-you-so-ugly/">亲爱的python，你为什么这么丑</a>的疑问，在比较过ruby和python应用的用户界面后，ruby的性感，python的丑陋更是一目了然</p>
-
-<p>这不由让我想起了之前从GNOME转到KDE时见异思迁的痛苦，同一个功能，比如ftp客户端，KDE下的应用总是比GNOME无论是从界面还是细节上，都更能抓住我的心，但当时还在用Ubuntu，GNOME是默认的桌面环境，当时还被一些诸如“GNOME更开放更自由”之类开源原教旨主义观点困扰，着实纠结了一番。</p>
-
-<p>好吧，作为近10年的pythoner，我还没叛变，我只是对眼前漂亮的日本妞吹了吹口哨，回头搂住洋老婆扬长而去。“那妞虽漂亮，可惜是个日本人，而且我更了解我老婆，能力强，人脉广，有个好工作，在google上班呢，过日子还得找这样的”，我想</p>
-
-<h2>关于轻量级标记语言</h2>
-
-<p>我最早使用的轻量级标记语言是<a href="http://docutils.sourceforge.net/">reStructuredText</a>，后来学过docbook(哦，这个不算轻量级了吧)，但没真正用它写过任何东西。</p>
-
-<p>现在最喜欢的的是<a href="http://www.methods.co.nz/asciidoc/">Asciidoc</a>，可惜rst已经成了事实上的标准</p>
-
-<p>我从没用过markdown，这也是我几乎纠结一下午的原因，我不想再学一门标记语言，Octopress显然不支持我最喜欢的Asciidoc，退而求其次想用rst，如有可能，只使用纯pythonic工具，这也是作为一个python的强迫症吧，但在看了一下<a href="https://github.com/xdissent/jekyll-rst">jekyll-rst</a>后，我发现不太喜欢这种python/ruby混合的方式，也许是年纪大了经不起折腾，也许是我的洁癖又犯了，也许两者都有……</p>
-
-<p>所以最后还是选择了markdown，给了自己两个理由，人是需要理由的动物：</p>
-
-<ul>
-<li>markdown语言中立，跨语言性更好。比如rst就没有php的实现，而我可以在wordpress中使用markdown</li>
-<li>markdown足够简单，可以现学现用，学习成本低。简单文档使用markdown，复杂文档可以使用Asciidoc</li>
-</ul>
-
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/05/07/octopress-setup-others/">阅读全文</a>
+    </footer>
   
 
 
@@ -327,6 +229,10 @@ rake new_post["My first post"] # 不建议在这里使用中文标点 Octopress�
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/05/16/archlinuxgeng-xin-ji-lu-20120516/">Archlinux更新记录20120516</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2012/05/08/title-share-weibo/">Octopress第二弹：中文文件名、分享按钮、侧边栏上微博秀、disqus评论</a>
