@@ -4,7 +4,7 @@
   <title><![CDATA[眼中无码，心中有码]]></title>
   <link href="http://jackphil.github.com/atom.xml" rel="self"/>
   <link href="http://jackphil.github.com/"/>
-  <updated>2012-05-16T21:05:59+08:00</updated>
+  <updated>2012-05-16T22:10:33+08:00</updated>
   <id>http://jackphil.github.com/</id>
   <author>
     <name><![CDATA[Jack Phil]]></name>
@@ -12,6 +12,76 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress技巧集]]></title>
+    <link href="http://jackphil.github.com/blog/2012/05/16/octopress-tips/"/>
+    <updated>2012-05-16T21:21:00+08:00</updated>
+    <id>http://jackphil.github.com/blog/2012/05/16/octopress-tips</id>
+    <content type="html"><![CDATA[<p>本文收集Octopress使用过程中学到的一些技巧，会经常更新（当然还要看我心情懒不懒得折腾）</p>
+
+<!--more-->
+
+
+<h2>首页文章只显示摘要</h2>
+
+<p>在正文中插入标记</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>正文开头内容，也是首页摘要显示的部分
+</span><span class='line'>&lt;!--more--&gt;
+</span><span class='line'>以下内容不会显示在首页文章列表中</span></code></pre></td></tr></table></div></figure>
+
+
+<p>编辑_config.yml‵‵</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>excerpt_link: "阅读全文" # 用于提示阅读完整文章的文字链接</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>绑定自家域名</h2>
+
+<p>创建一个CNAME文件</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>echo 'your-domain.com' &gt;&gt; source/CNAME</span></code></pre></td></tr></table></div></figure>
+
+
+<p>去你自家域名服务提供商修改设置</p>
+
+<ul>
+<li>如果是顶级域名，修改A记录，使之指向207.97.227.245</li>
+<li>如果是二级或以下域名，修改CNAME记录即可，使之指向username.github.com</li>
+</ul>
+
+
+<p>一般deploy后，github这边需要10分钟左右才生效</p>
+
+<h2>添加统计代码</h2>
+
+<p>我用的是<a href="http://tongji.baidu.com">百度统计</a>，将代码添加到source/_includes/custom/footer.html中即可</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;p&gt;
+</span><span class='line'>  Copyright &copy; 2012 - Jack Phil -
+</span><span class='line'>  &lt;span class="credit"&gt;Powered by &lt;a href="http://octopress.org"&gt;Octopress&lt;/a&gt;&lt;/span&gt; -
+</span><span class='line'> &lt;script type="text/javascript"&gt;
+</span><span class='line'>var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+</span><span class='line'>document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F7b011ba580af2ede1ka05568d5d4828a' type='text/javascript'%3E%3C/script%3E"));
+</span><span class='line'>&lt;/script&gt;
+</span><span class='line'>&lt;/p&gt;</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[OpenSSH密钥管理初步]]></title>

@@ -5,12 +5,16 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Octopress第二弹：中文文件名、分享按钮、侧边栏上微博秀、disqus评论 - 眼中无码，心中有码</title>
+  <title>Octopress技巧集 - 眼中无码，心中有码</title>
   <meta name="author" content="Jack Phil">
 
   
-  <meta name="description" content="今天对博客进行了一番装修和调整，我对美工要求不高，对现在的样子基本满意了 不要在文件名中使用中文标点 1
-rake new_post["My first post"] # 不建议在这里使用中文标点 Octopress可以把中文文件名转换成拼音，但中文标点会造成一些麻烦， &hellip;">
+  <meta name="description" content="本文收集Octopress使用过程中学到的一些技巧，会经常更新（当然还要看我心情懒不懒得折腾） 首页文章只显示摘要 在正文中插入标记 1
+2
+3
+正文开头内容，也是首页摘要显示的部分
+&lt;!--more--&gt;
+以下内容不会显示在首页文章列表中 编辑_config.yml‵‵ 1 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +23,7 @@ rake new_post["My first post"] # 不建议在这里使用中文标点 Octopress�
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://jackphil.github.com/blog/2012/05/08/title-share-weibo">
+  <link rel="canonical" href="http://jackphil.github.com/blog/2012/05/16/octopress-tips">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -68,7 +72,7 @@ rake new_post["My first post"] # 不建议在这里使用中文标点 Octopress�
   
   <header>
     
-      <h1 class="entry-title">Octopress第二弹：中文文件名、分享按钮、侧边栏上微博秀、disqus评论</h1>
+      <h1 class="entry-title">Octopress技巧集</h1>
     
     
       <p class="meta">
@@ -84,57 +88,57 @@ rake new_post["My first post"] # 不建议在这里使用中文标点 Octopress�
   
 
 
-<time datetime="2012-05-08T22:32:00+08:00" pubdate data-updated="true">May 8<span>th</span>, 2012</time>
+<time datetime="2012-05-16T21:21:00+08:00" pubdate data-updated="true">May 16<span>th</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>今天对博客进行了一番装修和调整，我对美工要求不高，对现在的样子基本满意了</p>
+<div class="entry-content"><p>本文收集Octopress使用过程中学到的一些技巧，会经常更新（当然还要看我心情懒不懒得折腾）</p>
 
 <!--more-->
 
 
-<h2>不要在文件名中使用中文标点</h2>
+<h2>首页文章只显示摘要</h2>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rake new_post["My first post"] # 不建议在这里使用中文标点</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Octopress可以把中文文件名转换成拼音，但中文标点会造成一些麻烦，使得url中包含一些奇怪的符号，有时会造成问题。我曾碰到过在本地预览时能显示文章列表，但不能打开文章，显示找不到文件。将文件名改为英文后解决。需要说明的是提交到github在线浏览没有这个问题</p>
-
-<p>这里说的是文件名，并不影响你的文章标题中包含中文标点。你可以在文章内文的yaml front matter中的title字段随意使用中文标点，</p>
-
-<h2>分享按钮</h2>
-
-<p>我选择了<a href="http://share.baidu.com">百度分享</a>，将获得的代码添加到source/_includes/post/sharing.html，你也可以依样画葫芦，把代码放在模板if结构中，</p>
+<p>在正文中插入标记</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>{% if site.baidu_share %}
-</span><span class='line'>代码
-</span><span class='line'>{$ endif %}</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>正文开头内容，也是首页摘要显示的部分
+</span><span class='line'>&lt;!--more--&gt;
+</span><span class='line'>以下内容不会显示在首页文章列表中</span></code></pre></td></tr></table></div></figure>
 
 
-<p>别忘了在_config.yml定义一下开关，如</p>
+<p>编辑_config.yml‵‵</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'># 百度分享
-</span><span class='line'>baidu_share: true</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>excerpt_link: "阅读全文" # 用于提示阅读完整文章的文字链接</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>微薄秀</h2>
+<h2>绑定自家域名</h2>
 
-<p>微博秀参考了<a href="http://programus.github.com/blog/2012/03/03/add-weibo-sidebar-into-octopress/">程序猎人的文章</a>，不过</p>
+<p>创建一个CNAME文件</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>echo 'your-domain.com' &gt;&gt; source/CNAME</span></code></pre></td></tr></table></div></figure>
+
+
+<p>去你自家域名服务提供商修改设置</p>
 
 <ul>
-<li>偷懒，直接用了从<a href="http://weibo.com/tool/weiboshow">微博秀</a>得来的代码，没有把url中的参数作变量替换。</li>
-<li>根据<em>confit.yml中default_asides的注释，把weibo.html放在了/source/</em>includes/custom/asides/目录下</li>
+<li>如果是顶级域名，修改A记录，使之指向207.97.227.245</li>
+<li>如果是二级或以下域名，修改CNAME记录即可，使之指向username.github.com</li>
 </ul>
 
+
+<p>一般deploy后，github这边需要10分钟左右才生效</p>
+
+<h2>添加统计代码</h2>
+
+<p>我用的是<a href="http://tongji.baidu.com">百度统计</a>，将代码添加到source/_includes/custom/footer.html中即可</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -144,46 +148,14 @@ rake new_post["My first post"] # 不建议在这里使用中文标点 Octopress�
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>{% if site.weibo_sina %}
-</span><span class='line'>&lt;section&gt;
-</span><span class='line'>  &lt;h1&gt;新浪微博&lt;/h1&gt;
-</span><span class='line'>  &lt;ul id="weibo"&gt;
-</span><span class='line'>    &lt;li&gt;
-</span><span class='line'>      &lt;iframe 
-</span><span class='line'>        width="100%" 
-</span><span class='line'>        height="550" 
-</span><span class='line'>        class="share_self" 
-</span><span class='line'>        frameborder="0" 
-</span><span class='line'>        scrolling="no" 
-</span><span class='line'>        src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=2039187623&verifier=e0a28d12&dpc=1"&gt;
-</span><span class='line'>      &lt;/iframe&gt;
-</span><span class='line'>    &lt;/li&gt;
-</span><span class='line'>  &lt;/ul&gt;
-</span><span class='line'>&lt;/section&gt;
-</span><span class='line'>{% endif %}</span></code></pre></td></tr></table></div></figure>
-
-
-<p>`</p>
-
-<p>别忘了在_config.yml中的default_asides列表中添加微博秀并在文件尾添加开关</p>
-
-<h2>DISQUS评论</h2>
-
-<p>DISQUS评论功能是内置的，开启很简单</p>
-
-<ul>
-<li>注册DISQUS帐号，添加站点</li>
-<li>在_config.yml中填入site shortname即可</li>
-</ul>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;p&gt;
+</span><span class='line'>  Copyright &copy; 2012 - Jack Phil -
+</span><span class='line'>  &lt;span class="credit"&gt;Powered by &lt;a href="http://octopress.org"&gt;Octopress&lt;/a&gt;&lt;/span&gt; -
+</span><span class='line'> &lt;script type="text/javascript"&gt;
+</span><span class='line'>var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+</span><span class='line'>document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F7b011ba580af2ede1ka05568d5d4828a' type='text/javascript'%3E%3C/script%3E"));
+</span><span class='line'>&lt;/script&gt;
+</span><span class='line'>&lt;/p&gt;</span></code></pre></td></tr></table></div></figure>
 
 </div>
 
@@ -207,7 +179,7 @@ rake new_post["My first post"] # 不建议在这里使用中文标点 Octopress�
   
 
 
-<time datetime="2012-05-08T22:32:00+08:00" pubdate data-updated="true">May 8<span>th</span>, 2012</time>
+<time datetime="2012-05-16T21:21:00+08:00" pubdate data-updated="true">May 16<span>th</span>, 2012</time>
       
 
 
@@ -239,10 +211,8 @@ rake new_post["My first post"] # 不建议在这里使用中文标点 Octopress�
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2012/05/07/octopress-setup-others/" title="Previous Post: Octopress第一篇：安装、ruby以及轻量级标记语言">&laquo; Octopress第一篇：安装、ruby以及轻量级标记语言</a>
+        <a class="basic-alignment left" href="/blog/2012/05/16/opensshmi-yao-guan-li-chu-bu/" title="Previous Post: OpenSSH密钥管理初步">&laquo; OpenSSH密钥管理初步</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2012/05/16/archlinuxgeng-xin-ji-lu-20120516/" title="Next Post: Archlinux更新记录20120516">Archlinux更新记录20120516 &raquo;</a>
       
     </p>
   </footer>
@@ -359,8 +329,8 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://jackphil.github.com/blog/2012/05/08/title-share-weibo/';
-        var disqus_url = 'http://jackphil.github.com/blog/2012/05/08/title-share-weibo/';
+        var disqus_identifier = 'http://jackphil.github.com/blog/2012/05/16/octopress-tips/';
+        var disqus_url = 'http://jackphil.github.com/blog/2012/05/16/octopress-tips/';
         var disqus_script = 'embed.js';
       
     (function () {
