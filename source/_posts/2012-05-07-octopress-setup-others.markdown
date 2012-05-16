@@ -21,6 +21,8 @@ categories:
 
 最近python-cn列表里有人[兴高采烈](https://groups.google.com/forum/?fromgroups#!topic/python-cn/Xh1LGTGW20A)的开了个octopress博客，正好我前段时间也看过教程，想趁机了解一下ruby，于是决定试一把octopress
 
+<!--more-->
+
 ## 安装
 [Octopress的文档](http://octopress.org/docs/)清晰明了，网上安装记录、教程一搜一大堆，我也不啰嗦，做个备忘，罗列一下命令，谈一点想法吧
 
