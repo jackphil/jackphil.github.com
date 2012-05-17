@@ -5,16 +5,14 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Octopress技巧集 - 眼中无码，心中有码</title>
+  <title>我爱命令行之sed - 眼中无码，心中有码</title>
   <meta name="author" content="Jack Phil">
 
   
-  <meta name="description" content="本文收集Octopress使用过程中学到的一些技巧，会经常更新（当然还要看我心情懒不懒得折腾） 首页文章只显示摘要 在正文中插入标记 1
-2
-3
-正文开头内容，也是首页摘要显示的部分
-&lt;!--more--&gt;
-以下内容不会显示在首页文章列表中 编辑_config.yml‵‵ 1 &hellip;">
+  <meta name="description" content="语法 常用基本格式 1
+2 sed -i -e '指令1' -e '指令2' inputfile sed -f scriptfile -i: 直接修改文件，而不是输出到标准输出，一般等调试无误后，最后使用该参数
+-e: 后跟指令，可以多次使用
+-f: 从文件中读取指令 操作指令 删除 一般格式 1 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -23,7 +21,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://jackphil.github.com/blog/2012/05/16/octopress-tips">
+  <link rel="canonical" href="http://jackphil.github.com/blog/2012/05/17/wo-ai-ming-ling-xing-zhi-sed">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -72,7 +70,7 @@
   
   <header>
     
-      <h1 class="entry-title">Octopress技巧集</h1>
+      <h1 class="entry-title">我爱命令行之sed</h1>
     
     
       <p class="meta">
@@ -88,75 +86,106 @@
   
 
 
-<time datetime="2012-05-16T21:21:00+08:00" pubdate data-updated="true">May 16<span>th</span>, 2012</time>
+<time datetime="2012-05-17T19:22:00+08:00" pubdate data-updated="true">May 17<span>th</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>本文收集Octopress使用过程中学到的一些技巧，会经常更新（当然还要看我心情懒不懒得折腾）</p>
+<div class="entry-content"><h2>语法</h2>
+
+<p>常用基本格式</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'> sed -i -e '指令1' -e '指令2' inputfile
+</span><span class='line'> sed -f scriptfile</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>-i: 直接修改文件，而不是输出到标准输出，一般等调试无误后，最后使用该参数</li>
+<li>-e: 后跟指令，可以多次使用</li>
+<li>-f: 从文件中读取指令</li>
+</ul>
+
 
 <!--more-->
 
 
-<h2>首页文章只显示摘要</h2>
+<h2>操作指令</h2>
 
-<p>在正文中插入标记</p>
+<h3>删除</h3>
+
+<p>一般格式</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>正文开头内容，也是首页摘要显示的部分
-</span><span class='line'>&lt;!--more--&gt;
-</span><span class='line'>以下内容不会显示在首页文章列表中</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'> 开始地址,结束地址d
+</span><span class='line'> /正则表达式/d</span></code></pre></td></tr></table></div></figure>
 
 
-<p>编辑_config.yml‵‵</p>
+<p>第一种删除从开始到结束的行，第二行删除有匹配到字符串的行</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>excerpt_link: "阅读全文" # 用于提示阅读完整文章的文字链接</span></code></pre></td></tr></table></div></figure>
+<h3>替换</h3>
 
-
-<h2>绑定自家域名</h2>
-
-<p>创建一个CNAME文件</p>
+<p>一般格式</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>echo 'your-domain.com' &gt;&gt; source/CNAME</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'> 开始地址,结束地址s/被替换的文本（正则表达式）/用来替换的文本/标志</span></code></pre></td></tr></table></div></figure>
 
 
-<p>去你自家域名服务提供商修改设置</p>
+<p>地址和标志部分可以省略。s(substitute)后的第一个字符被用来作为分割符，所以并非一定要用斜杠，
+还可以使用比如冒号（有时候会带来方便，比如匹配网址时，就可以避免和网址中的斜杠冲突）。</p>
+
+<p>用到的标志:</p>
 
 <ul>
-<li>如果是顶级域名，修改A记录，使之指向207.97.227.245</li>
-<li>如果是二级或以下域名，修改CNAME记录即可，使之指向username.github.com</li>
+<li>g: 全局替换，而不只是每行的第一个匹配</li>
+<li>n: 替换行中的第n个匹配</li>
 </ul>
 
 
-<p>一般deploy后，github这边需要10分钟左右才生效</p>
+<h2>应用实例</h2>
 
-<h2>添加统计代码</h2>
+<h3>删除指定行</h3>
 
-<p>我用的是<a href="http://tongji.baidu.com">百度统计</a>，将代码添加到source/_includes/custom/footer.html中即可</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'> sed -e '/^#acl/d' inputfile</span></code></pre></td></tr></table></div></figure>
+
+
+<p>删除#acl开头的行。在MoinMoin升级中，由于用户名改变的原因，页面都变成了只读，只好删除之。</p>
+
+<h3>DOS文件和Linux文件的转换</h3>
+
+<p>众所周知，Windows上文本文件以CR（回车）和 LF（换行）结束一行，而Linux上只有LF。</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;p&gt;
-</span><span class='line'>  Copyright &copy; 2012 - Jack Phil -
-</span><span class='line'>  &lt;span class="credit"&gt;Powered by &lt;a href="http://octopress.org"&gt;Octopress&lt;/a&gt;&lt;/span&gt; -
-</span><span class='line'> &lt;script type="text/javascript"&gt;
-</span><span class='line'>var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-</span><span class='line'>document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F7b011ba580af2ede1ka05568d5d4828a' type='text/javascript'%3E%3C/script%3E"));
-</span><span class='line'>&lt;/script&gt;
-</span><span class='line'>&lt;/p&gt;</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'> sed -i -e 's/\r$//' inputfile #dos to linux
+</span><span class='line'> sed -e 's/$/\r/' inputfile #linux to dos</span></code></pre></td></tr></table></div></figure>
 
+
+<h3>正则表达式分组（对匹配字符串的一部分进行操作）</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'> sed -e 's:\(.\)\(}}}\):\1\n\2:' inputfile
+</span><span class='line'> sed -e 's:\({{{\)\([^\n]\):\1\n\2:' inputfile</span></code></pre></td></tr></table></div></figure>
+
+
+<p>这是我升级MoinMoin时用过的，旧版{{{和}}}可能与内容在同一行，新版必须单独一行。用圆括号分组（注意带反斜杠），
+按出现顺序编号引用（同样注意使用反斜杠）。</p>
+
+<h3>sed脚本</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'> #!/bin/sed -f</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>参考资料</h2>
+
+<p><a href="http://www.ibm.com/developerworks/cn/linux/shell/sed/sed-1/index.html">通用线程 &#8211; sed 实例</a> : IBM网站上Daniel Robbins写的教程，正则表达式分组我就是从该教程第三部分学到的。</p>
 </div>
 
 
@@ -179,7 +208,7 @@
   
 
 
-<time datetime="2012-05-16T21:21:00+08:00" pubdate data-updated="true">May 16<span>th</span>, 2012</time>
+<time datetime="2012-05-17T19:22:00+08:00" pubdate data-updated="true">May 17<span>th</span>, 2012</time>
       
 
 
@@ -211,10 +240,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2012/05/16/opensshmi-yao-guan-li-chu-bu/" title="Previous Post: OpenSSH密钥管理初步">&laquo; OpenSSH密钥管理初步</a>
+        <a class="basic-alignment left" href="/blog/2012/05/16/octopress-tips/" title="Previous Post: Octopress技巧集">&laquo; Octopress技巧集</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2012/05/17/wo-ai-ming-ling-xing-zhi-sed/" title="Next Post: 我爱命令行之sed">我爱命令行之sed &raquo;</a>
       
     </p>
   </footer>
@@ -331,8 +358,8 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://jackphil.github.com/blog/2012/05/16/octopress-tips/';
-        var disqus_url = 'http://jackphil.github.com/blog/2012/05/16/octopress-tips/';
+        var disqus_identifier = 'http://jackphil.github.com/blog/2012/05/17/wo-ai-ming-ling-xing-zhi-sed/';
+        var disqus_url = 'http://jackphil.github.com/blog/2012/05/17/wo-ai-ming-ling-xing-zhi-sed/';
         var disqus_script = 'embed.js';
       
     (function () {

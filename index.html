@@ -9,7 +9,10 @@
   <meta name="author" content="Jack Phil">
 
   
-  <meta name="description" content="本文收集Octopress使用过程中学到的一些技巧，会经常更新（当然还要看我心情懒不懒得折腾） ">
+  <meta name="description" content="语法 常用基本格式 1
+2 sed -i -e '指令1' -e '指令2' inputfile sed -f scriptfile -i: 直接修改文件，而不是输出到标准输出，一般等调试无误后，最后使用该参数
+-e: 后跟指令，可以多次使用
+-f: 从文件中读取指令 ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,6 +67,62 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/05/17/wo-ai-ming-ling-xing-zhi-sed/">我爱命令行之sed</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-17T19:22:00+08:00" pubdate data-updated="true">May 17<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>语法</h2>
+
+<p>常用基本格式</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'> sed -i -e '指令1' -e '指令2' inputfile
+</span><span class='line'> sed -f scriptfile</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>-i: 直接修改文件，而不是输出到标准输出，一般等调试无误后，最后使用该参数</li>
+<li>-e: 后跟指令，可以多次使用</li>
+<li>-f: 从文件中读取指令</li>
+</ul>
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/05/17/wo-ai-ming-ling-xing-zhi-sed/">阅读全文</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -310,6 +369,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/05/17/wo-ai-ming-ling-xing-zhi-sed/">我爱命令行之sed</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/05/16/octopress-tips/">Octopress技巧集</a>
       </li>
     
@@ -323,10 +386,6 @@
     
       <li class="post">
         <a href="/blog/2012/05/08/title-share-weibo/">Octopress第二弹：中文文件名、分享按钮、侧边栏上微博秀、disqus评论</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/05/07/octopress-setup-others/">Octopress第一篇：安装、ruby以及轻量级标记语言</a>
       </li>
     
   </ul>

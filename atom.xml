@@ -4,7 +4,7 @@
   <title><![CDATA[眼中无码，心中有码]]></title>
   <link href="http://jackphil.github.com/atom.xml" rel="self"/>
   <link href="http://jackphil.github.com/"/>
-  <updated>2012-05-16T22:10:33+08:00</updated>
+  <updated>2012-05-17T19:38:18+08:00</updated>
   <id>http://jackphil.github.com/</id>
   <author>
     <name><![CDATA[Jack Phil]]></name>
@@ -12,6 +12,107 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[我爱命令行之sed]]></title>
+    <link href="http://jackphil.github.com/blog/2012/05/17/wo-ai-ming-ling-xing-zhi-sed/"/>
+    <updated>2012-05-17T19:22:00+08:00</updated>
+    <id>http://jackphil.github.com/blog/2012/05/17/wo-ai-ming-ling-xing-zhi-sed</id>
+    <content type="html"><![CDATA[<h2>语法</h2>
+
+<p>常用基本格式</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'> sed -i -e '指令1' -e '指令2' inputfile
+</span><span class='line'> sed -f scriptfile</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>-i: 直接修改文件，而不是输出到标准输出，一般等调试无误后，最后使用该参数</li>
+<li>-e: 后跟指令，可以多次使用</li>
+<li>-f: 从文件中读取指令</li>
+</ul>
+
+
+<!--more-->
+
+
+<h2>操作指令</h2>
+
+<h3>删除</h3>
+
+<p>一般格式</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'> 开始地址,结束地址d
+</span><span class='line'> /正则表达式/d</span></code></pre></td></tr></table></div></figure>
+
+
+<p>第一种删除从开始到结束的行，第二行删除有匹配到字符串的行</p>
+
+<h3>替换</h3>
+
+<p>一般格式</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'> 开始地址,结束地址s/被替换的文本（正则表达式）/用来替换的文本/标志</span></code></pre></td></tr></table></div></figure>
+
+
+<p>地址和标志部分可以省略。s(substitute)后的第一个字符被用来作为分割符，所以并非一定要用斜杠，
+还可以使用比如冒号（有时候会带来方便，比如匹配网址时，就可以避免和网址中的斜杠冲突）。</p>
+
+<p>用到的标志:</p>
+
+<ul>
+<li>g: 全局替换，而不只是每行的第一个匹配</li>
+<li>n: 替换行中的第n个匹配</li>
+</ul>
+
+
+<h2>应用实例</h2>
+
+<h3>删除指定行</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'> sed -e '/^#acl/d' inputfile</span></code></pre></td></tr></table></div></figure>
+
+
+<p>删除#acl开头的行。在MoinMoin升级中，由于用户名改变的原因，页面都变成了只读，只好删除之。</p>
+
+<h3>DOS文件和Linux文件的转换</h3>
+
+<p>众所周知，Windows上文本文件以CR（回车）和 LF（换行）结束一行，而Linux上只有LF。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'> sed -i -e 's/\r$//' inputfile #dos to linux
+</span><span class='line'> sed -e 's/$/\r/' inputfile #linux to dos</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>正则表达式分组（对匹配字符串的一部分进行操作）</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'> sed -e 's:\(.\)\(}}}\):\1\n\2:' inputfile
+</span><span class='line'> sed -e 's:\({{{\)\([^\n]\):\1\n\2:' inputfile</span></code></pre></td></tr></table></div></figure>
+
+
+<p>这是我升级MoinMoin时用过的，旧版{{{和}}}可能与内容在同一行，新版必须单独一行。用圆括号分组（注意带反斜杠），
+按出现顺序编号引用（同样注意使用反斜杠）。</p>
+
+<h3>sed脚本</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'> #!/bin/sed -f</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>参考资料</h2>
+
+<p><a href="http://www.ibm.com/developerworks/cn/linux/shell/sed/sed-1/index.html">通用线程 &#8211; sed 实例</a> : IBM网站上Daniel Robbins写的教程，正则表达式分组我就是从该教程第三部分学到的。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Octopress技巧集]]></title>
@@ -133,11 +234,11 @@
 </span><span class='line'>ssh-add ~/.ssh/id_rsa # 会询问你密码短句</span></code></pre></td></tr></table></div></figure>
 
 
-<p>每次启动kde会话后，都要手动添加密钥到ssh-agent，你只需在此输入一次密码短句，此后只要ssh-agent进程不重启，你都不再需要输入密码短句</p>
+<p>每次启动kde会话后，都要手动添加私钥到ssh-agent，你只需在此输入一次密码短句，此后只要ssh-agent进程不重启，你都不再需要输入密码短句</p>
 
 <h2>参考资源</h2>
 
-<p><a href="http://www.ibm.com/developerworks/cn/linux/security/openssh/part1/index.html">通用线程: OpenSSH 密钥管理</a>: IBM网站上2001年的一篇教程，是由gentoo创始人写的，公有两部分，这是第一部分介绍基础知识，第二部分介绍ssh-agent和keychain</p>
+<p><a href="http://www.ibm.com/developerworks/cn/linux/security/openssh/part1/index.html">通用线程: OpenSSH 密钥管理</a>: IBM网站上2001年的一篇教程，是由gentoo创始人写的，共有两部分，这是第一部分介绍基础知识，第二部分介绍ssh-agent和keychain</p>
 
 <p><a href="http://www.gentoo.org/doc/zh_cn/keychain-guide.xml">Gentoo Linux Keychain指南</a>: Gentoo的一篇教程</p>
 
