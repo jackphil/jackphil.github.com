@@ -1,35 +1,35 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://jackphil.github.com/blog/2012/05/07/octopress-setup-others/</loc>
+        <loc>http://blog.jackphil.com/blog/2012/05/07/octopress-setup-others/</loc>
         <lastmod>2012-05-16T15:21:17+08:00</lastmod>
     </url>
     <url>
-        <loc>http://jackphil.github.com/blog/2012/05/08/title-share-weibo/</loc>
+        <loc>http://blog.jackphil.com/blog/2012/05/08/title-share-weibo/</loc>
         <lastmod>2012-05-16T15:18:47+08:00</lastmod>
     </url>
     <url>
-        <loc>http://jackphil.github.com/blog/2012/05/16/archlinuxgeng-xin-ji-lu-20120516/</loc>
+        <loc>http://blog.jackphil.com/blog/2012/05/16/archlinuxgeng-xin-ji-lu-20120516/</loc>
         <lastmod>2012-05-16T15:39:34+08:00</lastmod>
     </url>
     <url>
-        <loc>http://jackphil.github.com/blog/2012/05/16/opensshmi-yao-guan-li-chu-bu/</loc>
+        <loc>http://blog.jackphil.com/blog/2012/05/16/opensshmi-yao-guan-li-chu-bu/</loc>
         <lastmod>2012-05-17T19:16:53+08:00</lastmod>
     </url>
     <url>
-        <loc>http://jackphil.github.com/blog/2012/05/16/octopress-tips/</loc>
-        <lastmod>2012-05-16T22:10:12+08:00</lastmod>
+        <loc>http://blog.jackphil.com/blog/2012/05/16/octopress-tips/</loc>
+        <lastmod>2012-05-17T20:11:30+08:00</lastmod>
     </url>
     <url>
-        <loc>http://jackphil.github.com/blog/2012/05/17/wo-ai-ming-ling-xing-zhi-sed/</loc>
+        <loc>http://blog.jackphil.com/blog/2012/05/17/wo-ai-ming-ling-xing-zhi-sed/</loc>
         <lastmod>2012-05-17T19:36:08+08:00</lastmod>
     </url>
     <url>
-        <loc>http://jackphil.github.com/</loc>
-        <lastmod>2012-05-17T19:36:08+08:00</lastmod>
+        <loc>http://blog.jackphil.com/</loc>
+        <lastmod>2012-05-17T20:11:30+08:00</lastmod>
     </url>
     <url>
-        <loc>http://jackphil.github.com/blog/archives/</loc>
-        <lastmod>2012-05-17T19:36:08+08:00</lastmod>
+        <loc>http://blog.jackphil.com/blog/archives/</loc>
+        <lastmod>2012-05-17T20:11:30+08:00</lastmod>
     </url>
 </urlset>

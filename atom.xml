@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[眼中无码，心中有码]]></title>
-  <link href="http://jackphil.github.com/atom.xml" rel="self"/>
-  <link href="http://jackphil.github.com/"/>
-  <updated>2012-05-17T19:38:18+08:00</updated>
-  <id>http://jackphil.github.com/</id>
+  <link href="http://blog.jackphil.com/atom.xml" rel="self"/>
+  <link href="http://blog.jackphil.com/"/>
+  <updated>2012-05-17T20:13:14+08:00</updated>
+  <id>http://blog.jackphil.com/</id>
   <author>
     <name><![CDATA[Jack Phil]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[我爱命令行之sed]]></title>
-    <link href="http://jackphil.github.com/blog/2012/05/17/wo-ai-ming-ling-xing-zhi-sed/"/>
+    <link href="http://blog.jackphil.com/blog/2012/05/17/wo-ai-ming-ling-xing-zhi-sed/"/>
     <updated>2012-05-17T19:22:00+08:00</updated>
-    <id>http://jackphil.github.com/blog/2012/05/17/wo-ai-ming-ling-xing-zhi-sed</id>
+    <id>http://blog.jackphil.com/blog/2012/05/17/wo-ai-ming-ling-xing-zhi-sed</id>
     <content type="html"><![CDATA[<h2>语法</h2>
 
 <p>常用基本格式</p>
@@ -116,9 +116,9 @@
   
   <entry>
     <title type="html"><![CDATA[Octopress技巧集]]></title>
-    <link href="http://jackphil.github.com/blog/2012/05/16/octopress-tips/"/>
+    <link href="http://blog.jackphil.com/blog/2012/05/16/octopress-tips/"/>
     <updated>2012-05-16T21:21:00+08:00</updated>
-    <id>http://jackphil.github.com/blog/2012/05/16/octopress-tips</id>
+    <id>http://blog.jackphil.com/blog/2012/05/16/octopress-tips</id>
     <content type="html"><![CDATA[<p>本文收集Octopress使用过程中学到的一些技巧，会经常更新（当然还要看我心情懒不懒得折腾）</p>
 
 <!--more-->
@@ -160,6 +160,8 @@
 
 <p>一般deploy后，github这边需要10分钟左右才生效</p>
 
+<p>记得修改_config.yml中url为你绑定的域名，这样搜索框、rss等地址才会正确</p>
+
 <h2>添加统计代码</h2>
 
 <p>我用的是<a href="http://tongji.baidu.com">百度统计</a>，将代码添加到source/_includes/custom/footer.html中即可</p>
@@ -186,9 +188,9 @@
   
   <entry>
     <title type="html"><![CDATA[OpenSSH密钥管理初步]]></title>
-    <link href="http://jackphil.github.com/blog/2012/05/16/opensshmi-yao-guan-li-chu-bu/"/>
+    <link href="http://blog.jackphil.com/blog/2012/05/16/opensshmi-yao-guan-li-chu-bu/"/>
     <updated>2012-05-16T20:09:00+08:00</updated>
-    <id>http://jackphil.github.com/blog/2012/05/16/opensshmi-yao-guan-li-chu-bu</id>
+    <id>http://blog.jackphil.com/blog/2012/05/16/opensshmi-yao-guan-li-chu-bu</id>
     <content type="html"><![CDATA[<p>github需要ssh密钥来建立push时的安全连接，虽然以前在用gitorious时也接触过，但已经不记得了，还是找了几篇教程来边看边做，笔记如下</p>
 
 <!--more-->
@@ -248,9 +250,9 @@
   
   <entry>
     <title type="html"><![CDATA[Archlinux更新记录20120516]]></title>
-    <link href="http://jackphil.github.com/blog/2012/05/16/archlinuxgeng-xin-ji-lu-20120516/"/>
+    <link href="http://blog.jackphil.com/blog/2012/05/16/archlinuxgeng-xin-ji-lu-20120516/"/>
     <updated>2012-05-16T15:27:00+08:00</updated>
-    <id>http://jackphil.github.com/blog/2012/05/16/archlinuxgeng-xin-ji-lu-20120516</id>
+    <id>http://blog.jackphil.com/blog/2012/05/16/archlinuxgeng-xin-ji-lu-20120516</id>
     <content type="html"><![CDATA[<p>某次更新系统后重启，发现有触目的红色警告，由于屏幕滚动很快，没看清具体是什么内容。遂去/etc/rc.local中添加一句read，以使启动最后暂停，等待用户输入，任意键继续。</p>
 
 <p>这次看清是ALSA出错了</p>
@@ -273,9 +275,9 @@
   
   <entry>
     <title type="html"><![CDATA[Octopress第二弹：中文文件名、分享按钮、侧边栏上微博秀、disqus评论]]></title>
-    <link href="http://jackphil.github.com/blog/2012/05/08/title-share-weibo/"/>
+    <link href="http://blog.jackphil.com/blog/2012/05/08/title-share-weibo/"/>
     <updated>2012-05-08T22:32:00+08:00</updated>
-    <id>http://jackphil.github.com/blog/2012/05/08/title-share-weibo</id>
+    <id>http://blog.jackphil.com/blog/2012/05/08/title-share-weibo</id>
     <content type="html"><![CDATA[<p>今天对博客进行了一番装修和调整，我对美工要求不高，对现在的样子基本满意了</p>
 
 <!--more-->
@@ -375,9 +377,9 @@
   
   <entry>
     <title type="html"><![CDATA[Octopress第一篇：安装、ruby以及轻量级标记语言]]></title>
-    <link href="http://jackphil.github.com/blog/2012/05/07/octopress-setup-others/"/>
+    <link href="http://blog.jackphil.com/blog/2012/05/07/octopress-setup-others/"/>
     <updated>2012-05-07T23:23:00+08:00</updated>
-    <id>http://jackphil.github.com/blog/2012/05/07/octopress-setup-others</id>
+    <id>http://blog.jackphil.com/blog/2012/05/07/octopress-setup-others</id>
     <content type="html"><![CDATA[<p>作为一个pythoner，知道jekyll/octopress是ruby所写后，首先想到的是有没有相应的pythonic工具，<a href="http://wiki.python.org/moin/PythonBlogSoftware">这里</a>有一个不完全列表</p>
 
 <p>尝试过<a href="http://ringce.com/hyde">hyde</a></p>
