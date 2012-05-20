@@ -125,9 +125,9 @@
 
 <p>其实写这篇Blog的初衷就是我想扔掉语义学桌面这套东西。扔掉之前，先做一番小小的调查研究，以免娶了小姐丢了丫鬟，辜负了美意。结果还是觉得这是一套强加给用户的范式，包办婚姻害死人啊。</p>
 
-<p>Nepomuk是KDE4的核心组件，仍不掉，唯一的办法只能关掉它！</p>
-
 <h3>关闭Nepomuk</h3>
+
+<p>Nepomuk是KDE4的核心组件，仍不掉，唯一的办法只能关掉它！</p>
 
 <p>打开 ~/.kde/share/config/nepomukserverrc，将“Start Nepomuk”设置为false（你也可以在系统设置-桌面搜索中，不选启用Nepomuk语义学桌面来关闭）</p>
 
@@ -145,7 +145,11 @@
 </span><span class='line'>autoload=false</span></code></pre></td></tr></table></div></figure>
 
 
+<p>Strigi依赖Nepomuk，关闭Nepomuk后，Strigi也就自动关闭了</p>
+
 <h3>关闭Akonadi</h3>
+
+<p>Akonadi作为PIM数据统一存取框架，与Nepomuk相对独立，需要单独关闭</p>
 
 <p>打开~/.config/akonadi/akonadiserverrc，设置“StartServer”为false</p>
 
