@@ -4,7 +4,7 @@
   <title><![CDATA[眼中无码，心中有码]]></title>
   <link href="http://blog.jackphil.com/atom.xml" rel="self"/>
   <link href="http://blog.jackphil.com/"/>
-  <updated>2012-05-17T20:13:14+08:00</updated>
+  <updated>2012-05-20T22:48:29+08:00</updated>
   <id>http://blog.jackphil.com/</id>
   <author>
     <name><![CDATA[Jack Phil]]></name>
@@ -12,6 +12,136 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[KDE的语义学桌面: 看上去很美]]></title>
+    <link href="http://blog.jackphil.com/blog/2012/05/20/kdede-yu-yi-xue-zhuo-mian/"/>
+    <updated>2012-05-20T15:52:00+08:00</updated>
+    <id>http://blog.jackphil.com/blog/2012/05/20/kdede-yu-yi-xue-zhuo-mian</id>
+    <content type="html"><![CDATA[<p>目前，貌似只有KDE4的家伙们热衷于语义学桌面，并把它强推给了用户。在我看来，这只不过是旧式图书馆技术。这些家伙都是图书馆学毕业的吗？</p>
+
+<!--more-->
+
+
+<h2>什么是语义学</h2>
+
+<p>当然，这里谈的是计算机世界的语义学，不是老板对我说要好好工作，他的话语到底有什么含义这样的职场语义学。</p>
+
+<p>语义学大致说来是基于数学基础中的一阶逻辑而来的一套知识表示系统。1998年，互联网发明者蒂姆·伯纳斯·李提出了“语义网”的概念，W3C一直在制定和维护相关的标准。2011年6月，谷歌、雅虎、微软联手推出了schema.org网站，进一步推动语义网的发展</p>
+
+<p>我的理解语义网与以往的图书馆技术没什么两样，就是一套元数据规范。</p>
+
+<ul>
+<li>在数据交换时可能有用，但一般来说只要公开数据接口数据交换就不会有什么问题，不一定非要用什么语义网</li>
+<li>至于知识表示，图书馆也有一套分类法，试图结构化所有人类知识，个人感觉，这些都是互联网史前的观念</li>
+</ul>
+
+
+<h2>KDE语义学桌面的几个概念</h2>
+
+<p>Soprano是一套用来存取语义数据（我理解为元数据）库的QT接口</p>
+
+<p>Virtuoso是一个语义数据库，其它类似的还有Redland, Sesame2</p>
+
+<p>Nepomuk是KDE版的Soprano。当然有所扩展和增强，如自带了一个谓词表（弄个同义和近义词表不就得了？）</p>
+
+<p>Strigi是Nepomuk的文件索引器，能从文件中自动抽取元数据存储到Virtuoso</p>
+
+<p>Akonadi是KDE的PIM(Personal Information Management: 个人信息管理)数据统一存取框架，它使用MySQL或SQLITE在本地缓存你PIM信息，如gmail邮件、网络通讯录等，同时也会抽取元数据存储到Virtuoso</p>
+
+<h2>关掉它！</h2>
+
+<p>其实写这篇Blog的初衷就是我想扔掉语义学桌面这套东西。扔掉之前，先做一番小小的调查研究，以免娶了小姐丢了丫鬟，辜负了美意。结果还是觉得这是一套强加给用户的范式，包办婚姻害死人啊。</p>
+
+<p>Nepomuk是KDE4的核心组件，仍不掉，唯一的办法只能关掉它！</p>
+
+<h3>关闭Nepomuk</h3>
+
+<p>打开 ~/.kde/share/config/nepomukserverrc，将“Start Nepomuk”设置为false（你也可以在系统设置-桌面搜索中，不选启用Nepomuk语义学桌面来关闭）</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[Basic Settings]
+</span><span class='line'>Start Nepomuk=false</span></code></pre></td></tr></table></div></figure>
+
+
+<p>打开~/.kde/share/config/kdedrc，将nepomuksearchmodule的“autoload”设置为false:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[Module-nepomuksearchmodule]
+</span><span class='line'>autoload=false</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>关闭Akonadi</h3>
+
+<p>打开~/.config/akonadi/akonadiserverrc，设置“StartServer”为false</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[QMYSQL]
+</span><span class='line'>StartServer=false</span></code></pre></td></tr></table></div></figure>
+
+
+<p>事实上根据<a href="http://userbase.kde.org/Akonadi#Disabling_the_Akonadi_subsystem">KDE Userbase</a>的说法，这个设置也只是不自动启动Akonadi server而已，如果某个应用需要akonadi它还会按需启动，相当于Windows服务管理中的&#8221;手动&#8221;，坏消息是没有提供&#8221;禁止&#8221;功能</p>
+
+<p>我的测试环境下，Akonadi服务还是会自动启动(没找到是哪个应用触发了它)，所以选用了MySQL后端，但不配置相应的MySQL数据库，甚至大多数情况下，KDE启动的时候MySQL服务都没启动，Akonadi启动失败，自动停止。使用SQLITE后端的话，由于不需要数据库特殊配置，就会成功启动</p>
+
+<p>你可以使用命令行控制Akonadi服务</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ubuntuku@satellite:~$ akonadictl --help
+</span><span class='line'>Akonadi server manipulation tool
+</span><span class='line'>Usage: akonadictl [command]
+</span><span class='line'> 
+</span><span class='line'>Commands:
+</span><span class='line'>  start      : Starts the Akonadi server with all its processes
+</span><span class='line'>  stop       : Stops the Akonadi server and all its processes cleanly
+</span><span class='line'>  restart    : Restart Akonadi server with all its processes
+</span><span class='line'>  status     : Shows a status overview of the Akonadi server</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>一些清理</h3>
+
+<p>清理并不必须，有些甚至还会再次自动生成，只是纯粹出于个人爱好</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rm -rf .kde4/share/apps/nepomuk/
+</span><span class='line'>rm -f .config/akonadi/agent* # 删除除akonadiserverrc外的所有文件
+</span><span class='line'>rm -rf .local/share/akonadi/ # akonadi的出错信息在这儿</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<h2>参考资源</h2>
+
+<p><a href="http://thomasmcguire.wordpress.com/2009/10/03/akonadi-nepomuk-and-strigi-explained">Akonadi, Nepomuk and Strigi explained</a>: 关于Akonadi，Nepomuk和Strigi很好的名词解释</p>
+
+<p><a href="http://ubuntuku.org/16/how-to-disable-nepomuk-akonadi/">How to Disable Nepomuk &amp; Akonadi</a>: 我的关闭语义学桌面的内容主要摘自这里</p>
+
+<p><a href="http://select.yeeyan.org/view/163202/204263">语义网的春天</a>: 介绍了语义网的七层结构，schema.org</p>
+
+<p><a href="http://zh.wikipedia.org/zh/%E8%AF%AD%E4%B9%89%E7%BD%91">语义网</a>: 语义网的维基页</p>
+
+<p><a href="http://wlzy.aynu.edu.cn/jsj/wlkc/rgznyl2/word/text/chapter04/sec4/part3/text.htm">知识表示方法</a>: 语义网比较专业的内容，有一些一阶逻辑表达式</p>
+
+<p><a href="https://wiki.archlinux.org/index.php/KDE#Soprano">Nepomuk和Akonadi</a>: Archlinux Wiki的KDE页面，介绍了Nepomuk和Akonadi的一些配置</p>
+
+<h2>声明</h2>
+
+<p>文中提到的概念和评论都是自己对网络上找到的相关文章的归纳和个人理解，欢迎指正和讨论</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[我爱命令行之sed]]></title>
