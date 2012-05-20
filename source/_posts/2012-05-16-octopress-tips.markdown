@@ -37,6 +37,8 @@ echo 'your-domain.com' >> source/CNAME
 
 一般deploy后，github这边需要10分钟左右才生效
 
+记得修改_config.yml中url为你绑定的域名，这样搜索框、rss等地址才会正确
+
 ## 添加统计代码
 
 我用的是[百度统计](http://tongji.baidu.com)，将代码添加到source/_includes/custom/footer.html中即可
