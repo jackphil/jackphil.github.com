@@ -4,7 +4,7 @@
   <title><![CDATA[眼中无码，心中有码]]></title>
   <link href="http://blog.jackphil.com/atom.xml" rel="self"/>
   <link href="http://blog.jackphil.com/"/>
-  <updated>2012-05-28T22:54:41+08:00</updated>
+  <updated>2012-05-28T23:41:17+08:00</updated>
   <id>http://blog.jackphil.com/</id>
   <author>
     <name><![CDATA[Jack Phil]]></name>
@@ -27,7 +27,7 @@
 
 <p>HBOOT相当于手机的bios</p>
 
-<p>同时按住音量下键和电源键开机，就进入了HBOOT界面，如果有S-ON字样，则需要先解锁，才可以刷自由的刷机。如果已经是S-OFF，则已经解锁</p>
+<p>同时按住音量下键和电源键开机，就进入了HBOOT界面，如果有S-ON字样，则需要先解锁，才可以自由的刷机。如果已经是S-OFF，则已经解锁</p>
 
 <p>解锁，简单说就是刷入一个定制的HBOOT，分软解和硬解</p>
 
