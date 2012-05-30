@@ -27,7 +27,7 @@ Soprano是一套用来存取语义数据（我理解为元数据）库的QT接�
 
 Virtuoso是一个语义数据库，其它类似的还有Redland, Sesame2
 
-Nepomuk是KDE版的Soprano。当然有所扩展和增强，如自带了一个谓词表（弄个同义和近义词表不就得了？）
+Nepomuk是KDE的语义学桌面。它使用Soprano，并有所扩展，如自带了一个谓词表（弄个同义和近义词表不就得了？）
 
 Strigi是Nepomuk的文件索引器，能从文件中自动抽取元数据存储到Virtuoso
 
@@ -40,13 +40,13 @@ Akonadi是KDE的PIM(Personal Information Management: 个人信息管理)数据�
 ### 关闭Nepomuk
 Nepomuk是KDE4的核心组件，仍不掉，唯一的办法只能关掉它！
 
-打开 ~/.kde/share/config/nepomukserverrc，将“Start Nepomuk”设置为false（你也可以在系统设置-桌面搜索中，不选启用Nepomuk语义学桌面来关闭）
+打开 ~/.kde4/share/config/nepomukserverrc，将“Start Nepomuk”设置为false（你也可以在系统设置-桌面搜索中，不启用Nepomuk语义学桌面来关闭）
 ```
 [Basic Settings]
 Start Nepomuk=false
 ```
 
-打开~/.kde/share/config/kdedrc，将nepomuksearchmodule的“autoload”设置为false:
+打开~/.kde4/share/config/kdedrc，将nepomuksearchmodule的“autoload”设置为false:
 ```
 [Module-nepomuksearchmodule]
 autoload=false
