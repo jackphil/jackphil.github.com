@@ -5,14 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Archlinux更新记录20120516 - 眼中无码，心中有码</title>
+  <title>眼中无码，心中有码</title>
   <meta name="author" content="Jack Phil">
 
   
-  <meta name="description" content="某次更新系统后重启，发现有触目的红色警告，由于屏幕滚动很快，没看清具体是什么内容。遂去/etc/rc.local中添加一句read，以使启动最后暂停，等待用户输入，任意键继续。 这次看清是ALSA出错了 1
-2
-Unknown hardware "foo" "bar" ...
-Hardware &hellip;">
+  <meta name="description" content="作为一个pythoner，知道jekyll/octopress是ruby所写后，首先想到的是有没有相应的pythonic工具，这里有一个不完全列表 尝试过hyde 它最吸引我的是支持我喜爱的Asciidoc
+可是默认模板实在太丑陋
+文档简陋，没用过django，连添加文章的命令都没有， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +20,7 @@ Hardware &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.jackphil.com/blog/2012/05/16/archlinuxgeng-xin-ji-lu-20120516">
+  <link rel="canonical" href="http://blog.jackphil.com/blog/page/2">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -65,12 +64,15 @@ Hardware &hellip;">
 </nav>
   <div id="main">
     <div id="content">
-      <div>
-<article class="hentry" role="article">
+      <div class="blog-index">
   
+  
+  
+    <article>
+      
   <header>
     
-      <h1 class="entry-title">Archlinux更新记录20120516</h1>
+      <h1 class="entry-title"><a href="/blog/2012/05/07/octopress-setup-others/">Octopress第一篇：安装、ruby以及轻量级标记语言</a></h1>
     
     
       <p class="meta">
@@ -86,101 +88,50 @@ Hardware &hellip;">
   
 
 
-<time datetime="2012-05-16T15:27:00+08:00" pubdate data-updated="true">May 16<span>th</span>, 2012</time>
+<time datetime="2012-05-07T23:23:00+08:00" pubdate data-updated="true">May 7<span>th</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>某次更新系统后重启，发现有触目的红色警告，由于屏幕滚动很快，没看清具体是什么内容。遂去/etc/rc.local中添加一句read，以使启动最后暂停，等待用户输入，任意键继续。</p>
+  <div class="entry-content"><p>作为一个pythoner，知道jekyll/octopress是ruby所写后，首先想到的是有没有相应的pythonic工具，<a href="http://wiki.python.org/moin/PythonBlogSoftware">这里</a>有一个不完全列表</p>
 
-<p>这次看清是ALSA出错了</p>
+<p>尝试过<a href="http://ringce.com/hyde">hyde</a></p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Unknown hardware "foo" "bar" ...
-</span><span class='line'>Hardware is initialized using a guess method</span></code></pre></td></tr></table></div></figure>
-
-
-<p>搜索后发现可能跟内核升级有关，解决也很简单</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo alsactl -f /var/lib/alsa/asound.state store</span></code></pre></td></tr></table></div></figure>
+<ul>
+<li>它最吸引我的是支持我喜爱的Asciidoc</li>
+<li>可是默认模板实在太丑陋</li>
+<li>文档简陋，没用过django，连添加文章的命令都没有，手动拷贝修改了一篇默认生成的文章，折腾很久都没能把文章添加到默认首页，当然也许是我学艺不精，但我已经不喜欢它了</li>
+<li>看上去完成度这么低的项目，看github上仓库的最近提交，居然都是a year ago</li>
+</ul>
 
 
-<p>参考：<a href="https://wiki.archlinux.org/index.php/Advanced_Linux_Sound_Architecture#Error_.27Unkown_hardware.27_Appears_After_a_Kernel_Update">Error &#8216;Unkown hardware&#8217; Appears After a Kernel Update</a></p>
+<p>看了下<a href="http://tinkerer.bitbucket.org/index.html">Tinkerer</a>，界面不错，基于Sphinx，可惜对此不感兴趣</p>
+
+<p>还有一个列表里没提到的<a href="https://github.com/ametaireau/pelican">pelican</a>，貌似用的人还不多</p>
+
+<p>最近python-cn列表里有人<a href="https://groups.google.com/forum/?fromgroups#!topic/python-cn/Xh1LGTGW20A">兴高采烈</a>的开了个octopress博客，正好我前段时间也看过教程，想趁机了解一下ruby，于是决定试一把octopress</p>
+
 </div>
-
-
-  <footer>
-    <p class="meta">
-      
   
-
-<span class="byline author vcard">Posted by <span class="fn">Jack Phil</span></span>
-
-      
-
-
-
-
-
-
-
-
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/05/07/octopress-setup-others/">阅读全文</a>
+    </footer>
   
 
 
-<time datetime="2012-05-16T15:27:00+08:00" pubdate data-updated="true">May 16<span>th</span>, 2012</time>
-      
-
-
-    </p>
+    </article>
+  
+  <div class="pagination">
     
-      <div class="sharing">
-  
-  
-  
-  
-  <!-- Baidu Button BEGIN -->
-  <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare">
-     <a class="bds_qzone"></a>
-     <a class="bds_tsina"></a>
-     <a class="bds_tqq"></a>
-     <a class="bds_renren"></a>
-     <span class="bds_more">更多</span>
-     <a class="shareCount"></a>
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/">Newer &rarr;</a>
+    
   </div>
-  <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=685719" ></script>
-  <script type="text/javascript" id="bdshell_js"></script>
-  <script type="text/javascript">
-    document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours();
-  </script>
-  <!-- Baidu Button END -->
-  
 </div>
-
-    
-    <p class="meta">
-      
-        <a class="basic-alignment left" href="/blog/2012/05/08/title-share-weibo/" title="Previous Post: Octopress第二弹：中文文件名、分享按钮、侧边栏上微博秀、disqus评论">&laquo; Octopress第二弹：中文文件名、分享按钮、侧边栏上微博秀、disqus评论</a>
-      
-      
-        <a class="basic-alignment right" href="/blog/2012/05/16/opensshmi-yao-guan-li-chu-bu/" title="Next Post: OpenSSH密钥管理初步">OpenSSH密钥管理初步 &raquo;</a>
-      
-    </p>
-  </footer>
-</article>
-
-  <section>
-    <h1>Comments</h1>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</div>
-  </section>
-
-</div>
-
 <aside class="sidebar">
   
     <section>
@@ -230,7 +181,7 @@ Hardware &hellip;">
 <section>
   <h1>GitHub Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating...</li>
+    <li class="loading">Status updating&#8230;</li>
   </ul>
   
   <a href="https://github.com/jackphil">@jackphil</a> on GitHub
@@ -264,7 +215,6 @@ Hardware &hellip;">
   
 </aside>
 
-
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -283,10 +233,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
       var disqus_shortname = 'jpblog1';
       
         
-        // var disqus_developer = 1;
-        var disqus_identifier = 'http://blog.jackphil.com/blog/2012/05/16/archlinuxgeng-xin-ji-lu-20120516/';
-        var disqus_url = 'http://blog.jackphil.com/blog/2012/05/16/archlinuxgeng-xin-ji-lu-20120516/';
-        var disqus_script = 'embed.js';
+        var disqus_script = 'count.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

@@ -5,14 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Archlinux更新记录20120516 - 眼中无码，心中有码</title>
+  <title>Category: 我爱开源 - 眼中无码，心中有码</title>
   <meta name="author" content="Jack Phil">
 
   
-  <meta name="description" content="某次更新系统后重启，发现有触目的红色警告，由于屏幕滚动很快，没看清具体是什么内容。遂去/etc/rc.local中添加一句read，以使启动最后暂停，等待用户输入，任意键继续。 这次看清是ALSA出错了 1
-2
-Unknown hardware "foo" "bar" ...
-Hardware &hellip;">
+  <meta name="description" content="Category: 我爱开源">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +18,7 @@ Hardware &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.jackphil.com/blog/2012/05/16/archlinuxgeng-xin-ji-lu-20120516">
+  <link rel="canonical" href="http://blog.jackphil.comblog/categories/我爱开源">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -66,118 +63,64 @@ Hardware &hellip;">
   <div id="main">
     <div id="content">
       <div>
-<article class="hentry" role="article">
+<article role="article">
   
   <header>
-    
-      <h1 class="entry-title">Archlinux更新记录20120516</h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-05-16T15:27:00+08:00" pubdate data-updated="true">May 16<span>th</span>, 2012</time>
-        
-      </p>
+    <h1 class="entry-title">Category: 我爱开源</h1>
     
   </header>
-
-
-<div class="entry-content"><p>某次更新系统后重启，发现有触目的红色警告，由于屏幕滚动很快，没看清具体是什么内容。遂去/etc/rc.local中添加一句read，以使启动最后暂停，等待用户输入，任意键继续。</p>
-
-<p>这次看清是ALSA出错了</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Unknown hardware "foo" "bar" ...
-</span><span class='line'>Hardware is initialized using a guess method</span></code></pre></td></tr></table></div></figure>
-
-
-<p>搜索后发现可能跟内核升级有关，解决也很简单</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo alsactl -f /var/lib/alsa/asound.state store</span></code></pre></td></tr></table></div></figure>
-
-
-<p>参考：<a href="https://wiki.archlinux.org/index.php/Advanced_Linux_Sound_Architecture#Error_.27Unkown_hardware.27_Appears_After_a_Kernel_Update">Error &#8216;Unkown hardware&#8217; Appears After a Kernel Update</a></p>
-</div>
-
-
-  <footer>
-    <p class="meta">
-      
   
-
-<span class="byline author vcard">Posted by <span class="fn">Jack Phil</span></span>
-
-      
-
-
-
-
-
+  <div id="blog-archives" class="category">
 
 
 
   
+  <h2>2012</h2>
+
+<article>
+  
+<h1><a href="/blog/2012/05/30/archlinux-and-virtualbox/">Archlinux和VirtualBox</a></h1>
+<time datetime="2012-05-30T16:30:00+08:00" pubdate><span class='month'>May</span> <span class='day'>30</span> <span class='year'>2012</span></time>
+
+<footer>
+  <span class="categories">posted in <a class='category' href='/blog/categories/我爱开源/'>我爱开源</a></span>
+</footer>
 
 
-<time datetime="2012-05-16T15:27:00+08:00" pubdate data-updated="true">May 16<span>th</span>, 2012</time>
-      
-
-
-    </p>
-    
-      <div class="sharing">
-  
-  
-  
-  
-  <!-- Baidu Button BEGIN -->
-  <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare">
-     <a class="bds_qzone"></a>
-     <a class="bds_tsina"></a>
-     <a class="bds_tqq"></a>
-     <a class="bds_renren"></a>
-     <span class="bds_more">更多</span>
-     <a class="shareCount"></a>
-  </div>
-  <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=685719" ></script>
-  <script type="text/javascript" id="bdshell_js"></script>
-  <script type="text/javascript">
-    document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours();
-  </script>
-  <!-- Baidu Button END -->
-  
-</div>
-
-    
-    <p class="meta">
-      
-        <a class="basic-alignment left" href="/blog/2012/05/08/title-share-weibo/" title="Previous Post: Octopress第二弹：中文文件名、分享按钮、侧边栏上微博秀、disqus评论">&laquo; Octopress第二弹：中文文件名、分享按钮、侧边栏上微博秀、disqus评论</a>
-      
-      
-        <a class="basic-alignment right" href="/blog/2012/05/16/opensshmi-yao-guan-li-chu-bu/" title="Next Post: OpenSSH密钥管理初步">OpenSSH密钥管理初步 &raquo;</a>
-      
-    </p>
-  </footer>
 </article>
 
-  <section>
-    <h1>Comments</h1>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+<article>
+  
+<h1><a href="/blog/2012/05/30/archlinuxkuai-su-she-zhi/">archlinux快速设置</a></h1>
+<time datetime="2012-05-30T14:45:00+08:00" pubdate><span class='month'>May</span> <span class='day'>30</span> <span class='year'>2012</span></time>
+
+<footer>
+  <span class="categories">posted in <a class='category' href='/blog/categories/我爱开源/'>我爱开源</a></span>
+</footer>
+
+
+</article>
+
+
+
+<article>
+  
+<h1><a href="/blog/2012/05/30/archlinuxjian-yi-an-zhuang-zhi-nan/">Archlinux简易安装指南</a></h1>
+<time datetime="2012-05-30T13:57:00+08:00" pubdate><span class='month'>May</span> <span class='day'>30</span> <span class='year'>2012</span></time>
+
+<footer>
+  <span class="categories">posted in <a class='category' href='/blog/categories/我爱开源/'>我爱开源</a></span>
+</footer>
+
+
+</article>
+
 </div>
-  </section>
+
+  
+</article>
 
 </div>
 
@@ -283,10 +226,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
       var disqus_shortname = 'jpblog1';
       
         
-        // var disqus_developer = 1;
-        var disqus_identifier = 'http://blog.jackphil.com/blog/2012/05/16/archlinuxgeng-xin-ji-lu-20120516/';
-        var disqus_url = 'http://blog.jackphil.com/blog/2012/05/16/archlinuxgeng-xin-ji-lu-20120516/';
-        var disqus_script = 'embed.js';
+        var disqus_script = 'count.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

@@ -5,14 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Archlinux更新记录20120516 - 眼中无码，心中有码</title>
+  <title>Archlinux和VirtualBox - 眼中无码，心中有码</title>
   <meta name="author" content="Jack Phil">
 
   
-  <meta name="description" content="某次更新系统后重启，发现有触目的红色警告，由于屏幕滚动很快，没看清具体是什么内容。遂去/etc/rc.local中添加一句read，以使启动最后暂停，等待用户输入，任意键继续。 这次看清是ALSA出错了 1
-2
-Unknown hardware "foo" "bar" ...
-Hardware &hellip;">
+  <meta name="description" content="Archlinux我所欲也，VirtualBox亦我所欲也，两者可以得兼，AV是也 现在机器性能越来越强，新机器上跑的虚拟机性能不会比5年前的电脑差，如果只是上上网聊聊天，听听音乐看看电影，简直就是浪费。 我经常尝试新系统、新软件，自从有了虚拟机就象是孙悟空得了那金箍棒，腰不酸腿不疼，吃嘛嘛香， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +18,7 @@ Hardware &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.jackphil.com/blog/2012/05/16/archlinuxgeng-xin-ji-lu-20120516">
+  <link rel="canonical" href="http://blog.jackphil.com/blog/2012/05/30/archlinux-and-virtualbox">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -70,7 +67,7 @@ Hardware &hellip;">
   
   <header>
     
-      <h1 class="entry-title">Archlinux更新记录20120516</h1>
+      <h1 class="entry-title">Archlinux和VirtualBox</h1>
     
     
       <p class="meta">
@@ -86,30 +83,104 @@ Hardware &hellip;">
   
 
 
-<time datetime="2012-05-16T15:27:00+08:00" pubdate data-updated="true">May 16<span>th</span>, 2012</time>
+<time datetime="2012-05-30T16:30:00+08:00" pubdate data-updated="true">May 30<span>th</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>某次更新系统后重启，发现有触目的红色警告，由于屏幕滚动很快，没看清具体是什么内容。遂去/etc/rc.local中添加一句read，以使启动最后暂停，等待用户输入，任意键继续。</p>
+<div class="entry-content"><p>Archlinux我所欲也，VirtualBox亦我所欲也，两者可以得兼，AV是也</p>
 
-<p>这次看清是ALSA出错了</p>
+<p>现在机器性能越来越强，新机器上跑的虚拟机性能不会比5年前的电脑差，如果只是上上网聊聊天，听听音乐看看电影，简直就是浪费。</p>
+
+<p>我经常尝试新系统、新软件，自从有了虚拟机就象是孙悟空得了那金箍棒，腰不酸腿不疼，吃嘛嘛香，花果山我的地盘我做主</p>
+
+<p>再说现在虚拟化和云计算一样，正时髦呢，好比杨幂上戛纳，咱显摆的就是虚拟</p>
+
+<p>维基百科上有张<a href="http://zh.wikipedia.org/wiki/%E7%B3%BB%E7%BB%9F%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%AF%94%E8%BE%83#.E8.99.9B.E6.93.AC.E6.A9.9F.E5.99.A8.E6.AF.94.E8.BC.83">虚拟机软件比较表</a>，我只用过其中的bochs、qemu、virtualbox、vmware。据说内核开发bochs比较好，我还想学学内核，当会专文记录，暂且按下不表。从开源和性能方面考虑，virtualbox实在是居家旅行杀人灭口的必备良药啊</p>
+
+<!--more-->
+
+
+<h2>在Archlinux中安装VitualBox</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Unknown hardware "foo" "bar" ...
-</span><span class='line'>Hardware is initialized using a guess method</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo pacman -S virtualbox
+</span><span class='line'>sudo gpasswd -a $USER vboxusers</span></code></pre></td></tr></table></div></figure>
 
 
-<p>搜索后发现可能跟内核升级有关，解决也很简单</p>
+<p>virtualbox安装后，系统中多了个vboxusers用户组，只有属于该组的用户能使用虚拟机</p>
+
+<p>/etc/rc.conf</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo alsactl -f /var/lib/alsa/asound.state store</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>MODULES=(…… vboxdrv vboxnetflt)</span></code></pre></td></tr></table></div></figure>
 
 
-<p>参考：<a href="https://wiki.archlinux.org/index.php/Advanced_Linux_Sound_Architecture#Error_.27Unkown_hardware.27_Appears_After_a_Kernel_Update">Error &#8216;Unkown hardware&#8217; Appears After a Kernel Update</a></p>
+<p>/etc/rc.local</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'># Dry-load vbox* modules and trigger a rebuild if modprobe fails
+</span><span class='line'>modprobe -nqs vbox{drv,pci,net{flt,adp}} &gt;/dev/null 2&gt;&1 || ( /usr/bin/vboxbuild && . /etc/rc.conf && modprobe -ab ${MODULES[*]} )</span></code></pre></td></tr></table></div></figure>
+
+
+<p>内核更新后需要重新编译模块，上面提供的方案先尝试加载模块，如果失败则自动编译</p>
+
+<p><a href="https://wiki.archlinux.org/index.php/VirtualBox#Automatic_re-compilation_of_the_virtualbox_modules_with_every_kernel_update">官方wiki</a>上现在推荐的方法是使用mkinitcpio hook，以便在内核更新时会自动编译，相关hook在aur中</p>
+
+<h2>在VirtualBox中安装Archlinux</h2>
+
+<p>按通常方法在virtualbox中安装archlinux后，archlinux还只是“可用”，要“好用”就需要一些特别设置和调整</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo pacman -S virtualbox-archlinux-additions
+</span><span class='line'>sudo groupadd vboxsf 
+</span><span class='line'>sudo gpasswd -a $USER vboxsf</span></code></pre></td></tr></table></div></figure>
+
+
+<p>要实现开机自动加载共享目录等功能，用户必须是vboxsf组成员，你需要手工创建该用户组</p>
+
+<p>/etc/rc.conf</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>MODULES=(... vboxguest vboxsf vboxvideo)
+</span><span class='line'>……
+</span><span class='line'>DAEMONS=(... vbox-service ...)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>vbox-service默认开启了很多实用功能，如与host主机同步时间，开机加载共享目录等，你也可以用VBoxService命令手动控制它们</p>
+
+<p>.xinitrc</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>VBoxClient-all &
+</span><span class='line'>exec ck-launch-session startkde</span></code></pre></td></tr></table></div></figure>
+
+
+<p>VBoxClient命令提供了剪贴板共享等高级桌面功能，VBoxClient-all用来开启所有这些功能</p>
+
+<p>创建/etc/modprobe.d/blacklist.conf</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>blacklist i2c_piix4</span></code></pre></td></tr></table></div></figure>
+
+
+<p>虚拟机不含SMBus系统总线，启动时udev会有报错信息，将i2c_piix4模块列入黑名单即可</p>
+
+<h2>技巧及其它</h2>
+
+<ul>
+<li>共享文件夹在客户机中会被挂载到/media目录下的sf_sharedfolder目录</li>
+</ul>
+
 </div>
 
 
@@ -132,8 +203,14 @@ Hardware &hellip;">
   
 
 
-<time datetime="2012-05-16T15:27:00+08:00" pubdate data-updated="true">May 16<span>th</span>, 2012</time>
+<time datetime="2012-05-30T16:30:00+08:00" pubdate data-updated="true">May 30<span>th</span>, 2012</time>
       
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/我爱开源/'>我爱开源</a>
+  
+</span>
 
 
     </p>
@@ -164,10 +241,8 @@ Hardware &hellip;">
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2012/05/08/title-share-weibo/" title="Previous Post: Octopress第二弹：中文文件名、分享按钮、侧边栏上微博秀、disqus评论">&laquo; Octopress第二弹：中文文件名、分享按钮、侧边栏上微博秀、disqus评论</a>
+        <a class="basic-alignment left" href="/blog/2012/05/30/archlinuxkuai-su-she-zhi/" title="Previous Post: archlinux快速设置">&laquo; archlinux快速设置</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2012/05/16/opensshmi-yao-guan-li-chu-bu/" title="Next Post: OpenSSH密钥管理初步">OpenSSH密钥管理初步 &raquo;</a>
       
     </p>
   </footer>
@@ -284,8 +359,8 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://blog.jackphil.com/blog/2012/05/16/archlinuxgeng-xin-ji-lu-20120516/';
-        var disqus_url = 'http://blog.jackphil.com/blog/2012/05/16/archlinuxgeng-xin-ji-lu-20120516/';
+        var disqus_identifier = 'http://blog.jackphil.com/blog/2012/05/30/archlinux-and-virtualbox/';
+        var disqus_url = 'http://blog.jackphil.com/blog/2012/05/30/archlinux-and-virtualbox/';
         var disqus_script = 'embed.js';
       
     (function () {
