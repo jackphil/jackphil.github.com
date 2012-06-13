@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 我爱开源 | 眼中无码，心中有码]]></title>
   <link href="http://blog.jackphil.com/blog/categories/我爱开源/atom.xml" rel="self"/>
   <link href="http://blog.jackphil.com/"/>
-  <updated>2012-05-30T22:53:34+08:00</updated>
+  <updated>2012-06-13T21:22:03+08:00</updated>
   <id>http://blog.jackphil.com/</id>
   <author>
     <name><![CDATA[Jack Phil]]></name>
@@ -12,6 +12,145 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[高速启动，现在开始systemd]]></title>
+    <link href="http://blog.jackphil.com/blog/2012/06/13/systemdnow/"/>
+    <updated>2012-06-13T13:15:00+08:00</updated>
+    <id>http://blog.jackphil.com/blog/2012/06/13/systemdnow</id>
+    <content type="html"><![CDATA[<p>最近一次系统更新，Archlinux用systmed-tools替换了udev。</p>
+
+<p>我年纪渐大，响应胡总号召，不象以前那么爱折腾了。</p>
+
+<p>有人问Lennart创建systemd的动机，回答是“爱折腾”</p>
+
+<p>该来的总会来，与爱折腾的Linuxer共勉</p>
+
+<h2>什么是systemd： 一些八卦</h2>
+
+<p>systemd被设计用来改进sysvinit的缺点，它和ubuntu的upstart是竞争对手，预计会取代它们</p>
+
+<p>systemd的很多概念来源于苹果的launchd</p>
+
+<p>创始人Lennart是redhat员工，但systemd不是redhat项目</p>
+
+<p>systemd的目标是：尽可能启动更少进程；尽可能将更多进程并行启动</p>
+
+<p>systemd尽可能减少对shell脚本的依赖。传统sysvinit使用inittab来决定运行哪些shell脚本，大量使用shell脚本被认为是效率低下无法并行的原因</p>
+
+<p>systemd使用了Linux专属技术，不再顾及POSIX兼容，一度谣传Debian为了它的BSD项目将不会使用systemd</p>
+
+<p>天下武功，唯快不破，加速吧，Linux！</p>
+
+<h2>安装</h2>
+
+<p><code>
+sudo pacman -Rcsn sysvinit syslog-ng
+sudo pacman -S systemd systemd-arch-units systemd-sysvcompat
+</code></p>
+
+<p>删除sysvinit，安装systemd-sysvcompat，我更喜欢这样一个纯的systemd环境。还有一个好处是可以不用设置内核启动参数<code>init=/bin/systemd</code></p>
+
+<p>系统升级的时候只给我用systemd-tools替代了udev，但没装管理工具包systemd，网络也没有，害得我不得不到别的机子上下好，再拷过来安装</p>
+
+<h2>服务管理</h2>
+
+<p><code>
+systemctl is-enabled &lt;program&gt;.service #查询服务是否开机启动
+sudo systemctl enable &lt;program&gt;.service #开机运行服务
+sudo systemctl disable &lt;program&gt;.service #取消开机运行
+sudo systemctl start &lt;program&gt;.service #启动服务
+sudo systemctl stop &lt;program&gt;.service #停止服务
+sudo systemctl restart &lt;program&gt;.service #重启服务
+sudo systemctl reload &lt;program&gt;.service #重新加载服务配置文件
+systemctl status &lt;program&gt;.service #查询服务运行状态
+systemctl --failed #显示启动失败的服务
+</code>
+systemctl命令取代了rc.d命令</p>
+
+<h2>开机模块加载</h2>
+
+<p>/etc/modules-load.d/<program>.conf，相当于原rc.conf中的MODULES变量
+```</p>
+
+<h1>Load virtio-net.ko at boot</h1>
+
+<p>virtio-net
+```</p>
+
+<p>模块黑名单仍在/etc/modprobe.d/下，如blacklist.conf:
+<code>
+blacklist badmod.ko
+</code></p>
+
+<h2>Locale</h2>
+
+<p>/etc/locale.conf，相当于原rc.conf中的LOCALE
+<code>
+LANG=en_US.UTF-8
+LC_COLLATE=C
+</code></p>
+
+<h2>日志服务</h2>
+
+<p>systemd自带日志服务，可以删除syslog-ng
+<code>
+sudo journalctl
+</code></p>
+
+<h2>主机名</h2>
+
+<p>/etc/hostname，相当于原来rc.conf中的HOSTNAME变量
+<code>
+myhostname
+</code></p>
+
+<h2>网络</h2>
+
+<p><code>
+sudo systemctl enable NetworkManager.service
+</code>
+不象rc.conf有专门的配置简单网络的地方，还是用NetworkManager、wicd之类的工具吧</p>
+
+<p>如果你坚持使用简单静态配置，可以参考<a href="https://bbs.archlinux.org/viewtopic.php?pid=1110003">[SOLVED] static ethernet setup under systemd?</a></p>
+
+<h2>运行级别</h2>
+
+<p>systemd用target替代了runlevel的概念，提供了更大的灵活性，如你可以继承一个已有的target，并添加其它服务，来创建自己的target
+<code>
+sudo systemctl list-units --type=target #查询当前target
+sudo systemctl isolate graphical.target #改变当前target，重启无效
+sudo systemctl enable multi-user.target #改变启动时默认target
+sudo systemctl enable kdm.service #graphical是默认target，指定使用的display manager
+</code></p>
+
+<h2>优化</h2>
+
+<p>systemd有自己的"e4rat"
+<code>
+sudo systemctl enable systemd-readahead-collect.service
+sudo systemctl enable systemd-readahead-replay.service
+</code></p>
+
+<p>/etc/fstab，修改/home分区options，检查/home分区时并行启动其它服务
+<code>
+defaults,noauto,x-systemd.automount
+</code></p>
+
+<h2>其他</h2>
+
+<p><code>
+sudo systemctl reboot #systemctl还有系统关机、重启、挂起等功能
+sudo systemctl suspend
+</code></p>
+
+<h2>参考资源</h2>
+
+<p><a href="https://wiki.archlinux.org/index.php/Systemd">systemd-Archlinux Wiki</a>: 本文基本上可以说是此文的翻译</p>
+
+<p><a href="http://www.freedesktop.org/software/systemd/man/systemd.service.html">systemd on freedesktop</a>: systemd官方文档，如欲进一步研究，比如service文件中各项含义等，请移步</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Archlinux和VirtualBox]]></title>
@@ -140,42 +279,11 @@ sudo pacman -S kdebase kde-l10n-zh_cn xorg-server xorg-xinit ttf-dejavu
 </ul>
 
 
-<p><div><script src='https://gist.github.com/2834391.js?file='></script>
-<noscript><pre><code># 不使用LC_ALL，因为它会强制所有LC_*变量使用统一的locale
-export LANG=zh_CN.UTF-8
-
-# SCIM
-export XMODIFIERS=@im=SCIM
-export GTK_IM_MODULE=&quot;scim&quot;
-export QT_IM_MODULE=&quot;scim&quot;
-scim -d
-
-# 键盘设置
-#xmodmap ~/.Xmodmap
-
-# 关闭触摸板
-#synclient TouchpadOff=1
-
-# 键盘绑定
-#xbindkeys &amp;
-
-#setxkbmap -keycodes evdev -model evdev
-
-exec ck-launch-session startkde</code></pre></noscript></div>
-</p>
+<p>{% gist 2834391 %}</p>
 
 <ul>
 <li><p>如果使用kdm登录管理器，环境配置文件是.xprofile
-<div><script src='https://gist.github.com/2834351.js?file='></script>
-<noscript><pre><code># locale setting
-export LANG=zh_CN.UTF-8
-
-# input method
-export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
-ibus-daemon -x -d</code></pre></noscript></div>
-</p></li>
+{% gist 2834351 %}</p></li>
 <li><p>xorg的配置文件在/etc/X11/xorg.conf.d/目录下，你可以依样创建自己的配置文件，不过现在大部分情况下，xorg都能很好的识别设备（显卡、鼠标键盘等）并加载相应的模块，不需要额外配置</p></li>
 </ul>
 
@@ -309,6 +417,100 @@ ping www.163.com # 测试一下
 
 
 <p>美女已经入室，接下来就看你怎么调教了</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[我爱命令行之sed]]></title>
+    <link href="http://blog.jackphil.com/blog/2012/05/17/wo-ai-ming-ling-xing-zhi-sed/"/>
+    <updated>2012-05-17T19:22:00+08:00</updated>
+    <id>http://blog.jackphil.com/blog/2012/05/17/wo-ai-ming-ling-xing-zhi-sed</id>
+    <content type="html"><![CDATA[<h2>语法</h2>
+
+<p>常用基本格式
+<code>
+ sed -i -e '指令1' -e '指令2' inputfile
+ sed -f scriptfile
+</code></p>
+
+<ul>
+<li>-i: 直接修改文件，而不是输出到标准输出，一般等调试无误后，最后使用该参数</li>
+<li>-e: 后跟指令，可以多次使用</li>
+<li>-f: 从文件中读取指令</li>
+</ul>
+
+
+<!--more-->
+
+
+<h2>操作指令</h2>
+
+<h3>删除</h3>
+
+<p>一般格式
+<code>
+ 开始地址,结束地址d
+ /正则表达式/d
+</code></p>
+
+<p>第一种删除从开始到结束的行，第二行删除有匹配到字符串的行</p>
+
+<h3>替换</h3>
+
+<p>一般格式
+<code>
+ 开始地址,结束地址s/被替换的文本（正则表达式）/用来替换的文本/标志
+</code></p>
+
+<p>地址和标志部分可以省略。s(substitute)后的第一个字符被用来作为分割符，所以并非一定要用斜杠，
+还可以使用比如冒号（有时候会带来方便，比如匹配网址时，就可以避免和网址中的斜杠冲突）。</p>
+
+<p>用到的标志:</p>
+
+<ul>
+<li>g: 全局替换，而不只是每行的第一个匹配</li>
+<li>n: 替换行中的第n个匹配</li>
+</ul>
+
+
+<h2>应用实例</h2>
+
+<h3>删除指定行</h3>
+
+<p><code>
+ sed -e '/^#acl/d' inputfile
+</code></p>
+
+<p>删除#acl开头的行。在MoinMoin升级中，由于用户名改变的原因，页面都变成了只读，只好删除之。</p>
+
+<h3>DOS文件和Linux文件的转换</h3>
+
+<p>众所周知，Windows上文本文件以CR（回车）和 LF（换行）结束一行，而Linux上只有LF。</p>
+
+<p><code>
+ sed -i -e 's/\r$//' inputfile #dos to linux
+ sed -e 's/$/\r/' inputfile #linux to dos
+</code></p>
+
+<h3>正则表达式分组（对匹配字符串的一部分进行操作）</h3>
+
+<p><code>
+ sed -e 's:\(.\)\(}}}\):\1\n\2:' inputfile
+ sed -e 's:\({{{\)\([^\n]\):\1\n\2:' inputfile
+</code></p>
+
+<p>这是我升级MoinMoin时用过的，旧版{{{和}}}可能与内容在同一行，新版必须单独一行。用圆括号分组（注意带反斜杠），
+按出现顺序编号引用（同样注意使用反斜杠）。</p>
+
+<h3>sed脚本</h3>
+
+<p><code>
+ #!/bin/sed -f
+</code></p>
+
+<h2>参考资料</h2>
+
+<p><a href="http://www.ibm.com/developerworks/cn/linux/shell/sed/sed-1/index.html">通用线程 -- sed 实例</a> : IBM网站上Daniel Robbins写的教程，正则表达式分组我就是从该教程第三部分学到的。</p>
 ]]></content>
   </entry>
   
