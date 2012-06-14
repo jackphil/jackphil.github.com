@@ -9,7 +9,10 @@
   <meta name="author" content="Jack Phil">
 
   
-  <meta name="description" content="今天对博客进行了一番装修和调整，我对美工要求不高，对现在的样子基本满意了 ">
+  <meta name="description" content="某次更新系统后重启，发现有触目的红色警告，由于屏幕滚动很快，没看清具体是什么内容。遂去/etc/rc.local中添加一句read，以使启动最后暂停，等待用户输入，任意键继续。 这次看清是ALSA出错了 1
+2
+Unknown hardware "foo" "bar" ...
+Hardware &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,6 +67,58 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/05/16/archlinuxgeng-xin-ji-lu-20120516/">Archlinux更新记录20120516</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-16T15:27:00+08:00" pubdate data-updated="true">May 16<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>某次更新系统后重启，发现有触目的红色警告，由于屏幕滚动很快，没看清具体是什么内容。遂去/etc/rc.local中添加一句read，以使启动最后暂停，等待用户输入，任意键继续。</p>
+
+<p>这次看清是ALSA出错了</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Unknown hardware "foo" "bar" ...
+</span><span class='line'>Hardware is initialized using a guess method</span></code></pre></td></tr></table></div></figure>
+
+
+<p>搜索后发现可能跟内核升级有关，解决也很简单</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo alsactl -f /var/lib/alsa/asound.state store</span></code></pre></td></tr></table></div></figure>
+
+
+<p>参考：<a href="https://wiki.archlinux.org/index.php/Advanced_Linux_Sound_Architecture#Error_.27Unkown_hardware.27_Appears_After_a_Kernel_Update">Error &#8216;Unkown hardware&#8217; Appears After a Kernel Update</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -178,6 +233,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/06/13/update-to-emacs24/">Emacs24的二三事</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/06/13/systemdnow/">高速启动，现在开始systemd</a>
       </li>
     
@@ -191,10 +250,6 @@
     
       <li class="post">
         <a href="/blog/2012/05/30/archlinuxjian-yi-an-zhuang-zhi-nan/">Archlinux简易安装指南</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/05/28/an-zhuo-shou-ji-rootshua-ji-jiao-cheng/">安卓手机root刷机教程: 我的HTC Saga root记录</a>
       </li>
     
   </ul>
