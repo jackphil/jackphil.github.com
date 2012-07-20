@@ -4,7 +4,7 @@
   <title><![CDATA[Category: android | 眼中无码，心中有码]]></title>
   <link href="http://blog.jackphil.com/blog/categories/android/atom.xml" rel="self"/>
   <link href="http://blog.jackphil.com/"/>
-  <updated>2012-07-20T20:36:25+08:00</updated>
+  <updated>2012-07-20T23:40:21+08:00</updated>
   <id>http://blog.jackphil.com/</id>
   <author>
     <name><![CDATA[Jack Phil]]></name>
@@ -78,8 +78,9 @@ fastboot flash recovery recovery_name.img
 
 <h2 id="hboot-1">硬解的HBOOT</h2>
 
-<p>有些水货机卖家已经给你硬解，特征是HBOOT界面S-OFF信息在第一行，这种机用上面的fastboot刷recovery会出现如下错误
-<code>
+<p>有些水货机卖家已经给你硬解，特征是HBOOT界面S-OFF信息在第一行，这种机用上面的fastboot刷recovery会出现如下错误</p>
+
+<p><code>sh
 writing 'recovery' ... FAILED (remote: not allowed)
 </code></p>
 

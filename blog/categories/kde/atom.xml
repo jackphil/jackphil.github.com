@@ -4,7 +4,7 @@
   <title><![CDATA[Category: KDE | 眼中无码，心中有码]]></title>
   <link href="http://blog.jackphil.com/blog/categories/kde/atom.xml" rel="self"/>
   <link href="http://blog.jackphil.com/"/>
-  <updated>2012-07-20T20:36:25+08:00</updated>
+  <updated>2012-07-20T23:40:21+08:00</updated>
   <id>http://blog.jackphil.com/</id>
   <author>
     <name><![CDATA[Jack Phil]]></name>
@@ -54,14 +54,16 @@
 <h3 id="nepomuk">关闭Nepomuk</h3>
 <p>Nepomuk是KDE4的核心组件，仍不掉，唯一的办法只能关掉它！</p>
 
-<p>打开 ~/.kde4/share/config/nepomukserverrc，将“Start Nepomuk”设置为false（你也可以在系统设置-桌面搜索中，不启用Nepomuk语义学桌面来关闭）
-<code>
+<p>打开 ~/.kde4/share/config/nepomukserverrc，将“Start Nepomuk”设置为false（你也可以在系统设置-桌面搜索中，不启用Nepomuk语义学桌面来关闭）</p>
+
+<p><code>
 [Basic Settings]
 Start Nepomuk=false
 </code></p>
 
-<p>打开~/.kde4/share/config/kdedrc，将nepomuksearchmodule的“autoload”设置为false:
-<code>
+<p>打开~/.kde4/share/config/kdedrc，将nepomuksearchmodule的“autoload”设置为false:</p>
+
+<p><code>
 [Module-nepomuksearchmodule]
 autoload=false
 </code>
@@ -70,8 +72,9 @@ Strigi依赖Nepomuk，关闭Nepomuk后，Strigi也就自动关闭了</p>
 <h3 id="akonadi">关闭Akonadi</h3>
 <p>Akonadi作为PIM数据统一存取框架，与Nepomuk相对独立，需要单独关闭</p>
 
-<p>打开~/.config/akonadi/akonadiserverrc，设置“StartServer”为false
-<code>
+<p>打开~/.config/akonadi/akonadiserverrc，设置“StartServer”为false</p>
+
+<p><code>
 [QMYSQL]
 StartServer=false
 </code>
@@ -79,8 +82,9 @@ StartServer=false
 
 <p>我的测试环境下，Akonadi服务还是会自动启动(没找到是哪个应用触发了它)，所以选用了MySQL后端，但不配置相应的MySQL数据库，甚至大多数情况下，KDE启动的时候MySQL服务都没启动，Akonadi启动失败，自动停止。使用SQLITE后端的话，由于不需要数据库特殊配置，就会成功启动</p>
 
-<p>你可以使用命令行控制Akonadi服务
-```
+<p>你可以使用命令行控制Akonadi服务</p>
+
+<p>```
 ubuntuku@satellite:~$ akonadictl –help
 Akonadi server manipulation tool
 Usage: akonadictl [command]</p>

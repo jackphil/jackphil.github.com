@@ -134,6 +134,7 @@ MathJax.Hub.Config({
 <!--more-->
 
 <h2 id="section">安装</h2>
+
 <div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 </pre></td><td class="code"><pre><code class=""><span class="line">sudo pacman -Rcsn sysvinit syslog-ng
@@ -167,73 +168,91 @@ MathJax.Hub.Config({
 
 <h2 id="section-2">开机模块加载</h2>
 
-<p>/etc/modules-load.d/<program>.conf，相当于原rc.conf中的MODULES变量
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
-<span class="line-number">2</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line"># Load virtio-net.ko at boot
-</span><span class="line">virtio-net</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</program></p>
+<p>/etc/modules-load.d/<program>.conf，相当于原rc.conf中的MODULES变量</program></p>
 
-<p>模块黑名单仍在/etc/modprobe.d/下，如blacklist.conf:
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">blacklist badmod.ko</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class="sh"><span class="line"><span class="c"># Load virtio-net.ko at boot</span>
+</span><span class="line">virtio-net
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>模块黑名单仍在/etc/modprobe.d/下，如blacklist.conf:</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="sh"><span class="line">blacklist badmod.ko
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <h2 id="locale">Locale</h2>
-<p>/etc/locale.conf，相当于原rc.conf中的LOCALE
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+<p>/etc/locale.conf，相当于原rc.conf中的LOCALE</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">LANG=en_US.UTF-8
-</span><span class="line">LC_COLLATE=C</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
+</pre></td><td class="code"><pre><code class="sh"><span class="line"><span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8
+</span><span class="line"><span class="nv">LC_COLLATE</span><span class="o">=</span>C
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <h2 id="section-3">日志服务</h2>
-<p>systemd自带日志服务，参考<a href="http://linuxtoy.org/archives/systemd-journal.html">systemd Journal</a>
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">sudo journalctl</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;
-可以删除syslog-ng了</p>
+<p>systemd自带日志服务，参考<a href="http://linuxtoy.org/archives/systemd-journal.html">systemd Journal</a></p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="sh"><span class="line">sudo journalctl
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+<p>可以删除syslog-ng了</p>
 
 <h2 id="section-4">主机名</h2>
 
-<p>/etc/hostname，相当于原来rc.conf中的HOSTNAME变量
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">myhostname</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
+<p>/etc/hostname，相当于原来rc.conf中的HOSTNAME变量</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="sh"><span class="line">myhostname
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <h2 id="section-5">网络</h2>
 
-<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">sudo systemctl enable NetworkManager.service</span></code></pre></td></tr></table></div></figure></notextile></div>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="sh"><span class="line">sudo systemctl <span class="nb">enable </span>NetworkManager.service
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 <p>不象rc.conf有专门的配置简单网络的地方，还是用NetworkManager、wicd之类的工具吧</p>
 
 <p>如果你坚持使用简单静态配置，可以参考<a href="https://bbs.archlinux.org/viewtopic.php?pid=1110003">[SOLVED] static ethernet setup under systemd?</a></p>
 
 <h2 id="section-6">运行级别</h2>
 
-<p>systemd用target替代了runlevel的概念，提供了更大的灵活性，如你可以继承一个已有的target，并添加其它服务，来创建自己的target
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+<p>systemd用target替代了runlevel的概念，提供了更大的灵活性，如你可以继承一个已有的target，并添加其它服务，来创建自己的target</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
 <span class="line-number">4</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">sudo systemctl list-units --type=target #查询当前target
-</span><span class="line">sudo systemctl isolate graphical.target #改变当前target，重启无效
-</span><span class="line">sudo systemctl enable multi-user.target #改变启动时默认target
-</span><span class="line">sudo systemctl enable kdm.service #graphical是默认target，指定使用的display manager</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
+</pre></td><td class="code"><pre><code class="sh"><span class="line">sudo systemctl list-units --type<span class="o">=</span>target <span class="c">#查询当前target</span>
+</span><span class="line">sudo systemctl isolate graphical.target <span class="c">#改变当前target，重启无效</span>
+</span><span class="line">sudo systemctl <span class="nb">enable </span>multi-user.target <span class="c">#改变启动时默认target</span>
+</span><span class="line">sudo systemctl <span class="nb">enable </span>kdm.service <span class="c">#graphical是默认target，指定使用的display manager</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <h2 id="section-7">优化</h2>
 
-<p>systemd有自己的”e4rat”
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
-<span class="line-number">2</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">sudo systemctl enable systemd-readahead-collect.service
-</span><span class="line">sudo systemctl enable systemd-readahead-replay.service</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
+<p>systemd有自己的”e4rat”</p>
 
-<p>/etc/fstab，修改/home分区options，检查/home分区时并行启动其它服务
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">defaults,noauto,x-systemd.automount</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class="sh"><span class="line">sudo systemctl <span class="nb">enable </span>systemd-readahead-collect.service
+</span><span class="line">sudo systemctl <span class="nb">enable </span>systemd-readahead-replay.service
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>/etc/fstab，修改/home分区options，检查/home分区时并行启动其它服务</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="sh"><span class="line">defaults,noauto,x-systemd.automount
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <h2 id="section-8">其他</h2>
 
-<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">sudo systemctl reboot #systemctl还有系统关机、重启、挂起等功能
-</span><span class="line">sudo systemctl suspend</span></code></pre></td></tr></table></div></figure></notextile></div>
+</pre></td><td class="code"><pre><code class="sh"><span class="line">sudo systemctl reboot <span class="c">#systemctl还有系统关机、重启、挂起等功能</span>
+</span><span class="line">sudo systemctl <span class="nb">suspend</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <h2 id="section-9">参考资源</h2>
 
@@ -279,6 +298,24 @@ MathJax.Hub.Config({
       <div class="sharing">
   
   
+  
+  
+    <!-- Baidu Button BEGIN -->
+    <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare">
+        <a class="bds_qzone"></a>
+        <a class="bds_tsina"></a>
+        <a class="bds_tqq"></a>
+        <a class="bds_renren"></a>
+        <a class="bds_douban"></a>
+        <span class="bds_more">更多</span>
+		<a class="shareCount"></a>
+    </div>
+    <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=685719" ></script>
+    <script type="text/javascript" id="bdshell_js"></script>
+    <script type="text/javascript">
+	document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours();
+    </script>
+<!-- Baidu Button END -->
   
 </div>
 

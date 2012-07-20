@@ -4,7 +4,7 @@
   <title><![CDATA[Category: emacs | 眼中无码，心中有码]]></title>
   <link href="http://blog.jackphil.com/blog/categories/emacs/atom.xml" rel="self"/>
   <link href="http://blog.jackphil.com/"/>
-  <updated>2012-07-20T20:36:25+08:00</updated>
+  <updated>2012-07-20T23:40:21+08:00</updated>
   <id>http://blog.jackphil.com/</id>
   <author>
     <name><![CDATA[Jack Phil]]></name>
@@ -24,8 +24,9 @@
 
 <h2 id="color-theme">color theme</h2>
 
-<p>根据<a href="http://batsov.com/articles/2012/02/19/color-theming-in-emacs-reloaded/">Color Theming in Emacs: Reloaded</a>，Emacs24自带了几个颜色主题，我的选择是
-<code>
+<p>根据<a href="http://batsov.com/articles/2012/02/19/color-theming-in-emacs-reloaded/">Color Theming in Emacs: Reloaded</a>，Emacs24自带了几个颜色主题，我的选择是</p>
+
+<p><code>
 (load-theme 'tango-dark t)
 </code></p>
 
@@ -33,8 +34,9 @@
 
 <h2 id="section">菜单栏和工具栏</h2>
 
-<p>隐藏菜单栏和工具栏，原来给变量赋值nil不再有效，其实nil不再被用来开关minor-mode，有人解释了<a href="http://stackoverflow.com/questions/9423974/emacs-menu-bar-mode-and-tool-bar-mode-automatically-set-to-t">原因</a>
-<code>
+<p>隐藏菜单栏和工具栏，原来给变量赋值nil不再有效，其实nil不再被用来开关minor-mode，有人解释了<a href="http://stackoverflow.com/questions/9423974/emacs-menu-bar-mode-and-tool-bar-mode-automatically-set-to-t">原因</a></p>
+
+<p><code>
 ;;#隐藏菜单和工具栏
 (tool-bar-mode -1) 
 (menu-bar-mode -1)
@@ -42,8 +44,9 @@
 
 <h2 id="section-1">行号</h2>
 
-<p>setnu+是另一个引起麻烦的包，24自带的功能似乎也不错，删除之
-<code>
+<p>setnu+是另一个引起麻烦的包，24自带的功能似乎也不错，删除之</p>
+
+<p><code>
 M-x linum-mode
 </code></p>
 
@@ -53,15 +56,17 @@ M-x linum-mode
 
 <h2 id="elpa-emacs-lisp-package-archive">软件包管理(ELPA: Emacs Lisp Package Archive)</h2>
 
-<p>Emacs24的一大亮点是自带了<a href="Emacs Lisp Package Archive">包管理器</a>(不过并非24独享，22都可以装)，自动安装管理各种lisp功能包
-<code>
+<p>Emacs24的一大亮点是自带了<a href="Emacs Lisp Package Archive">包管理器</a>(不过并非24独享，22都可以装)，自动安装管理各种lisp功能包</p>
+
+<p><code>
 ;;#软件包服务器
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
 			 ("marmalade" . "http://marmalade-repo.org/packages/")))
 </code></p>
 
-<p>试用了一下，列出所有软件包：
-<code>
+<p>试用了一下，列出所有软件包：</p>
+
+<p><code>
 M-x package-list-packages
 </code></p>
 

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 我爱开源 | 眼中无码，心中有码]]></title>
   <link href="http://blog.jackphil.com/blog/categories/我爱开源/atom.xml" rel="self"/>
   <link href="http://blog.jackphil.com/"/>
-  <updated>2012-07-20T20:36:25+08:00</updated>
+  <updated>2012-07-20T23:40:21+08:00</updated>
   <id>http://blog.jackphil.com/</id>
   <author>
     <name><![CDATA[Jack Phil]]></name>
@@ -93,6 +93,7 @@ sudo rm -rf /lib/modules
 <!--more-->
 
 <h2 id="section">安装</h2>
+
 <p><code>
 sudo pacman -Rcsn sysvinit syslog-ng
 sudo pacman -S systemd systemd-arch-units systemd-sysvcompat
@@ -119,35 +120,40 @@ systemctl命令取代了rc.d命令</p>
 
 <h2 id="section-2">开机模块加载</h2>
 
-<p>/etc/modules-load.d/<program>.conf，相当于原rc.conf中的MODULES变量
-```
+<p>/etc/modules-load.d/<program>.conf，相当于原rc.conf中的MODULES变量</program></p>
+
+<p><code>sh
 # Load virtio-net.ko at boot
 virtio-net
-```</program></p>
+</code></p>
 
-<p>模块黑名单仍在/etc/modprobe.d/下，如blacklist.conf:
-<code>
+<p>模块黑名单仍在/etc/modprobe.d/下，如blacklist.conf:</p>
+
+<p><code>
 blacklist badmod.ko
 </code></p>
 
 <h2 id="locale">Locale</h2>
-<p>/etc/locale.conf，相当于原rc.conf中的LOCALE
-<code>
+<p>/etc/locale.conf，相当于原rc.conf中的LOCALE</p>
+
+<p><code>
 LANG=en_US.UTF-8
 LC_COLLATE=C
 </code></p>
 
 <h2 id="section-3">日志服务</h2>
-<p>systemd自带日志服务，参考<a href="http://linuxtoy.org/archives/systemd-journal.html">systemd Journal</a>
-<code>
+<p>systemd自带日志服务，参考<a href="http://linuxtoy.org/archives/systemd-journal.html">systemd Journal</a></p>
+
+<p><code>
 sudo journalctl
 </code>
 可以删除syslog-ng了</p>
 
 <h2 id="section-4">主机名</h2>
 
-<p>/etc/hostname，相当于原来rc.conf中的HOSTNAME变量
-<code>
+<p>/etc/hostname，相当于原来rc.conf中的HOSTNAME变量</p>
+
+<p><code>
 myhostname
 </code></p>
 
@@ -162,8 +168,9 @@ sudo systemctl enable NetworkManager.service
 
 <h2 id="section-6">运行级别</h2>
 
-<p>systemd用target替代了runlevel的概念，提供了更大的灵活性，如你可以继承一个已有的target，并添加其它服务，来创建自己的target
-<code>
+<p>systemd用target替代了runlevel的概念，提供了更大的灵活性，如你可以继承一个已有的target，并添加其它服务，来创建自己的target</p>
+
+<p><code>
 sudo systemctl list-units --type=target #查询当前target
 sudo systemctl isolate graphical.target #改变当前target，重启无效
 sudo systemctl enable multi-user.target #改变启动时默认target
@@ -172,14 +179,16 @@ sudo systemctl enable kdm.service #graphical是默认target，指定使用的dis
 
 <h2 id="section-7">优化</h2>
 
-<p>systemd有自己的”e4rat”
-<code>
+<p>systemd有自己的”e4rat”</p>
+
+<p><code>
 sudo systemctl enable systemd-readahead-collect.service
 sudo systemctl enable systemd-readahead-replay.service
 </code></p>
 
-<p>/etc/fstab，修改/home分区options，检查/home分区时并行启动其它服务
-<code>
+<p>/etc/fstab，修改/home分区options，检查/home分区时并行启动其它服务</p>
+
+<p><code>
 defaults,noauto,x-systemd.automount
 </code></p>
 
@@ -225,13 +234,15 @@ sudo gpasswd -a $USER vboxusers
 </code>
 virtualbox安装后，系统中多了个vboxusers用户组，只有属于该组的用户能使用虚拟机</p>
 
-<p>/etc/rc.conf
-<code>
+<p>/etc/rc.conf</p>
+
+<p><code>
 MODULES=(…… vboxdrv vboxnetflt)
 </code></p>
 
-<p>/etc/rc.local
-<code>
+<p>/etc/rc.local</p>
+
+<p><code>
 # Dry-load vbox* modules and trigger a rebuild if modprobe fails
 modprobe -nqs vbox{drv,pci,net{flt,adp}} &gt;/dev/null 2&gt;&amp;1 || ( /usr/bin/vboxbuild &amp;&amp; . /etc/rc.conf &amp;&amp; modprobe -ab ${MODULES[*]} )
 </code>
@@ -250,23 +261,26 @@ sudo gpasswd -a $USER vboxsf
 </code>
 要实现开机自动加载共享目录等功能，用户必须是vboxsf组成员，你需要手工创建该用户组</p>
 
-<p>/etc/rc.conf
-<code>
+<p>/etc/rc.conf</p>
+
+<p><code>
 MODULES=(... vboxguest vboxsf vboxvideo)
 ……
 DAEMONS=(... vbox-service ...)
 </code>
 vbox-service默认开启了很多实用功能，如与host主机同步时间，开机加载共享目录等，你也可以用VBoxService命令手动控制它们</p>
 
-<p>.xinitrc
-<code>
+<p>.xinitrc</p>
+
+<p><code>
 VBoxClient-all &amp;
 exec ck-launch-session startkde
 </code>
 VBoxClient命令提供了剪贴板共享等高级桌面功能，VBoxClient-all用来开启所有这些功能</p>
 
-<p>创建/etc/modprobe.d/blacklist.conf
-<code>
+<p>创建/etc/modprobe.d/blacklist.conf</p>
+
+<p><code>
 blacklist i2c_piix4
 </code>
 虚拟机不含SMBus系统总线，启动时udev会有报错信息，将i2c_piix4模块列入黑名单即可</p>
@@ -291,8 +305,9 @@ blacklist i2c_piix4
 <h2 id="section">显卡</h2>
 <p>笔记本是ATI显卡，我选择了开源驱动</p>
 
-<p>添加源，在/etc/pacman.conf最后添加
-<code>
+<p>添加源，在/etc/pacman.conf最后添加</p>
+
+<p><code>
 [radeon]
 Server = http://spiralinear.org/perry3d/x86_64
 </code></p>
@@ -301,14 +316,16 @@ Server = http://spiralinear.org/perry3d/x86_64
 pacman -S xf86-video-ati-git #安装驱动
 </code></p>
 
-<p>建议开机加载驱动，/etc/rc.conf
-<code>
+<p>建议开机加载驱动，/etc/rc.conf</p>
+
+<p><code>
 MODULES=(... radeon ...)
 </code></p>
 
 <h2 id="section-1">桌面</h2>
-<p>桌面我选择的是KDE
-<code>
+<p>桌面我选择的是KDE</p>
+
+<p><code>
 sudo pacman -S kdebase kde-l10n-zh_cn xorg-server xorg-xinit ttf-dejavu
 </code></p>
 
@@ -362,8 +379,9 @@ ibus-daemon -x -d</code></pre></noscript></div>
   </li>
 </ul>
 
-<p>/etc/rc.conf
-<code>
+<p>/etc/rc.conf</p>
+
+<p><code>
 DAEMONS=(... dbus ...)
 </code>
 KDE使用dbus作为进程间通信机制</p>
@@ -371,8 +389,9 @@ KDE使用dbus作为进程间通信机制</p>
 <h2 id="kdm">KDM</h2>
 <p>kdm在kdebase-workspace包里，即使是最小安装kde，也已经顺带装上了</p>
 
-<p>开机运行，建议修改/etc/inittab，取消注释以下两行
-<code>
+<p>开机运行，建议修改/etc/inittab，取消注释以下两行</p>
+
+<p><code>
 id:5:initdefault:
 ...
 x:5:respawn:/usr/bin/kdm -nodaemon
@@ -429,8 +448,9 @@ sudo pacman -S yakuake
 
 <p><a href="http://www.pendrivelinux.com/universal-usb-installer-easy-as-1-2-3/">Universal USB Installer</a>可以方便的将iso文件制作为启动U盘。这个方法的一个缺点是你要准备一个干净的U盘，上面原有的文件都会被抹去。</p>
 
-<p>其实我使用的是移动硬盘，大量文档备份转移的话会很麻烦，幸好我装有<a href="http://code.google.com/p/grub4dos-chenall/">grub4dos</a>。archlinux的iso镜像使用syslinux作为启动引导，稍微研究一下它的配置文件syslinux.cfg，可以很容易的转换为grub的配置格式，以archlinux-2011.08.19-core-x86_64.iso为例，下面是我的menu.lst
-<code>
+<p>其实我使用的是移动硬盘，大量文档备份转移的话会很麻烦，幸好我装有<a href="http://code.google.com/p/grub4dos-chenall/">grub4dos</a>。archlinux的iso镜像使用syslinux作为启动引导，稍微研究一下它的配置文件syslinux.cfg，可以很容易的转换为grub的配置格式，以archlinux-2011.08.19-core-x86_64.iso为例，下面是我的menu.lst</p>
+
+<p><code>
 title Boot Arch Linux Live CD
 kernel /arch/boot/x86_64/vmlinuz archisobasedir=arch archisolabel=MYLABEL
 initrd /arch/boot/x86_64/archiso.img
@@ -446,32 +466,27 @@ initrd /arch/boot/x86_64/archiso.img
 
 <ul>
   <li>软件源选163的，我这里能满速</li>
-  <li>网络设置如果是无线网卡，Ctrl+Alt+Fn切换到别的控制台
-<code>
+  <li>网络设置如果是无线网卡，Ctrl+Alt+Fn切换到别的控制台</li>
+</ul>
+
+<p><code>
 wpa_passphrase mywireless_ssid "secretpassphrase" &gt; /etc/wpa_supplicant.conf
 ip link set wlan0 up
 wpa_supplicant -B -Dwext -i wlan0 -c /etc/wpa_supplicant.conf
 dhcpcd wlan0 # 或者回到安装界面指定静态地址
 ip addr show wlan0
 ping www.163.com # 测试一下
-</code></li>
-  <li>分区：
-    <ul>
-      <li>我一般根目录(含boot)20G，其余给home</li>
-      <li>我现在6G内存没设swap分区，用了一阵没发现什么问题。一般就内存1-2倍，封顶1G吧（我虚拟机给了1G内存，安装程序自动分配给了256M交换分区）</li>
-      <li>分区格式ext4或btrfs</li>
-    </ul>
-  </li>
-  <li>挑选软件时只选一下sudo，我喜欢进入系统后再一点点添加</li>
-  <li>修改配置文件：
-    <ul>
-      <li>rc.conf: 设一下主机名HOSTNAME</li>
-      <li>resolv.conf: dns设置，我一般第一个设为8.8.8.8，第二dns为本地电信提供的dns地址</li>
-      <li>local.gen，选择zh_CN.utf8，使用编辑器搜索功能加快定位</li>
-      <li>设置root密码</li>
-    </ul>
-  </li>
-</ul>
+</code>
+* 分区：
+    + 我一般根目录(含boot)20G，其余给home
+    + 我现在6G内存没设swap分区，用了一阵没发现什么问题。一般就内存1-2倍，封顶1G吧（我虚拟机给了1G内存，安装程序自动分配给了256M交换分区）
+    + 分区格式ext4或btrfs
+* 挑选软件时只选一下sudo，我喜欢进入系统后再一点点添加
+* 修改配置文件：
+    + rc.conf: 设一下主机名HOSTNAME
+    + resolv.conf: dns设置，我一般第一个设为8.8.8.8，第二dns为本地电信提供的dns地址
+    + local.gen，选择zh_CN.utf8，使用编辑器搜索功能加快定位
+    + 设置root密码</p>
 
 <h2 id="section-2">第一次进入系统</h2>
 

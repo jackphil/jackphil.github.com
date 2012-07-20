@@ -4,7 +4,7 @@
   <title><![CDATA[眼中无码，心中有码]]></title>
   <link href="http://blog.jackphil.com/atom.xml" rel="self"/>
   <link href="http://blog.jackphil.com/"/>
-  <updated>2012-07-20T20:36:25+08:00</updated>
+  <updated>2012-07-20T23:40:21+08:00</updated>
   <id>http://blog.jackphil.com/</id>
   <author>
     <name><![CDATA[Jack Phil]]></name>
@@ -72,27 +72,30 @@
 
 <h2 id="color-theme">color theme</h2>
 
-<p>根据<a href="http://batsov.com/articles/2012/02/19/color-theming-in-emacs-reloaded/">Color Theming in Emacs: Reloaded</a>，Emacs24自带了几个颜色主题，我的选择是
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">(load-theme 'tango-dark t)</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
+<p>根据<a href="http://batsov.com/articles/2012/02/19/color-theming-in-emacs-reloaded/">Color Theming in Emacs: Reloaded</a>，Emacs24自带了几个颜色主题，我的选择是</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">(load-theme 'tango-dark t)</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p>原来的color-theme不兼容24，可以删除之</p>
 
 <h2 id="section">菜单栏和工具栏</h2>
 
-<p>隐藏菜单栏和工具栏，原来给变量赋值nil不再有效，其实nil不再被用来开关minor-mode，有人解释了<a href="http://stackoverflow.com/questions/9423974/emacs-menu-bar-mode-and-tool-bar-mode-automatically-set-to-t">原因</a>
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+<p>隐藏菜单栏和工具栏，原来给变量赋值nil不再有效，其实nil不再被用来开关minor-mode，有人解释了<a href="http://stackoverflow.com/questions/9423974/emacs-menu-bar-mode-and-tool-bar-mode-automatically-set-to-t">原因</a></p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">;;#隐藏菜单和工具栏
+</pre></td><td class="code"><pre><code class=""><span class="line">;;#隐藏菜单和工具栏
 </span><span class="line">(tool-bar-mode -1) 
-</span><span class="line">(menu-bar-mode -1)</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
+</span><span class="line">(menu-bar-mode -1)</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <h2 id="section-1">行号</h2>
 
-<p>setnu+是另一个引起麻烦的包，24自带的功能似乎也不错，删除之
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">M-x linum-mode</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
+<p>setnu+是另一个引起麻烦的包，24自带的功能似乎也不错，删除之</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">M-x linum-mode</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <h2 id="tabbar">tabbar</h2>
 
@@ -100,17 +103,19 @@
 
 <h2 id="elpa-emacs-lisp-package-archive">软件包管理(ELPA: Emacs Lisp Package Archive)</h2>
 
-<p>Emacs24的一大亮点是自带了<a href="Emacs Lisp Package Archive">包管理器</a>(不过并非24独享，22都可以装)，自动安装管理各种lisp功能包
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+<p>Emacs24的一大亮点是自带了<a href="Emacs Lisp Package Archive">包管理器</a>(不过并非24独享，22都可以装)，自动安装管理各种lisp功能包</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">;;#软件包服务器
+</pre></td><td class="code"><pre><code class=""><span class="line">;;#软件包服务器
 </span><span class="line">(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-</span><span class="line">			 ("marmalade" . "http://marmalade-repo.org/packages/")))</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
+</span><span class="line">			 ("marmalade" . "http://marmalade-repo.org/packages/")))</span></code></pre></td></tr></table></div></figure></notextile></div>
 
-<p>试用了一下，列出所有软件包：
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">M-x package-list-packages</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
+<p>试用了一下，列出所有软件包：</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">M-x package-list-packages</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p>C-s搜索，i标记安装，d标记删除，x执行，.emacs.d目录下会生成elpa目录</p>
 
@@ -152,6 +157,7 @@
 <!--more-->
 
 <h2 id="section">安装</h2>
+
 <div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 </pre></td><td class="code"><pre><code class=""><span class="line">sudo pacman -Rcsn sysvinit syslog-ng
@@ -185,73 +191,91 @@
 
 <h2 id="section-2">开机模块加载</h2>
 
-<p>/etc/modules-load.d/<program>.conf，相当于原rc.conf中的MODULES变量
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
-<span class="line-number">2</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line"># Load virtio-net.ko at boot
-</span><span class="line">virtio-net</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</program></p>
+<p>/etc/modules-load.d/<program>.conf，相当于原rc.conf中的MODULES变量</program></p>
 
-<p>模块黑名单仍在/etc/modprobe.d/下，如blacklist.conf:
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">blacklist badmod.ko</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class="sh"><span class="line"><span class="c"># Load virtio-net.ko at boot</span>
+</span><span class="line">virtio-net
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>模块黑名单仍在/etc/modprobe.d/下，如blacklist.conf:</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="sh"><span class="line">blacklist badmod.ko
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <h2 id="locale">Locale</h2>
-<p>/etc/locale.conf，相当于原rc.conf中的LOCALE
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+<p>/etc/locale.conf，相当于原rc.conf中的LOCALE</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">LANG=en_US.UTF-8
-</span><span class="line">LC_COLLATE=C</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
+</pre></td><td class="code"><pre><code class="sh"><span class="line"><span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8
+</span><span class="line"><span class="nv">LC_COLLATE</span><span class="o">=</span>C
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <h2 id="section-3">日志服务</h2>
-<p>systemd自带日志服务，参考<a href="http://linuxtoy.org/archives/systemd-journal.html">systemd Journal</a>
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">sudo journalctl</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;
-可以删除syslog-ng了</p>
+<p>systemd自带日志服务，参考<a href="http://linuxtoy.org/archives/systemd-journal.html">systemd Journal</a></p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="sh"><span class="line">sudo journalctl
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+<p>可以删除syslog-ng了</p>
 
 <h2 id="section-4">主机名</h2>
 
-<p>/etc/hostname，相当于原来rc.conf中的HOSTNAME变量
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">myhostname</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
+<p>/etc/hostname，相当于原来rc.conf中的HOSTNAME变量</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="sh"><span class="line">myhostname
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <h2 id="section-5">网络</h2>
 
-<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">sudo systemctl enable NetworkManager.service</span></code></pre></td></tr></table></div></figure></notextile></div>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="sh"><span class="line">sudo systemctl <span class="nb">enable </span>NetworkManager.service
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 <p>不象rc.conf有专门的配置简单网络的地方，还是用NetworkManager、wicd之类的工具吧</p>
 
 <p>如果你坚持使用简单静态配置，可以参考<a href="https://bbs.archlinux.org/viewtopic.php?pid=1110003">[SOLVED] static ethernet setup under systemd?</a></p>
 
 <h2 id="section-6">运行级别</h2>
 
-<p>systemd用target替代了runlevel的概念，提供了更大的灵活性，如你可以继承一个已有的target，并添加其它服务，来创建自己的target
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+<p>systemd用target替代了runlevel的概念，提供了更大的灵活性，如你可以继承一个已有的target，并添加其它服务，来创建自己的target</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
 <span class="line-number">4</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">sudo systemctl list-units --type=target #查询当前target
-</span><span class="line">sudo systemctl isolate graphical.target #改变当前target，重启无效
-</span><span class="line">sudo systemctl enable multi-user.target #改变启动时默认target
-</span><span class="line">sudo systemctl enable kdm.service #graphical是默认target，指定使用的display manager</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
+</pre></td><td class="code"><pre><code class="sh"><span class="line">sudo systemctl list-units --type<span class="o">=</span>target <span class="c">#查询当前target</span>
+</span><span class="line">sudo systemctl isolate graphical.target <span class="c">#改变当前target，重启无效</span>
+</span><span class="line">sudo systemctl <span class="nb">enable </span>multi-user.target <span class="c">#改变启动时默认target</span>
+</span><span class="line">sudo systemctl <span class="nb">enable </span>kdm.service <span class="c">#graphical是默认target，指定使用的display manager</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <h2 id="section-7">优化</h2>
 
-<p>systemd有自己的”e4rat”
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
-<span class="line-number">2</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">sudo systemctl enable systemd-readahead-collect.service
-</span><span class="line">sudo systemctl enable systemd-readahead-replay.service</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
+<p>systemd有自己的”e4rat”</p>
 
-<p>/etc/fstab，修改/home分区options，检查/home分区时并行启动其它服务
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">defaults,noauto,x-systemd.automount</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class="sh"><span class="line">sudo systemctl <span class="nb">enable </span>systemd-readahead-collect.service
+</span><span class="line">sudo systemctl <span class="nb">enable </span>systemd-readahead-replay.service
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>/etc/fstab，修改/home分区options，检查/home分区时并行启动其它服务</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="sh"><span class="line">defaults,noauto,x-systemd.automount
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <h2 id="section-8">其他</h2>
 
-<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">sudo systemctl reboot #systemctl还有系统关机、重启、挂起等功能
-</span><span class="line">sudo systemctl suspend</span></code></pre></td></tr></table></div></figure></notextile></div>
+</pre></td><td class="code"><pre><code class="sh"><span class="line">sudo systemctl reboot <span class="c">#systemctl还有系统关机、重启、挂起等功能</span>
+</span><span class="line">sudo systemctl <span class="nb">suspend</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <h2 id="section-9">参考资源</h2>
 
@@ -288,16 +312,18 @@
 </span><span class="line">sudo gpasswd -a $USER vboxusers</span></code></pre></td></tr></table></div></figure></notextile></div>
 <p>virtualbox安装后，系统中多了个vboxusers用户组，只有属于该组的用户能使用虚拟机</p>
 
-<p>/etc/rc.conf
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">MODULES=(…… vboxdrv vboxnetflt)</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
+<p>/etc/rc.conf</p>
 
-<p>/etc/rc.local
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">MODULES=(…… vboxdrv vboxnetflt)</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>/etc/rc.local</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line"># Dry-load vbox* modules and trigger a rebuild if modprobe fails
-</span><span class="line">modprobe -nqs vbox{drv,pci,net{flt,adp}} &gt;/dev/null 2&gt;&amp;1 || ( /usr/bin/vboxbuild &amp;&amp; . /etc/rc.conf &amp;&amp; modprobe -ab ${MODULES[*]} )</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;
-内核更新后需要重新编译模块，上面提供的方案先尝试加载模块，如果失败则自动编译</p>
+</pre></td><td class="code"><pre><code class=""><span class="line"># Dry-load vbox* modules and trigger a rebuild if modprobe fails
+</span><span class="line">modprobe -nqs vbox{drv,pci,net{flt,adp}} &gt;/dev/null 2&gt;&amp;1 || ( /usr/bin/vboxbuild &amp;&amp; . /etc/rc.conf &amp;&amp; modprobe -ab ${MODULES[*]} )</span></code></pre></td></tr></table></div></figure></notextile></div>
+<p>内核更新后需要重新编译模块，上面提供的方案先尝试加载模块，如果失败则自动编译</p>
 
 <p><a href="https://wiki.archlinux.org/index.php/VirtualBox#Automatic_re-compilation_of_the_virtualbox_modules_with_every_kernel_update">官方wiki</a>上现在推荐的方法是使用mkinitcpio hook，以便在内核更新时会自动编译，相关hook在aur中</p>
 
@@ -313,26 +339,29 @@
 </span><span class="line">sudo gpasswd -a $USER vboxsf</span></code></pre></td></tr></table></div></figure></notextile></div>
 <p>要实现开机自动加载共享目录等功能，用户必须是vboxsf组成员，你需要手工创建该用户组</p>
 
-<p>/etc/rc.conf
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+<p>/etc/rc.conf</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">MODULES=(... vboxguest vboxsf vboxvideo)
+</pre></td><td class="code"><pre><code class=""><span class="line">MODULES=(... vboxguest vboxsf vboxvideo)
 </span><span class="line">……
-</span><span class="line">DAEMONS=(... vbox-service ...)</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;
-vbox-service默认开启了很多实用功能，如与host主机同步时间，开机加载共享目录等，你也可以用VBoxService命令手动控制它们</p>
+</span><span class="line">DAEMONS=(... vbox-service ...)</span></code></pre></td></tr></table></div></figure></notextile></div>
+<p>vbox-service默认开启了很多实用功能，如与host主机同步时间，开机加载共享目录等，你也可以用VBoxService命令手动控制它们</p>
 
-<p>.xinitrc
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+<p>.xinitrc</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">VBoxClient-all &amp;
-</span><span class="line">exec ck-launch-session startkde</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;
-VBoxClient命令提供了剪贴板共享等高级桌面功能，VBoxClient-all用来开启所有这些功能</p>
+</pre></td><td class="code"><pre><code class=""><span class="line">VBoxClient-all &amp;
+</span><span class="line">exec ck-launch-session startkde</span></code></pre></td></tr></table></div></figure></notextile></div>
+<p>VBoxClient命令提供了剪贴板共享等高级桌面功能，VBoxClient-all用来开启所有这些功能</p>
 
-<p>创建/etc/modprobe.d/blacklist.conf
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">blacklist i2c_piix4</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;
-虚拟机不含SMBus系统总线，启动时udev会有报错信息，将i2c_piix4模块列入黑名单即可</p>
+<p>创建/etc/modprobe.d/blacklist.conf</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">blacklist i2c_piix4</span></code></pre></td></tr></table></div></figure></notextile></div>
+<p>虚拟机不含SMBus系统总线，启动时udev会有报错信息，将i2c_piix4模块列入黑名单即可</p>
 
 <h2 id="section">技巧及其它</h2>
 
@@ -354,23 +383,26 @@ VBoxClient命令提供了剪贴板共享等高级桌面功能，VBoxClient-all�
 <h2 id="section">显卡</h2>
 <p>笔记本是ATI显卡，我选择了开源驱动</p>
 
-<p>添加源，在/etc/pacman.conf最后添加
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+<p>添加源，在/etc/pacman.conf最后添加</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">[radeon]
-</span><span class="line">Server = http://spiralinear.org/perry3d/x86_64</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
+</pre></td><td class="code"><pre><code class=""><span class="line">[radeon]
+</span><span class="line">Server = http://spiralinear.org/perry3d/x86_64</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 </pre></td><td class="code"><pre><code class=""><span class="line">pacman -S xf86-video-ati-git #安装驱动</span></code></pre></td></tr></table></div></figure></notextile></div>
 
-<p>建议开机加载驱动，/etc/rc.conf
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">MODULES=(... radeon ...)</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
+<p>建议开机加载驱动，/etc/rc.conf</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">MODULES=(... radeon ...)</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <h2 id="section-1">桌面</h2>
-<p>桌面我选择的是KDE
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">sudo pacman -S kdebase kde-l10n-zh_cn xorg-server xorg-xinit ttf-dejavu</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
+<p>桌面我选择的是KDE</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">sudo pacman -S kdebase kde-l10n-zh_cn xorg-server xorg-xinit ttf-dejavu</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <ul>
   <li>我这里选择了最小安装: kdebase</li>
@@ -419,21 +451,23 @@ ibus-daemon -x -d</code></pre></noscript></div>
   <li>xorg的配置文件在/etc/X11/xorg.conf.d/目录下，你可以依样创建自己的配置文件，不过现在大部分情况下，xorg都能很好的识别设备（显卡、鼠标键盘等）并加载相应的模块，不需要额外配置</li>
 </ul>
 
-<p>/etc/rc.conf
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">DAEMONS=(... dbus ...)</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;
-KDE使用dbus作为进程间通信机制</p>
+<p>/etc/rc.conf</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">DAEMONS=(... dbus ...)</span></code></pre></td></tr></table></div></figure></notextile></div>
+<p>KDE使用dbus作为进程间通信机制</p>
 
 <h2 id="kdm">KDM</h2>
 <p>kdm在kdebase-workspace包里，即使是最小安装kde，也已经顺带装上了</p>
 
-<p>开机运行，建议修改/etc/inittab，取消注释以下两行
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+<p>开机运行，建议修改/etc/inittab，取消注释以下两行</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">id:5:initdefault:
+</pre></td><td class="code"><pre><code class=""><span class="line">id:5:initdefault:
 </span><span class="line">...
-</span><span class="line">x:5:respawn:/usr/bin/kdm -nodaemon</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
+</span><span class="line">x:5:respawn:/usr/bin/kdm -nodaemon</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p>可以在登录KDE后，在”系统设置””-“登录屏幕”中进行设置，如你可以在”便利”标签下设置开机自动登录</p>
 
@@ -485,13 +519,14 @@ KDE使用dbus作为进程间通信机制</p>
 
 <p><a href="http://www.pendrivelinux.com/universal-usb-installer-easy-as-1-2-3/">Universal USB Installer</a>可以方便的将iso文件制作为启动U盘。这个方法的一个缺点是你要准备一个干净的U盘，上面原有的文件都会被抹去。</p>
 
-<p>其实我使用的是移动硬盘，大量文档备份转移的话会很麻烦，幸好我装有<a href="http://code.google.com/p/grub4dos-chenall/">grub4dos</a>。archlinux的iso镜像使用syslinux作为启动引导，稍微研究一下它的配置文件syslinux.cfg，可以很容易的转换为grub的配置格式，以archlinux-2011.08.19-core-x86_64.iso为例，下面是我的menu.lst
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+<p>其实我使用的是移动硬盘，大量文档备份转移的话会很麻烦，幸好我装有<a href="http://code.google.com/p/grub4dos-chenall/">grub4dos</a>。archlinux的iso镜像使用syslinux作为启动引导，稍微研究一下它的配置文件syslinux.cfg，可以很容易的转换为grub的配置格式，以archlinux-2011.08.19-core-x86_64.iso为例，下面是我的menu.lst</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">title Boot Arch Linux Live CD
+</pre></td><td class="code"><pre><code class=""><span class="line">title Boot Arch Linux Live CD
 </span><span class="line">kernel /arch/boot/x86_64/vmlinuz archisobasedir=arch archisolabel=MYLABEL
-</span><span class="line">initrd /arch/boot/x86_64/archiso.img</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
+</span><span class="line">initrd /arch/boot/x86_64/archiso.img</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <ul>
   <li>你只需把iso中arch目录拷贝到移动硬盘根目录即可</li>
@@ -503,30 +538,39 @@ KDE使用dbus作为进程间通信机制</p>
 
 <ul>
   <li>软件源选163的，我这里能满速</li>
-  <li>网络设置如果是无线网卡，Ctrl+Alt+Fn切换到别的控制台
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+  <li>网络设置如果是无线网卡，Ctrl+Alt+Fn切换到别的控制台</li>
+</ul>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
 <span class="line-number">4</span>
 <span class="line-number">5</span>
-<span class="line-number">6</span></figure></notextile></li>
-</ul>
-<p>&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">wpa_passphrase mywireless_ssid "secretpassphrase" &gt; /etc/wpa_supplicant.conf
+<span class="line-number">6</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">wpa_passphrase mywireless_ssid "secretpassphrase" &gt; /etc/wpa_supplicant.conf
 </span><span class="line">ip link set wlan0 up
 </span><span class="line">wpa_supplicant -B -Dwext -i wlan0 -c /etc/wpa_supplicant.conf
 </span><span class="line">dhcpcd wlan0 # 或者回到安装界面指定静态地址
 </span><span class="line">ip addr show wlan0
-</span><span class="line">ping www.163.com # 测试一下</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;&lt;/notextile&gt;&lt;/div&gt;
-* 分区：
-    + 我一般根目录(含boot)20G，其余给home
-    + 我现在6G内存没设swap分区，用了一阵没发现什么问题。一般就内存1-2倍，封顶1G吧（我虚拟机给了1G内存，安装程序自动分配给了256M交换分区）
-    + 分区格式ext4或btrfs
-* 挑选软件时只选一下sudo，我喜欢进入系统后再一点点添加
-* 修改配置文件：
-    + rc.conf: 设一下主机名HOSTNAME
-    + resolv.conf: dns设置，我一般第一个设为8.8.8.8，第二dns为本地电信提供的dns地址
-    + local.gen，选择zh_CN.utf8，使用编辑器搜索功能加快定位
-    + 设置root密码</p>
+</span><span class="line">ping www.163.com # 测试一下</span></code></pre></td></tr></table></div></figure></notextile></div>
+<ul>
+  <li>分区：
+    <ul>
+      <li>我一般根目录(含boot)20G，其余给home</li>
+      <li>我现在6G内存没设swap分区，用了一阵没发现什么问题。一般就内存1-2倍，封顶1G吧（我虚拟机给了1G内存，安装程序自动分配给了256M交换分区）</li>
+      <li>分区格式ext4或btrfs</li>
+    </ul>
+  </li>
+  <li>挑选软件时只选一下sudo，我喜欢进入系统后再一点点添加</li>
+  <li>修改配置文件：
+    <ul>
+      <li>rc.conf: 设一下主机名HOSTNAME</li>
+      <li>resolv.conf: dns设置，我一般第一个设为8.8.8.8，第二dns为本地电信提供的dns地址</li>
+      <li>local.gen，选择zh_CN.utf8，使用编辑器搜索功能加快定位</li>
+      <li>设置root密码</li>
+    </ul>
+  </li>
+</ul>
 
 <h2 id="section-2">第一次进入系统</h2>
 
@@ -605,9 +649,11 @@ KDE使用dbus作为进程间通信机制</p>
 
 <h2 id="hboot-1">硬解的HBOOT</h2>
 
-<p>有些水货机卖家已经给你硬解，特征是HBOOT界面S-OFF信息在第一行，这种机用上面的fastboot刷recovery会出现如下错误
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">writing 'recovery' ... FAILED (remote: not allowed)</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
+<p>有些水货机卖家已经给你硬解，特征是HBOOT界面S-OFF信息在第一行，这种机用上面的fastboot刷recovery会出现如下错误</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="sh"><span class="line">writing <span class="s1">&#39;recovery&#39;</span> ... FAILED <span class="o">(</span>remote: not allowed<span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p>建议用AlpharevX再软解一遍。之后就可以用fastboot随便刷recovery了。</p>
 
@@ -678,33 +724,37 @@ KDE使用dbus作为进程间通信机制</p>
 <h3 id="nepomuk">关闭Nepomuk</h3>
 <p>Nepomuk是KDE4的核心组件，仍不掉，唯一的办法只能关掉它！</p>
 
-<p>打开 ~/.kde4/share/config/nepomukserverrc，将“Start Nepomuk”设置为false（你也可以在系统设置-桌面搜索中，不启用Nepomuk语义学桌面来关闭）
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
-<span class="line-number">2</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">[Basic Settings]
-</span><span class="line">Start Nepomuk=false</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
+<p>打开 ~/.kde4/share/config/nepomukserverrc，将“Start Nepomuk”设置为false（你也可以在系统设置-桌面搜索中，不启用Nepomuk语义学桌面来关闭）</p>
 
-<p>打开~/.kde4/share/config/kdedrc，将nepomuksearchmodule的“autoload”设置为false:
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">[Module-nepomuksearchmodule]
-</span><span class="line">autoload=false</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;
-Strigi依赖Nepomuk，关闭Nepomuk后，Strigi也就自动关闭了</p>
+</pre></td><td class="code"><pre><code class=""><span class="line">[Basic Settings]
+</span><span class="line">Start Nepomuk=false</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>打开~/.kde4/share/config/kdedrc，将nepomuksearchmodule的“autoload”设置为false:</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">[Module-nepomuksearchmodule]
+</span><span class="line">autoload=false</span></code></pre></td></tr></table></div></figure></notextile></div>
+<p>Strigi依赖Nepomuk，关闭Nepomuk后，Strigi也就自动关闭了</p>
 
 <h3 id="akonadi">关闭Akonadi</h3>
 <p>Akonadi作为PIM数据统一存取框架，与Nepomuk相对独立，需要单独关闭</p>
 
-<p>打开~/.config/akonadi/akonadiserverrc，设置“StartServer”为false
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+<p>打开~/.config/akonadi/akonadiserverrc，设置“StartServer”为false</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">[QMYSQL]
-</span><span class="line">StartServer=false</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;
-事实上根据<a href="http://userbase.kde.org/Akonadi#Disabling_the_Akonadi_subsystem">KDE Userbase</a>的说法，这个设置也只是不自动启动Akonadi server而已，如果某个应用需要akonadi它还会按需启动，相当于Windows服务管理中的”手动”，坏消息是没有提供”禁止”功能</p>
+</pre></td><td class="code"><pre><code class=""><span class="line">[QMYSQL]
+</span><span class="line">StartServer=false</span></code></pre></td></tr></table></div></figure></notextile></div>
+<p>事实上根据<a href="http://userbase.kde.org/Akonadi#Disabling_the_Akonadi_subsystem">KDE Userbase</a>的说法，这个设置也只是不自动启动Akonadi server而已，如果某个应用需要akonadi它还会按需启动，相当于Windows服务管理中的”手动”，坏消息是没有提供”禁止”功能</p>
 
 <p>我的测试环境下，Akonadi服务还是会自动启动(没找到是哪个应用触发了它)，所以选用了MySQL后端，但不配置相应的MySQL数据库，甚至大多数情况下，KDE启动的时候MySQL服务都没启动，Akonadi启动失败，自动停止。使用SQLITE后端的话，由于不需要数据库特殊配置，就会成功启动</p>
 
-<p>你可以使用命令行控制Akonadi服务
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+<p>你可以使用命令行控制Akonadi服务</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
 <span class="line-number">4</span>
@@ -713,7 +763,7 @@ Strigi依赖Nepomuk，关闭Nepomuk后，Strigi也就自动关闭了</p>
 <span class="line-number">7</span>
 <span class="line-number">8</span>
 <span class="line-number">9</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">ubuntuku@satellite:~$ akonadictl --help
+</pre></td><td class="code"><pre><code class=""><span class="line">ubuntuku@satellite:~$ akonadictl --help
 </span><span class="line">Akonadi server manipulation tool
 </span><span class="line">Usage: akonadictl [command]
 </span><span class="line"> 
@@ -721,7 +771,7 @@ Strigi依赖Nepomuk，关闭Nepomuk后，Strigi也就自动关闭了</p>
 </span><span class="line">  start      : Starts the Akonadi server with all its processes
 </span><span class="line">  stop       : Stops the Akonadi server and all its processes cleanly
 </span><span class="line">  restart    : Restart Akonadi server with all its processes
-</span><span class="line">  status     : Shows a status overview of the Akonadi server</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
+</span><span class="line">  status     : Shows a status overview of the Akonadi server</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <h3 id="section-2">一些清理</h3>
 <p>清理并不必须，有些甚至还会再次自动生成，只是纯粹出于个人爱好</p>
@@ -827,17 +877,17 @@ Strigi依赖Nepomuk，关闭Nepomuk后，Strigi也就自动关闭了</p>
 
 <div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
-</pre></td><td class="code"><pre><code class="bash"><span class="line">sed -e <span class="s1">&#39;s:\(.\)\(}}}\):\1\n\2:&#39;</span> inputfile
+</pre></td><td class="code"><pre><code class="sh"><span class="line">sed -e <span class="s1">&#39;s:\(.\)\(}}}\):\1\n\2:&#39;</span> inputfile
 </span><span class="line">sed -e <span class="s1">&#39;s:\({{{\)\([^\n]\):\1\n\2:&#39;</span> inputfile
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 
-<p>这是我升级MoinMoin时用过的，旧版{{{和}}}允许与内容在同一行，新版必须单独一行。用圆括号分组（注意带反斜杠），
+<p>这是我升级MoinMoin时用过的，旧版 <code>{{{</code> 和 <code>}}}</code> 允许与内容在同一行，新版必须单独一行。用圆括号分组（注意带反斜杠），
 按出现顺序编号引用（同样注意使用反斜杠）。</p>
 
 <h3 id="sed">sed脚本</h3>
 
 <div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-</pre></td><td class="code"><pre><code class="bash"><span class="line"> <span class="c">#!/bin/sed -f</span>
+</pre></td><td class="code"><pre><code class="sh"><span class="line"> <span class="c">#!/bin/sed -f</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <h2 id="section-7">参考资料</h2>
@@ -976,21 +1026,23 @@ Strigi依赖Nepomuk，关闭Nepomuk后，Strigi也就自动关闭了</p>
 </pre></td><td class="code"><pre><code class=""><span class="line">sudo pacman -S openssh # ssh-keygen在openssh包里
 </span><span class="line">ssh-keygen -t rsa</span></code></pre></td></tr></table></div></figure></notextile></div>
 
-<p>一路默认回车即可。你也可以在出现如下提示时为你的私钥添加密码短句进行加密
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+<p>一路默认回车即可。你也可以在出现如下提示时为你的私钥添加密码短句进行加密</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">Enter passphrase (empty for no passphrase):
-</span><span class="line">Enter same passphrase again:</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
+</pre></td><td class="code"><pre><code class=""><span class="line">Enter passphrase (empty for no passphrase):
+</span><span class="line">Enter same passphrase again:</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <h2 id="github">配置github</h2>
 <p>默认会在~/.ssh目录下生成私钥id_rsa和公钥id_rsa.pub，将公钥文件内容添加到github.com：账户设置-SSH Keys</p>
 
 <p>根据<a href="http://help.github.com/linux-set-up-git/">github官方文档</a>，一些教程里提到的GitHub token不再会有支持</p>
 
-<p>你可以测试一下
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">ssh -T git@github.com</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;
-如果出现You’ve successfully authenticated字样，说明一切正常</p>
+<p>你可以测试一下</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">ssh -T git@github.com</span></code></pre></td></tr></table></div></figure></notextile></div>
+<p>如果出现You’ve successfully authenticated字样，说明一切正常</p>
 
 <h2 id="passphrase">安全但麻烦的passphrase(密码短句)</h2>
 <p>如果你在生成密钥对时设置了密码短句，则每次提交连接github都会询问你密码短句来解密私钥，我虽然平时除了github，很少用到ssh，但也颇感麻烦，一个简单解决办法是使用ssh-agent</p>
@@ -1019,15 +1071,17 @@ Strigi依赖Nepomuk，关闭Nepomuk后，Strigi也就自动关闭了</p>
     <id>http://blog.jackphil.com/blog/2012/05/16/archlinuxgeng-xin-ji-lu-20120516</id>
     <content type="html"><![CDATA[<p>某次更新系统后重启，发现有触目的红色警告，由于屏幕滚动很快，没看清具体是什么内容。遂去/etc/rc.local中添加一句read，以使启动最后暂停，等待用户输入，任意键继续。</p>
 
-<p>这次看清是ALSA出错了
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
-<span class="line-number">2</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">Unknown hardware "foo" "bar" ...
-</span><span class="line">Hardware is initialized using a guess method</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
+<p>这次看清是ALSA出错了</p>
 
-<p>搜索后发现可能跟内核升级有关，解决也很简单
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">sudo alsactl -f /var/lib/alsa/asound.state store</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">Unknown hardware "foo" "bar" ...
+</span><span class="line">Hardware is initialized using a guess method</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>搜索后发现可能跟内核升级有关，解决也很简单</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">sudo alsactl -f /var/lib/alsa/asound.state store</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p>参考：<a href="https://wiki.archlinux.org/index.php/Advanced_Linux_Sound_Architecture#Error_.27Unkown_hardware.27_Appears_After_a_Kernel_Update">Error ‘Unkown hardware’ Appears After a Kernel Update</a></p>
 ]]></content>
@@ -1052,21 +1106,27 @@ Strigi依赖Nepomuk，关闭Nepomuk后，Strigi也就自动关闭了</p>
 <p>这里说的是文件名，并不影响你的文章标题中包含中文标点。你可以在文章内文的yaml front matter中的title字段随意使用中文标点，</p>
 
 <h2 id="section-1">分享按钮</h2>
+
 <p>我选择了<a href="http://share.baidu.com">百度分享</a>，将获得的代码添加到source/_includes/post/sharing.html，你也可以依样画葫芦，把代码放在模板if结构中，</p>
 
-<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">{% if site.baidu_share %}
+</pre></td><td class="code"><pre><code class="sh"><span class="line"><span class="o">{</span>% <span class="k">if </span>site.baidu_share %<span class="o">}</span>
 </span><span class="line">代码
-</span><span class="line">{$ endif %}</span></code></pre></td></tr></table></div></figure></notextile></div>
-<p>别忘了在_config.yml定义一下开关，如
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+</span><span class="line"><span class="o">{</span>% endif %<span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>别忘了在_config.yml定义一下开关，如</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line"># 百度分享
-</span><span class="line">baidu_share: true</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
+</pre></td><td class="code"><pre><code class="sh"><span class="line">// 百度分享
+</span><span class="line">baidu_share: <span class="nb">true</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <h2 id="section-2">微薄秀</h2>
+
 <p>微博秀参考了<a href="http://programus.github.com/blog/2012/03/03/add-weibo-sidebar-into-octopress/">程序猎人的文章</a>，不过</p>
 
 <ul>
@@ -1074,7 +1134,7 @@ Strigi依赖Nepomuk，关闭Nepomuk后，Strigi也就自动关闭了</p>
   <li>根据_confit.yml中default_asides的注释，把weibo.html放在了/source/_includes/custom/asides/目录下</li>
 </ul>
 
-<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
 <span class="line-number">4</span>
@@ -1091,28 +1151,29 @@ Strigi依赖Nepomuk，关闭Nepomuk后，Strigi也就自动关闭了</p>
 <span class="line-number">15</span>
 <span class="line-number">16</span>
 <span class="line-number">17</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">{% if site.weibo_sina %}
+</pre></td><td class="code"><pre><code class="sh"><span class="line"><span class="o">{</span>% <span class="k">if </span>site.weibo_sina %<span class="o">}</span>
 </span><span class="line">&lt;section&gt;
 </span><span class="line">  &lt;h1&gt;新浪微博&lt;/h1&gt;
-</span><span class="line">  &lt;ul id="weibo"&gt;
+</span><span class="line">  &lt;ul <span class="nv">id</span><span class="o">=</span><span class="s2">&quot;weibo&quot;</span>&gt;
 </span><span class="line">    &lt;li&gt;
-</span><span class="line">      &lt;iframe 
-</span><span class="line">        width="100%" 
-</span><span class="line">        height="550" 
-</span><span class="line">        class="share_self" 
-</span><span class="line">        frameborder="0" 
-</span><span class="line">        scrolling="no" 
-</span><span class="line">        src="http://widget.weibo.com/weiboshow/index.php?language=&amp;width=0&amp;height=550&amp;fansRow=2&amp;ptype=1&amp;speed=0&amp;skin=1&amp;isTitle=1&amp;noborder=1&amp;isWeibo=1&amp;isFans=1&amp;uid=2039187623&amp;verifier=e0a28d12&amp;dpc=1"&gt;
+</span><span class="line">      &lt;iframe
+</span><span class="line">        <span class="nv">width</span><span class="o">=</span><span class="s2">&quot;100%&quot;</span>
+</span><span class="line">        <span class="nv">height</span><span class="o">=</span><span class="s2">&quot;550&quot;</span>
+</span><span class="line">        <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;share_self&quot;</span>
+</span><span class="line">        <span class="nv">frameborder</span><span class="o">=</span><span class="s2">&quot;0&quot;</span>
+</span><span class="line">        <span class="nv">scrolling</span><span class="o">=</span><span class="s2">&quot;no&quot;</span>
+</span><span class="line">        <span class="nv">src</span><span class="o">=</span><span class="s2">&quot;http://widget.weibo.com/weiboshow/index.php?language=&amp;width=0&amp;height=550&amp;fansRow=2&amp;ptype=1&amp;speed=0&amp;skin=1&amp;isTitle=1&amp;noborder=1&amp;isWeibo=1&amp;isFans=1&amp;uid=2039187623&amp;verifier=e0a28d12&amp;dpc=1&quot;</span>&gt;
 </span><span class="line">      &lt;/iframe&gt;
 </span><span class="line">    &lt;/li&gt;
 </span><span class="line">  &lt;/ul&gt;
 </span><span class="line">&lt;/section&gt;
-</span><span class="line">{% endif %}</span></code></pre></td></tr></table></div></figure></notextile></div>
-<p>`</p>
+</span><span class="line"><span class="o">{</span>% endif %<span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p>别忘了在_config.yml中的default_asides列表中添加微博秀并在文件尾添加开关</p>
 
 <h2 id="disqus">DISQUS评论</h2>
+
 <p>DISQUS评论功能是内置的，开启很简单</p>
 
 <ul>

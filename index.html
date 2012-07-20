@@ -194,27 +194,30 @@ MathJax.Hub.Config({
 
 <h2 id="color-theme">color theme</h2>
 
-<p>根据<a href="http://batsov.com/articles/2012/02/19/color-theming-in-emacs-reloaded/">Color Theming in Emacs: Reloaded</a>，Emacs24自带了几个颜色主题，我的选择是
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">(load-theme 'tango-dark t)</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
+<p>根据<a href="http://batsov.com/articles/2012/02/19/color-theming-in-emacs-reloaded/">Color Theming in Emacs: Reloaded</a>，Emacs24自带了几个颜色主题，我的选择是</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">(load-theme 'tango-dark t)</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p>原来的color-theme不兼容24，可以删除之</p>
 
 <h2 id="section">菜单栏和工具栏</h2>
 
-<p>隐藏菜单栏和工具栏，原来给变量赋值nil不再有效，其实nil不再被用来开关minor-mode，有人解释了<a href="http://stackoverflow.com/questions/9423974/emacs-menu-bar-mode-and-tool-bar-mode-automatically-set-to-t">原因</a>
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+<p>隐藏菜单栏和工具栏，原来给变量赋值nil不再有效，其实nil不再被用来开关minor-mode，有人解释了<a href="http://stackoverflow.com/questions/9423974/emacs-menu-bar-mode-and-tool-bar-mode-automatically-set-to-t">原因</a></p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">;;#隐藏菜单和工具栏
+</pre></td><td class="code"><pre><code class=""><span class="line">;;#隐藏菜单和工具栏
 </span><span class="line">(tool-bar-mode -1) 
-</span><span class="line">(menu-bar-mode -1)</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
+</span><span class="line">(menu-bar-mode -1)</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <h2 id="section-1">行号</h2>
 
-<p>setnu+是另一个引起麻烦的包，24自带的功能似乎也不错，删除之
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">M-x linum-mode</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
+<p>setnu+是另一个引起麻烦的包，24自带的功能似乎也不错，删除之</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">M-x linum-mode</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <h2 id="tabbar">tabbar</h2>
 
@@ -222,17 +225,19 @@ MathJax.Hub.Config({
 
 <h2 id="elpa-emacs-lisp-package-archive">软件包管理(ELPA: Emacs Lisp Package Archive)</h2>
 
-<p>Emacs24的一大亮点是自带了<a href="Emacs Lisp Package Archive">包管理器</a>(不过并非24独享，22都可以装)，自动安装管理各种lisp功能包
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+<p>Emacs24的一大亮点是自带了<a href="Emacs Lisp Package Archive">包管理器</a>(不过并非24独享，22都可以装)，自动安装管理各种lisp功能包</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">;;#软件包服务器
+</pre></td><td class="code"><pre><code class=""><span class="line">;;#软件包服务器
 </span><span class="line">(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-</span><span class="line">			 ("marmalade" . "http://marmalade-repo.org/packages/")))</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
+</span><span class="line">			 ("marmalade" . "http://marmalade-repo.org/packages/")))</span></code></pre></td></tr></table></div></figure></notextile></div>
 
-<p>试用了一下，列出所有软件包：
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">M-x package-list-packages</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
+<p>试用了一下，列出所有软件包：</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">M-x package-list-packages</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p>C-s搜索，i标记安装，d标记删除，x执行，.emacs.d目录下会生成elpa目录</p>
 

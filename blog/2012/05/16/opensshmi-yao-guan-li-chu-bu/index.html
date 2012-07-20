@@ -121,21 +121,23 @@ MathJax.Hub.Config({
 </pre></td><td class="code"><pre><code class=""><span class="line">sudo pacman -S openssh # ssh-keygen在openssh包里
 </span><span class="line">ssh-keygen -t rsa</span></code></pre></td></tr></table></div></figure></notextile></div>
 
-<p>一路默认回车即可。你也可以在出现如下提示时为你的私钥添加密码短句进行加密
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+<p>一路默认回车即可。你也可以在出现如下提示时为你的私钥添加密码短句进行加密</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">Enter passphrase (empty for no passphrase):
-</span><span class="line">Enter same passphrase again:</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
+</pre></td><td class="code"><pre><code class=""><span class="line">Enter passphrase (empty for no passphrase):
+</span><span class="line">Enter same passphrase again:</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <h2 id="github">配置github</h2>
 <p>默认会在~/.ssh目录下生成私钥id_rsa和公钥id_rsa.pub，将公钥文件内容添加到github.com：账户设置-SSH Keys</p>
 
 <p>根据<a href="http://help.github.com/linux-set-up-git/">github官方文档</a>，一些教程里提到的GitHub token不再会有支持</p>
 
-<p>你可以测试一下
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">ssh -T git@github.com</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;
-如果出现You’ve successfully authenticated字样，说明一切正常</p>
+<p>你可以测试一下</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">ssh -T git@github.com</span></code></pre></td></tr></table></div></figure></notextile></div>
+<p>如果出现You’ve successfully authenticated字样，说明一切正常</p>
 
 <h2 id="passphrase">安全但麻烦的passphrase(密码短句)</h2>
 <p>如果你在生成密钥对时设置了密码短句，则每次提交连接github都会询问你密码短句来解密私钥，我虽然平时除了github，很少用到ssh，但也颇感麻烦，一个简单解决办法是使用ssh-agent</p>
@@ -191,6 +193,24 @@ MathJax.Hub.Config({
       <div class="sharing">
   
   
+  
+  
+    <!-- Baidu Button BEGIN -->
+    <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare">
+        <a class="bds_qzone"></a>
+        <a class="bds_tsina"></a>
+        <a class="bds_tqq"></a>
+        <a class="bds_renren"></a>
+        <a class="bds_douban"></a>
+        <span class="bds_more">更多</span>
+		<a class="shareCount"></a>
+    </div>
+    <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=685719" ></script>
+    <script type="text/javascript" id="bdshell_js"></script>
+    <script type="text/javascript">
+	document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours();
+    </script>
+<!-- Baidu Button END -->
   
 </div>
 
