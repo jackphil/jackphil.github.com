@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.jackphil.com/blog/2012/05/30/archlinuxjian-yi-an-zhuang-zhi-nan">
+  <link rel="canonical" href="http://blog.jackphil.com/blog/2012/05/30/archlinuxjian-yi-an-zhuang-zhi-nan/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -28,6 +28,23 @@
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+
 
   
 
@@ -96,83 +113,63 @@
 
 <!--more-->
 
-
-<h2>准备安装环境</h2>
+<h2 id="section">准备安装环境</h2>
 
 <p>我喜欢U盘安装，绿色方便，格式化硬盘什么的也没有限制</p>
 
 <p><a href="http://www.pendrivelinux.com/universal-usb-installer-easy-as-1-2-3/">Universal USB Installer</a>可以方便的将iso文件制作为启动U盘。这个方法的一个缺点是你要准备一个干净的U盘，上面原有的文件都会被抹去。</p>
 
-<p>其实我使用的是移动硬盘，大量文档备份转移的话会很麻烦，幸好我装有<a href="http://code.google.com/p/grub4dos-chenall/">grub4dos</a>。archlinux的iso镜像使用syslinux作为启动引导，稍微研究一下它的配置文件syslinux.cfg，可以很容易的转换为grub的配置格式，以archlinux-2011.08.19-core-x86_64.iso为例，下面是我的menu.lst</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>title Boot Arch Linux Live CD
-</span><span class='line'>kernel /arch/boot/x86_64/vmlinuz archisobasedir=arch archisolabel=MYLABEL
-</span><span class='line'>initrd /arch/boot/x86_64/archiso.img</span></code></pre></td></tr></table></div></figure>
-
+<p>其实我使用的是移动硬盘，大量文档备份转移的话会很麻烦，幸好我装有<a href="http://code.google.com/p/grub4dos-chenall/">grub4dos</a>。archlinux的iso镜像使用syslinux作为启动引导，稍微研究一下它的配置文件syslinux.cfg，可以很容易的转换为grub的配置格式，以archlinux-2011.08.19-core-x86_64.iso为例，下面是我的menu.lst
+&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">title Boot Arch Linux Live CD
+</span><span class="line">kernel /arch/boot/x86_64/vmlinuz archisobasedir=arch archisolabel=MYLABEL
+</span><span class="line">initrd /arch/boot/x86_64/archiso.img</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
 
 <ul>
-<li>你只需把iso中arch目录拷贝到移动硬盘根目录即可</li>
-<li>MYLABEL是移动硬盘启动分区卷标</li>
-<li>网络环境允许（如无线网卡驱动能自动识别），还是建议选择netinstall镜像</li>
+  <li>你只需把iso中arch目录拷贝到移动硬盘根目录即可</li>
+  <li>MYLABEL是移动硬盘启动分区卷标</li>
+  <li>网络环境允许（如无线网卡驱动能自动识别），还是建议选择netinstall镜像</li>
 </ul>
 
-
-<h2>安装界面</h2>
+<h2 id="section-1">安装界面</h2>
 
 <ul>
-<li>软件源选163的，我这里能满速</li>
-<li>网络设置如果是无线网卡，Ctrl+Alt+Fn切换到别的控制台</li>
+  <li>软件源选163的，我这里能满速</li>
+  <li>网络设置如果是无线网卡，Ctrl+Alt+Fn切换到别的控制台
+&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span></figure></notextile></li>
 </ul>
+<p>&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">wpa_passphrase mywireless_ssid "secretpassphrase" &gt; /etc/wpa_supplicant.conf
+</span><span class="line">ip link set wlan0 up
+</span><span class="line">wpa_supplicant -B -Dwext -i wlan0 -c /etc/wpa_supplicant.conf
+</span><span class="line">dhcpcd wlan0 # 或者回到安装界面指定静态地址
+</span><span class="line">ip addr show wlan0
+</span><span class="line">ping www.163.com # 测试一下</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;&lt;/notextile&gt;&lt;/div&gt;
+* 分区：
+    + 我一般根目录(含boot)20G，其余给home
+    + 我现在6G内存没设swap分区，用了一阵没发现什么问题。一般就内存1-2倍，封顶1G吧（我虚拟机给了1G内存，安装程序自动分配给了256M交换分区）
+    + 分区格式ext4或btrfs
+* 挑选软件时只选一下sudo，我喜欢进入系统后再一点点添加
+* 修改配置文件：
+    + rc.conf: 设一下主机名HOSTNAME
+    + resolv.conf: dns设置，我一般第一个设为8.8.8.8，第二dns为本地电信提供的dns地址
+    + local.gen，选择zh_CN.utf8，使用编辑器搜索功能加快定位
+    + 设置root密码</p>
 
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>wpa_passphrase mywireless_ssid "secretpassphrase" &gt; /etc/wpa_supplicant.conf
-</span><span class='line'>ip link set wlan0 up
-</span><span class='line'>wpa_supplicant -B -Dwext -i wlan0 -c /etc/wpa_supplicant.conf
-</span><span class='line'>dhcpcd wlan0 # 或者回到安装界面指定静态地址
-</span><span class='line'>ip addr show wlan0
-</span><span class='line'>ping www.163.com # 测试一下</span></code></pre></td></tr></table></div></figure>
-
+<h2 id="section-2">第一次进入系统</h2>
 
 <ul>
-<li>分区：
-
-<ul>
-<li>我一般根目录(含boot)20G，其余给home</li>
-<li>我现在6G内存没设swap分区，用了一阵没发现什么问题。一般就内存1-2倍，封顶1G吧（我虚拟机给了1G内存，安装程序自动分配给了256M交换分区）</li>
-<li>分区格式ext4或btrfs</li>
+  <li>添加用户：<code>useradd -m -g users -G wheel -s /bin/bash myname</code></li>
+  <li>为刚添加的用户设置密码：<code>passwd myname</code></li>
+  <li>修改sudo配置：visudo，我一般允许wheel用户组运行任何命令，且无需密码</li>
+  <li>退出root，用新用户名登录</li>
 </ul>
-</li>
-<li>挑选软件时只选一下sudo，我喜欢进入系统后再一点点添加</li>
-<li>修改配置文件：
-
-<ul>
-<li>rc.conf: 设一下主机名HOSTNAME</li>
-<li>resolv.conf: dns设置，我一般第一个设为8.8.8.8，第二dns为本地电信提供的dns地址</li>
-<li>local.gen，选择zh_CN.utf8，使用编辑器搜索功能加快定位</li>
-<li>设置root密码</li>
-</ul>
-</li>
-</ul>
-
-
-<h2>第一次进入系统</h2>
-
-<ul>
-<li>添加用户：<code>useradd -m -g users -G wheel -s /bin/bash myname</code></li>
-<li>为刚添加的用户设置密码：<code>passwd myname</code></li>
-<li>修改sudo配置：visudo，我一般允许wheel用户组运行任何命令，且无需密码</li>
-<li>退出root，用新用户名登录</li>
-</ul>
-
 
 <p>美女已经入室，接下来就看你怎么调教了</p>
 </div>
@@ -213,23 +210,6 @@
   
   
   
-  
-  <!-- Baidu Button BEGIN -->
-  <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare">
-     <a class="bds_qzone"></a>
-     <a class="bds_tsina"></a>
-     <a class="bds_tqq"></a>
-     <a class="bds_renren"></a>
-     <span class="bds_more">更多</span>
-     <a class="shareCount"></a>
-  </div>
-  <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=685719" ></script>
-  <script type="text/javascript" id="bdshell_js"></script>
-  <script type="text/javascript">
-    document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours();
-  </script>
-  <!-- Baidu Button END -->
-  
 </div>
 
     
@@ -259,6 +239,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/07/18/archlinux-upgrade/">archlinux更新日志：迁移/lib到/usr/lib</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/06/13/update-to-emacs24/">Emacs24的二三事</a>
       </li>
     
@@ -272,10 +256,6 @@
     
       <li class="post">
         <a href="/blog/2012/05/30/archlinuxkuai-su-she-zhi/">archlinux快速设置</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/05/30/archlinuxjian-yi-an-zhuang-zhi-nan/">Archlinux简易安装指南</a>
       </li>
     
   </ul>

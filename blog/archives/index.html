@@ -9,10 +9,10 @@
   <meta name="author" content="Jack Phil">
 
   
-  <meta name="description" content="Blog Archive 2012 Emacs24的二三事
+  <meta name="description" content="Blog Archive 2012 archlinux更新日志：迁移/lib到/usr/lib
+Jul 18 2012 posted in 我爱开源 Emacs24的二三事
 Jun 13 2012 posted in emacs 高速启动，现在开始systemd
-Jun 13 2012 posted in 我爱开源 Archlinux和VirtualBox
-May 30 2012 posted in &hellip;">
+Jun 13 2012 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +21,7 @@ May 30 2012 posted in &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.jackphil.com/blog/archives">
+  <link rel="canonical" href="http://blog.jackphil.com/blog/archives/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -31,6 +31,23 @@ May 30 2012 posted in &hellip;">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+
 
   
 
@@ -79,6 +96,20 @@ May 30 2012 posted in &hellip;">
 
   
   <h2>2012</h2>
+
+<article>
+  
+<h1><a href="/blog/2012/07/18/archlinux-upgrade/">archlinux更新日志：迁移/lib到/usr/lib</a></h1>
+<time datetime="2012-07-18T22:16:00+08:00" pubdate><span class='month'>Jul</span> <span class='day'>18</span> <span class='year'>2012</span></time>
+
+<footer>
+  <span class="categories">posted in <a class='category' href='/blog/categories/我爱开源/'>我爱开源</a></span>
+</footer>
+
+
+</article>
+
+
 
 <article>
   
@@ -274,6 +305,10 @@ May 30 2012 posted in &hellip;">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/07/18/archlinux-upgrade/">archlinux更新日志：迁移/lib到/usr/lib</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/06/13/update-to-emacs24/">Emacs24的二三事</a>
       </li>
     
@@ -287,10 +322,6 @@ May 30 2012 posted in &hellip;">
     
       <li class="post">
         <a href="/blog/2012/05/30/archlinuxkuai-su-she-zhi/">archlinux快速设置</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/05/30/archlinuxjian-yi-an-zhuang-zhi-nan/">Archlinux简易安装指南</a>
       </li>
     
   </ul>

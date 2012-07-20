@@ -9,10 +9,7 @@
   <meta name="author" content="Jack Phil">
 
   
-  <meta name="description" content="某次更新系统后重启，发现有触目的红色警告，由于屏幕滚动很快，没看清具体是什么内容。遂去/etc/rc.local中添加一句read，以使启动最后暂停，等待用户输入，任意键继续。 这次看清是ALSA出错了 1
-2
-Unknown hardware "foo" "bar" ...
-Hardware &hellip;">
+  <meta name="description" content="github需要ssh密钥来建立push时的安全连接，虽然以前在用gitorious时也接触过，但已经不记得了，还是找了几篇教程来边看边做，笔记如下 ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +18,7 @@ Hardware &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.jackphil.com/blog/page/2">
+  <link rel="canonical" href="http://blog.jackphil.com/blog/page/2/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -31,6 +28,23 @@ Hardware &hellip;">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+
 
   
 
@@ -73,6 +87,47 @@ Hardware &hellip;">
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2012/05/16/opensshmi-yao-guan-li-chu-bu/">OpenSSH密钥管理初步</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-16T20:09:00+08:00" pubdate data-updated="true">May 16<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>github需要ssh密钥来建立push时的安全连接，虽然以前在用gitorious时也接触过，但已经不记得了，还是找了几篇教程来边看边做，笔记如下</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/05/16/opensshmi-yao-guan-li-chu-bu/">阅读全文</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2012/05/16/archlinuxgeng-xin-ji-lu-20120516/">Archlinux更新记录20120516</a></h1>
     
     
@@ -98,21 +153,17 @@ Hardware &hellip;">
 
   <div class="entry-content"><p>某次更新系统后重启，发现有触目的红色警告，由于屏幕滚动很快，没看清具体是什么内容。遂去/etc/rc.local中添加一句read，以使启动最后暂停，等待用户输入，任意键继续。</p>
 
-<p>这次看清是ALSA出错了</p>
+<p>这次看清是ALSA出错了
+&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+<span class="line-number">2</span>
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">Unknown hardware "foo" "bar" ...
+</span><span class="line">Hardware is initialized using a guess method</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Unknown hardware "foo" "bar" ...
-</span><span class='line'>Hardware is initialized using a guess method</span></code></pre></td></tr></table></div></figure>
+<p>搜索后发现可能跟内核升级有关，解决也很简单
+&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">sudo alsactl -f /var/lib/alsa/asound.state store</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
 
-
-<p>搜索后发现可能跟内核升级有关，解决也很简单</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo alsactl -f /var/lib/alsa/asound.state store</span></code></pre></td></tr></table></div></figure>
-
-
-<p>参考：<a href="https://wiki.archlinux.org/index.php/Advanced_Linux_Sound_Architecture#Error_.27Unkown_hardware.27_Appears_After_a_Kernel_Update">Error &#8216;Unkown hardware&#8217; Appears After a Kernel Update</a></p>
+<p>参考：<a href="https://wiki.archlinux.org/index.php/Advanced_Linux_Sound_Architecture#Error_.27Unkown_hardware.27_Appears_After_a_Kernel_Update">Error ‘Unkown hardware’ Appears After a Kernel Update</a></p>
 </div>
   
   
@@ -194,12 +245,11 @@ Hardware &hellip;">
 <p>尝试过<a href="http://ringce.com/hyde">hyde</a></p>
 
 <ul>
-<li>它最吸引我的是支持我喜爱的Asciidoc</li>
-<li>可是默认模板实在太丑陋</li>
-<li>文档简陋，没用过django，连添加文章的命令都没有，手动拷贝修改了一篇默认生成的文章，折腾很久都没能把文章添加到默认首页，当然也许是我学艺不精，但我已经不喜欢它了</li>
-<li>看上去完成度这么低的项目，看github上仓库的最近提交，居然都是a year ago</li>
+  <li>它最吸引我的是支持我喜爱的Asciidoc</li>
+  <li>可是默认模板实在太丑陋</li>
+  <li>文档简陋，没用过django，连添加文章的命令都没有，手动拷贝修改了一篇默认生成的文章，折腾很久都没能把文章添加到默认首页，当然也许是我学艺不精，但我已经不喜欢它了</li>
+  <li>看上去完成度这么低的项目，看github上仓库的最近提交，居然都是a year ago</li>
 </ul>
-
 
 <p>看了下<a href="http://tinkerer.bitbucket.org/index.html">Tinkerer</a>，界面不错，基于Sphinx，可惜对此不感兴趣</p>
 
@@ -233,6 +283,10 @@ Hardware &hellip;">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/07/18/archlinux-upgrade/">archlinux更新日志：迁移/lib到/usr/lib</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/06/13/update-to-emacs24/">Emacs24的二三事</a>
       </li>
     
@@ -246,10 +300,6 @@ Hardware &hellip;">
     
       <li class="post">
         <a href="/blog/2012/05/30/archlinuxkuai-su-she-zhi/">archlinux快速设置</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/05/30/archlinuxjian-yi-an-zhuang-zhi-nan/">Archlinux简易安装指南</a>
       </li>
     
   </ul>

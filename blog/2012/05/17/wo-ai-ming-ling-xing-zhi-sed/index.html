@@ -10,9 +10,7 @@
 
   
   <meta name="description" content="语法 常用基本格式 1
-2 sed -i -e '指令1' -e '指令2' inputfile sed -f scriptfile -i: 直接修改文件，而不是输出到标准输出，一般等调试无误后，最后使用该参数
--e: 后跟指令，可以多次使用
--f: 从文件中读取指令 操作指令 删除 一般格式 1 &hellip;">
+2 sed -i -e '指令1' -e '指令2' inputfile sed -f scriptfile -i: 直接修改文件，而不是输出到标准输出，一般等调试无误后，最后使用该参数 -e: 后跟指令，可以多次使用 -f: 从文件中读取指令 操作指令 删除 一般格式 1 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.jackphil.com/blog/2012/05/17/wo-ai-ming-ling-xing-zhi-sed">
+  <link rel="canonical" href="http://blog.jackphil.com/blog/2012/05/17/wo-ai-ming-ling-xing-zhi-sed/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -31,6 +29,23 @@
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+
 
   
 
@@ -93,47 +108,42 @@
   </header>
 
 
-<div class="entry-content"><h2>语法</h2>
+<div class="entry-content"><h2 id="section">语法</h2>
 
 <p>常用基本格式</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'> sed -i -e '指令1' -e '指令2' inputfile
-</span><span class='line'> sed -f scriptfile</span></code></pre></td></tr></table></div></figure>
-
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class=""><span class="line"> sed -i -e '指令1' -e '指令2' inputfile
+</span><span class="line"> sed -f scriptfile</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <ul>
-<li>-i: 直接修改文件，而不是输出到标准输出，一般等调试无误后，最后使用该参数</li>
-<li>-e: 后跟指令，可以多次使用</li>
-<li>-f: 从文件中读取指令</li>
+  <li>-i: 直接修改文件，而不是输出到标准输出，一般等调试无误后，最后使用该参数</li>
+  <li>-e: 后跟指令，可以多次使用</li>
+  <li>-f: 从文件中读取指令</li>
 </ul>
-
 
 <!--more-->
 
+<h2 id="section-1">操作指令</h2>
 
-<h2>操作指令</h2>
-
-<h3>删除</h3>
+<h3 id="section-2">删除</h3>
 
 <p>一般格式</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'> 开始地址,结束地址d
-</span><span class='line'> /正则表达式/d</span></code></pre></td></tr></table></div></figure>
-
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class=""><span class="line"> 开始地址,结束地址d
+</span><span class="line"> /正则表达式/d</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p>第一种删除从开始到结束的行，第二行删除有匹配到字符串的行</p>
 
-<h3>替换</h3>
+<h3 id="section-3">替换</h3>
 
 <p>一般格式</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'> 开始地址,结束地址s/被替换的文本（正则表达式）/用来替换的文本/标志</span></code></pre></td></tr></table></div></figure>
-
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line"> 开始地址,结束地址s/被替换的文本（正则表达式）/用来替换的文本/标志</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p>地址和标志部分可以省略。s(substitute)后的第一个字符被用来作为分割符，所以并非一定要用斜杠，
 还可以使用比如冒号（有时候会带来方便，比如匹配网址时，就可以避免和网址中的斜杠冲突）。</p>
@@ -141,51 +151,48 @@
 <p>用到的标志:</p>
 
 <ul>
-<li>g: 全局替换，而不只是每行的第一个匹配</li>
-<li>n: 替换行中的第n个匹配</li>
+  <li>g: 全局替换，而不只是每行的第一个匹配</li>
+  <li>n: 替换行中的第n个匹配</li>
 </ul>
 
+<h2 id="section-4">应用实例</h2>
 
-<h2>应用实例</h2>
+<h3 id="section-5">删除指定行</h3>
 
-<h3>删除指定行</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'> sed -e '/^#acl/d' inputfile</span></code></pre></td></tr></table></div></figure>
-
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line"> sed -e '/^#acl/d' inputfile</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p>删除#acl开头的行。在MoinMoin升级中，由于用户名改变的原因，页面都变成了只读，只好删除之。</p>
 
-<h3>DOS文件和Linux文件的转换</h3>
+<h3 id="doslinux">DOS文件和Linux文件的转换</h3>
 
 <p>众所周知，Windows上文本文件以CR（回车）和 LF（换行）结束一行，而Linux上只有LF。</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'> sed -i -e 's/\r$//' inputfile #dos to linux
-</span><span class='line'> sed -e 's/$/\r/' inputfile #linux to dos</span></code></pre></td></tr></table></div></figure>
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class=""><span class="line"> sed -i -e 's/\r$//' inputfile #dos to linux
+</span><span class="line"> sed -e 's/$/\r/' inputfile #linux to dos</span></code></pre></td></tr></table></div></figure></notextile></div>
 
+<h3 id="section-6">正则表达式分组（对匹配字符串的一部分进行操作）</h3>
 
-<h3>正则表达式分组（对匹配字符串的一部分进行操作）</h3>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">sed -e <span class="s1">&#39;s:\(.\)\(}}}\):\1\n\2:&#39;</span> inputfile
+</span><span class="line">sed -e <span class="s1">&#39;s:\({{{\)\([^\n]\):\1\n\2:&#39;</span> inputfile
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'> sed -e 's:\(.\)\(}}}\):\1\n\2:' inputfile
-</span><span class='line'> sed -e 's:\({{{\)\([^\n]\):\1\n\2:' inputfile</span></code></pre></td></tr></table></div></figure>
-
-
-<p>这是我升级MoinMoin时用过的，旧版{{{和}}}可能与内容在同一行，新版必须单独一行。用圆括号分组（注意带反斜杠），
+<p>这是我升级MoinMoin时用过的，旧版{{{和}}}允许与内容在同一行，新版必须单独一行。用圆括号分组（注意带反斜杠），
 按出现顺序编号引用（同样注意使用反斜杠）。</p>
 
-<h3>sed脚本</h3>
+<h3 id="sed">sed脚本</h3>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'> #!/bin/sed -f</span></code></pre></td></tr></table></div></figure>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line"> <span class="c">#!/bin/sed -f</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
+<h2 id="section-7">参考资料</h2>
 
-<h2>参考资料</h2>
-
-<p><a href="http://www.ibm.com/developerworks/cn/linux/shell/sed/sed-1/index.html">通用线程 &#8211; sed 实例</a> : IBM网站上Daniel Robbins写的教程，正则表达式分组我就是从该教程第三部分学到的。</p>
+<p><a href="http://www.ibm.com/developerworks/cn/linux/shell/sed/sed-1/index.html">通用线程 – sed 实例</a> : IBM网站上Daniel Robbins写的教程，正则表达式分组我就是从该教程第三部分学到的。</p>
 </div>
 
 
@@ -224,23 +231,6 @@
   
   
   
-  
-  <!-- Baidu Button BEGIN -->
-  <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare">
-     <a class="bds_qzone"></a>
-     <a class="bds_tsina"></a>
-     <a class="bds_tqq"></a>
-     <a class="bds_renren"></a>
-     <span class="bds_more">更多</span>
-     <a class="shareCount"></a>
-  </div>
-  <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=685719" ></script>
-  <script type="text/javascript" id="bdshell_js"></script>
-  <script type="text/javascript">
-    document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours();
-  </script>
-  <!-- Baidu Button END -->
-  
 </div>
 
     
@@ -270,6 +260,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/07/18/archlinux-upgrade/">archlinux更新日志：迁移/lib到/usr/lib</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/06/13/update-to-emacs24/">Emacs24的二三事</a>
       </li>
     
@@ -283,10 +277,6 @@
     
       <li class="post">
         <a href="/blog/2012/05/30/archlinuxkuai-su-she-zhi/">archlinux快速设置</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/05/30/archlinuxjian-yi-an-zhuang-zhi-nan/">Archlinux简易安装指南</a>
       </li>
     
   </ul>

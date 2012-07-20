@@ -4,7 +4,7 @@
   <title><![CDATA[Category: emacs | 眼中无码，心中有码]]></title>
   <link href="http://blog.jackphil.com/blog/categories/emacs/atom.xml" rel="self"/>
   <link href="http://blog.jackphil.com/"/>
-  <updated>2012-06-14T20:09:56+08:00</updated>
+  <updated>2012-07-20T20:36:25+08:00</updated>
   <id>http://blog.jackphil.com/</id>
   <author>
     <name><![CDATA[Jack Phil]]></name>
@@ -22,7 +22,7 @@
 
 <p>Emacs23和Emacs24也不那么和谐，原来的配置，启动直接报错，调教一番是免不了了</p>
 
-<h2>color theme</h2>
+<h2 id="color-theme">color theme</h2>
 
 <p>根据<a href="http://batsov.com/articles/2012/02/19/color-theming-in-emacs-reloaded/">Color Theming in Emacs: Reloaded</a>，Emacs24自带了几个颜色主题，我的选择是
 <code>
@@ -31,37 +31,34 @@
 
 <p>原来的color-theme不兼容24，可以删除之</p>
 
-<h2>菜单栏和工具栏</h2>
+<h2 id="section">菜单栏和工具栏</h2>
 
 <p>隐藏菜单栏和工具栏，原来给变量赋值nil不再有效，其实nil不再被用来开关minor-mode，有人解释了<a href="http://stackoverflow.com/questions/9423974/emacs-menu-bar-mode-and-tool-bar-mode-automatically-set-to-t">原因</a>
 <code>
 ;;#隐藏菜单和工具栏
-(tool-bar-mode -1)
+(tool-bar-mode -1) 
 (menu-bar-mode -1)
 </code></p>
 
-<h2>行号</h2>
+<h2 id="section-1">行号</h2>
 
 <p>setnu+是另一个引起麻烦的包，24自带的功能似乎也不错，删除之
 <code>
 M-x linum-mode
 </code></p>
 
-<h2>tabbar</h2>
+<h2 id="tabbar">tabbar</h2>
 
 <p>标签栏只能显示当前buffer，功能不正常，平时几乎很少用到，也把它删了</p>
 
-<h2>软件包管理(ELPA: Emacs Lisp Package Archive)</h2>
+<h2 id="elpa-emacs-lisp-package-archive">软件包管理(ELPA: Emacs Lisp Package Archive)</h2>
 
-<p>Emacs24的一大亮点是自带了<a href="Emacs%20Lisp%20Package%20Archive">包管理器</a> )(不过并非24独享，22都可以装)，自动安装管理各种lisp功能包
-```
+<p>Emacs24的一大亮点是自带了<a href="Emacs Lisp Package Archive">包管理器</a>(不过并非24独享，22都可以装)，自动安装管理各种lisp功能包
+<code>
 ;;#软件包服务器
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")</p>
-
-<pre><code>         ("marmalade" . "http://marmalade-repo.org/packages/")))
-</code></pre>
-
-<p>```</p>
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+			 ("marmalade" . "http://marmalade-repo.org/packages/")))
+</code></p>
 
 <p>试用了一下，列出所有软件包：
 <code>

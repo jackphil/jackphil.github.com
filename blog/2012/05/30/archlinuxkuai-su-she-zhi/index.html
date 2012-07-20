@@ -9,10 +9,9 @@
   <meta name="author" content="Jack Phil">
 
   
-  <meta name="description" content="按Archlinux简易安装指南装好系统后，还只是个毛坯房，住不得人，这里介绍的软件和配置，好比装修和家具，在我看来，都是必不可少的，他们带给我“家”的感觉 显卡 笔记本是ATI显卡，我选择了开源驱动 添加源，在/etc/pacman.conf最后添加 1
-2
-[radeon]
-Server = &hellip;">
+  <meta name="description" content="按Archlinux简易安装指南装好系统后，还只是个毛坯房，住不得人，这里介绍的软件和配置，好比装修和家具，在我看来，都是必不可少的，他们带给我“家”的感觉 显卡
+笔记本是ATI显卡，我选择了开源驱动 添加源，在/etc/pacman.conf最后添加
+&lt;div class=&#8217; &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +20,7 @@ Server = &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.jackphil.com/blog/2012/05/30/archlinuxkuai-su-she-zhi">
+  <link rel="canonical" href="http://blog.jackphil.com/blog/2012/05/30/archlinuxkuai-su-she-zhi/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -31,6 +30,23 @@ Server = &hellip;">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+
 
   
 
@@ -97,48 +113,35 @@ Server = &hellip;">
 
 <!--more-->
 
-
-<h2>显卡</h2>
-
+<h2 id="section">显卡</h2>
 <p>笔记本是ATI显卡，我选择了开源驱动</p>
 
-<p>添加源，在/etc/pacman.conf最后添加</p>
+<p>添加源，在/etc/pacman.conf最后添加
+&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+<span class="line-number">2</span>
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">[radeon]
+</span><span class="line">Server = http://spiralinear.org/perry3d/x86_64</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>[radeon]
-</span><span class='line'>Server = http://spiralinear.org/perry3d/x86_64</span></code></pre></td></tr></table></div></figure>
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">pacman -S xf86-video-ati-git #安装驱动</span></code></pre></td></tr></table></div></figure></notextile></div>
 
+<p>建议开机加载驱动，/etc/rc.conf
+&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">MODULES=(... radeon ...)</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
 
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>pacman -S xf86-video-ati-git #安装驱动</span></code></pre></td></tr></table></div></figure>
-
-
-<p>建议开机加载驱动，/etc/rc.conf</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>MODULES=(... radeon ...)</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>桌面</h2>
-
-<p>桌面我选择的是KDE</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo pacman -S kdebase kde-l10n-zh_cn xorg-server xorg-xinit ttf-dejavu</span></code></pre></td></tr></table></div></figure>
-
+<h2 id="section-1">桌面</h2>
+<p>桌面我选择的是KDE
+&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">sudo pacman -S kdebase kde-l10n-zh_cn xorg-server xorg-xinit ttf-dejavu</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
 
 <ul>
-<li>我这里选择了最小安装: kdebase</li>
-<li>如果你不使用kdm或gdm这类登录管理器，而使用startx启动桌面，则需要装xorg-xinit</li>
-<li>最小安装kde甚至都不安装英文字体，如果没有合适的字体，kde启动后将停在splash画面，所以你需要安装一个字体，如ttf-dejavu，同样的如果你的locale是中文，但却没有中文字体，你也会进不了桌面，建议安装wqy-bitmapfont、wqy-zenhei</li>
-<li>如果使用startx启动桌面，环境配置文件是.xinitrc</li>
+  <li>我这里选择了最小安装: kdebase</li>
+  <li>如果你不使用kdm或gdm这类登录管理器，而使用startx启动桌面，则需要装xorg-xinit</li>
+  <li>最小安装kde甚至都不安装英文字体，如果没有合适的字体，kde启动后将停在splash画面，所以你需要安装一个字体，如ttf-dejavu，同样的如果你的locale是中文，但却没有中文字体，你也会进不了桌面，建议安装wqy-bitmapfont、wqy-zenhei</li>
+  <li>如果使用startx启动桌面，环境配置文件是.xinitrc</li>
 </ul>
 
-
-<div><script src='https://gist.github.com/2834391.js?file='></script>
+<div><script src="https://gist.github.com/2834391.js?file="></script>
 <noscript><pre><code># 不使用LC_ALL，因为它会强制所有LC_*变量使用统一的locale
 export LANG=zh_CN.UTF-8
 
@@ -161,13 +164,10 @@ scim -d
 
 exec ck-launch-session startkde</code></pre></noscript></div>
 
-
 <ul>
-<li>如果使用kdm登录管理器，环境配置文件是.xprofile</li>
+  <li>如果使用kdm登录管理器，环境配置文件是.xprofile</li>
 </ul>
-
-
-<div><script src='https://gist.github.com/2834351.js?file='></script>
+<div><script src="https://gist.github.com/2834351.js?file="></script>
 <noscript><pre><code># locale setting
 export LANG=zh_CN.UTF-8
 
@@ -177,67 +177,54 @@ export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 ibus-daemon -x -d</code></pre></noscript></div>
 
-
 <ul>
-<li>xorg的配置文件在/etc/X11/xorg.conf.d/目录下，你可以依样创建自己的配置文件，不过现在大部分情况下，xorg都能很好的识别设备（显卡、鼠标键盘等）并加载相应的模块，不需要额外配置</li>
+  <li>xorg的配置文件在/etc/X11/xorg.conf.d/目录下，你可以依样创建自己的配置文件，不过现在大部分情况下，xorg都能很好的识别设备（显卡、鼠标键盘等）并加载相应的模块，不需要额外配置</li>
 </ul>
 
+<p>/etc/rc.conf
+&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">DAEMONS=(... dbus ...)</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;
+KDE使用dbus作为进程间通信机制</p>
 
-<p>/etc/rc.conf</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>DAEMONS=(... dbus ...)</span></code></pre></td></tr></table></div></figure>
-
-
-<p>KDE使用dbus作为进程间通信机制</p>
-
-<h2>KDM</h2>
-
+<h2 id="kdm">KDM</h2>
 <p>kdm在kdebase-workspace包里，即使是最小安装kde，也已经顺带装上了</p>
 
-<p>开机运行，建议修改/etc/inittab，取消注释以下两行</p>
+<p>开机运行，建议修改/etc/inittab，取消注释以下两行
+&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">id:5:initdefault:
+</span><span class="line">...
+</span><span class="line">x:5:respawn:/usr/bin/kdm -nodaemon</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>id:5:initdefault:
-</span><span class='line'>...
-</span><span class='line'>x:5:respawn:/usr/bin/kdm -nodaemon</span></code></pre></td></tr></table></div></figure>
+<p>可以在登录KDE后，在”系统设置””-“登录屏幕”中进行设置，如你可以在”便利”标签下设置开机自动登录</p>
 
+<h2 id="section-2">触摸板</h2>
 
-<p>可以在登录KDE后，在&#8221;系统设置&#8221;&#8220;-&#8220;登录屏幕&#8221;中进行设置，如你可以在&#8221;便利&#8221;标签下设置开机自动登录</p>
-
-<h2>触摸板</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo pacman -S xf86-input-synaptics # 安装驱动
-</span><span class='line'>ican toggletouchpad</span></code></pre></td></tr></table></div></figure>
-
-
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">sudo pacman -S xf86-input-synaptics # 安装驱动
+</span><span class="line">ican toggletouchpad</span></code></pre></td></tr></table></div></figure></notextile></div>
 <p>如果你的笔记本没有相应的触摸板开关Fn组合键，可以使用<a href="https://gist.github.com/2836665">ican</a>工具</p>
 
-<h2>输入法</h2>
+<h2 id="section-3">输入法</h2>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo pacman -S ibus ibus-pinyin ibus-qt
-</span><span class='line'>ibus-setup # 初始化设置</span></code></pre></td></tr></table></div></figure>
-
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">sudo pacman -S ibus ibus-pinyin ibus-qt
+</span><span class="line">ibus-setup # 初始化设置</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <ul>
-<li>为了能在qt程序中使用输入法，需要安装ibus-qt</li>
-<li>ibus只是输入法框架，你需要在初始化设置中添加拼音输入法</li>
+  <li>为了能在qt程序中使用输入法，需要安装ibus-qt</li>
+  <li>ibus只是输入法框架，你需要在初始化设置中添加拼音输入法</li>
 </ul>
-
 
 <p>配置随桌面启动，在<a href="https://gist.github.com/2834391">.xinitrc</a>或<a href="https://gist.github.com/2834351">.xprofile</a>设置</p>
 
-<h2>终端程序</h2>
+<h2 id="section-4">终端程序</h2>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo pacman -S yakuake</span></code></pre></td></tr></table></div></figure>
-
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">sudo pacman -S yakuake</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p>yakuake基于konsole，我习惯设置konsole字体为14号</p>
 </div>
@@ -278,23 +265,6 @@ ibus-daemon -x -d</code></pre></noscript></div>
   
   
   
-  
-  <!-- Baidu Button BEGIN -->
-  <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare">
-     <a class="bds_qzone"></a>
-     <a class="bds_tsina"></a>
-     <a class="bds_tqq"></a>
-     <a class="bds_renren"></a>
-     <span class="bds_more">更多</span>
-     <a class="shareCount"></a>
-  </div>
-  <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=685719" ></script>
-  <script type="text/javascript" id="bdshell_js"></script>
-  <script type="text/javascript">
-    document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours();
-  </script>
-  <!-- Baidu Button END -->
-  
 </div>
 
     
@@ -324,6 +294,10 @@ ibus-daemon -x -d</code></pre></noscript></div>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/07/18/archlinux-upgrade/">archlinux更新日志：迁移/lib到/usr/lib</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/06/13/update-to-emacs24/">Emacs24的二三事</a>
       </li>
     
@@ -337,10 +311,6 @@ ibus-daemon -x -d</code></pre></noscript></div>
     
       <li class="post">
         <a href="/blog/2012/05/30/archlinuxkuai-su-she-zhi/">archlinux快速设置</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/05/30/archlinuxjian-yi-an-zhuang-zhi-nan/">Archlinux简易安装指南</a>
       </li>
     
   </ul>

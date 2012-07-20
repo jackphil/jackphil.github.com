@@ -9,7 +9,10 @@
   <meta name="author" content="Jack Phil">
 
   
-  <meta name="description" content="今天，NBA总决赛第一场，24再次爽约，站在23对面的，是更年轻的35，23似乎要再度饮恨。 Emacs23和Emacs24也不那么和谐，原来的配置，启动直接报错，调教一番是免不了了 color theme 根据Color Theming in Emacs: Reloaded， &hellip;">
+  <meta name="description" content="这次更新的一个变化是/lib目录和/usr/lib目录合并了，更新后/lib目录将只是一个指向/usr/lib的链接。由于这次变动牵涉到的软件比较多，Archlinux网站上提供了专门的升级指导 1
+2
+sudo pacman -Syu --ignore glibc
+sudo pacman -Su &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +21,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.jackphil.com">
+  <link rel="canonical" href="http://blog.jackphil.com/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -28,6 +31,23 @@
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+
 
   
 
@@ -70,6 +90,81 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2012/07/18/archlinux-upgrade/">Archlinux更新日志：迁移/lib到/usr/lib</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-18T22:16:00+08:00" pubdate data-updated="true">Jul 18<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>这次更新的一个变化是/lib目录和/usr/lib目录合并了，更新后/lib目录将只是一个指向/usr/lib的链接。由于这次变动牵涉到的软件比较多，Archlinux网站上提供了专门的<a href="https://wiki.archlinux.org/index.php/DeveloperWiki:usrlib">升级指导</a></p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">sudo pacman -Syu --ignore glibc
+</span><span class="line">sudo pacman -Su</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>正如指导中提到的，第二个命令后还是报/lib已经存在的错误，用如下命令查看哪些目录不属于glibc</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">find /lib -exec pacman -Qo -- {} +
+</span><span class="line">sudo rm -rf /lib/modules</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>我的情况是/lib/modules目录及其子目录下有一些文件，查了一下，没有自己编译的内核模块，所以直接给删了。</p>
+
+<p>升级成功</p>
+
+<h2 id="section">为什么要合并？</h2>
+
+<p>也许你和我一样，脑子里有十万个为什么：为什么要合并，合并的好处是什么，我的/usr单独分区怎么办，<a href="http://www.pathname.com/fhs/">FHS</a>标准改了么</p>
+
+<p>带着这些问号去找谷歌娘，经过几个来回，谷歌娘终于吐露了实情：</p>
+
+<p>这次改变是Fedora主导的，freedesktop上有一个<a href="http://www.freedesktop.org/wiki/Software/systemd/TheCaseForTheUsrMerge">说明</a>，要点如下：</p>
+
+<p>不止/lib，/bin、/sbin、/lib64都将合并到/usr目录下对应目录（Archlinux目前还只合并了/lib）</p>
+
+<p>合并后将增加兼容性，给软件维护人员带来福利</p>
+
+<ul>
+  <li>不同Linux、Unix系统不同打包者有时候会把同一程序放到不同的目录，现在/bin，或者/usr/bin，都将不是问题。我想路径硬编码的情况更多应该发生在脚本中，为什么不干脆把/sbin和/bin也合并了，完全看不出还保留它们的必要</li>
+  <li>Solaris 11已经实现了类似的合并，Linux跟进，与主要的商业Unix系统保持一致。有趣的是Solaris 15年前就开始这么做了，而事实上在SysV Unix上，/bin一直是/usr/bin的链接</li>
+</ul>
+
+<p>合并方便系统发行商将系统资源放在统一的/usr目录下，发布一个单独的只读/usr分区，多个客户系统可以通过网络或本地方便的共享，客户系统将主要包含用户的配置文件，可以变得更小。关于这一点，我想说，明显受到Android等智能设备的影响。开源对我来说就是给与你完全掌控自己设备的能力，如果我们要一次次期待尼奥们带给我们越狱或root工具，解放/usr可写权限，我想问这还符合开源精神吗？厂商们会说，但为安全故，来把/usr锁。的确，随着人们越来越离不开手机等移动设备，安全问题也越来越不容忽视。我想将来GPL4有没有可能强制要求使用Linux的厂商必须提供一个安全工具，允许用户解锁他们的手机</p>
+
+<p>有人问对于单独的/usr分区，/usr还没挂载怎么启动系统？单独的/bin、/lib目录可以使我们拥有一个最小化的急救系统，回答是这些现在都交给initrd了</p>
+
+<p>总的来说，个人感觉，这次改变更多是由厂商而不是社区用户推动的，上面这些理由对于我这样的个人用户来说并无多少切身体会，说服力不够，至少我从来没遇到过由于/bin、/usr/bin混乱而找不到可执行程序的情况，我想即使偶尔碰到，去目录下做个链接，甚至直接修改脚本都可以很轻松的搞定。当然，我也没什么好反对的，对我来说无所谓，不过最好先把FHS改一改</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2012/06/13/update-to-emacs24/">Emacs24的二三事</a></h1>
     
     
@@ -97,57 +192,47 @@
 
 <p>Emacs23和Emacs24也不那么和谐，原来的配置，启动直接报错，调教一番是免不了了</p>
 
-<h2>color theme</h2>
+<h2 id="color-theme">color theme</h2>
 
-<p>根据<a href="http://batsov.com/articles/2012/02/19/color-theming-in-emacs-reloaded/">Color Theming in Emacs: Reloaded</a>，Emacs24自带了几个颜色主题，我的选择是</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>(load-theme 'tango-dark t)</span></code></pre></td></tr></table></div></figure>
-
+<p>根据<a href="http://batsov.com/articles/2012/02/19/color-theming-in-emacs-reloaded/">Color Theming in Emacs: Reloaded</a>，Emacs24自带了几个颜色主题，我的选择是
+&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">(load-theme 'tango-dark t)</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
 
 <p>原来的color-theme不兼容24，可以删除之</p>
 
-<h2>菜单栏和工具栏</h2>
+<h2 id="section">菜单栏和工具栏</h2>
 
-<p>隐藏菜单栏和工具栏，原来给变量赋值nil不再有效，其实nil不再被用来开关minor-mode，有人解释了<a href="http://stackoverflow.com/questions/9423974/emacs-menu-bar-mode-and-tool-bar-mode-automatically-set-to-t">原因</a></p>
+<p>隐藏菜单栏和工具栏，原来给变量赋值nil不再有效，其实nil不再被用来开关minor-mode，有人解释了<a href="http://stackoverflow.com/questions/9423974/emacs-menu-bar-mode-and-tool-bar-mode-automatically-set-to-t">原因</a>
+&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">;;#隐藏菜单和工具栏
+</span><span class="line">(tool-bar-mode -1) 
+</span><span class="line">(menu-bar-mode -1)</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>;;#隐藏菜单和工具栏
-</span><span class='line'>(tool-bar-mode -1) 
-</span><span class='line'>(menu-bar-mode -1)</span></code></pre></td></tr></table></div></figure>
+<h2 id="section-1">行号</h2>
 
+<p>setnu+是另一个引起麻烦的包，24自带的功能似乎也不错，删除之
+&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">M-x linum-mode</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
 
-<h2>行号</h2>
-
-<p>setnu+是另一个引起麻烦的包，24自带的功能似乎也不错，删除之</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>M-x linum-mode</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>tabbar</h2>
+<h2 id="tabbar">tabbar</h2>
 
 <p>标签栏只能显示当前buffer，功能不正常，平时几乎很少用到，也把它删了</p>
 
-<h2>软件包管理(ELPA: Emacs Lisp Package Archive)</h2>
+<h2 id="elpa-emacs-lisp-package-archive">软件包管理(ELPA: Emacs Lisp Package Archive)</h2>
 
-<p>Emacs24的一大亮点是自带了<a href="Emacs%20Lisp%20Package%20Archive">包管理器</a> )(不过并非24独享，22都可以装)，自动安装管理各种lisp功能包</p>
+<p>Emacs24的一大亮点是自带了<a href="Emacs Lisp Package Archive">包管理器</a>(不过并非24独享，22都可以装)，自动安装管理各种lisp功能包
+&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">;;#软件包服务器
+</span><span class="line">(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+</span><span class="line">			 ("marmalade" . "http://marmalade-repo.org/packages/")))</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>;;#软件包服务器
-</span><span class='line'>(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-</span><span class='line'>           ("marmalade" . "http://marmalade-repo.org/packages/")))</span></code></pre></td></tr></table></div></figure>
-
-
-<p>试用了一下，列出所有软件包：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>M-x package-list-packages</span></code></pre></td></tr></table></div></figure>
-
+<p>试用了一下，列出所有软件包：
+&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">M-x package-list-packages</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
 
 <p>C-s搜索，i标记安装，d标记删除，x执行，.emacs.d目录下会生成elpa目录</p>
 
@@ -197,7 +282,7 @@
 
 <p>该折腾还得折腾，与各位Linuxer共勉</p>
 
-<h2>什么是systemd： 一些八卦</h2>
+<h2 id="systemd-">什么是systemd： 一些八卦</h2>
 
 <p>systemd被设计用来改进sysvinit的缺点，它和ubuntu的upstart是竞争对手，预计会取代它们</p>
 
@@ -467,22 +552,20 @@
   </header>
 
 
-  <div class="entry-content"><h2>语法</h2>
+  <div class="entry-content"><h2 id="section">语法</h2>
 
 <p>常用基本格式</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'> sed -i -e '指令1' -e '指令2' inputfile
-</span><span class='line'> sed -f scriptfile</span></code></pre></td></tr></table></div></figure>
-
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class=""><span class="line"> sed -i -e '指令1' -e '指令2' inputfile
+</span><span class="line"> sed -f scriptfile</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <ul>
-<li>-i: 直接修改文件，而不是输出到标准输出，一般等调试无误后，最后使用该参数</li>
-<li>-e: 后跟指令，可以多次使用</li>
-<li>-f: 从文件中读取指令</li>
+  <li>-i: 直接修改文件，而不是输出到标准输出，一般等调试无误后，最后使用该参数</li>
+  <li>-e: 后跟指令，可以多次使用</li>
+  <li>-f: 从文件中读取指令</li>
 </ul>
-
 
 </div>
   
@@ -536,47 +619,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/05/16/opensshmi-yao-guan-li-chu-bu/">OpenSSH密钥管理初步</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-05-16T20:09:00+08:00" pubdate data-updated="true">May 16<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>github需要ssh密钥来建立push时的安全连接，虽然以前在用gitorious时也接触过，但已经不记得了，还是找了几篇教程来边看边做，笔记如下</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/05/16/opensshmi-yao-guan-li-chu-bu/">阅读全文</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -592,6 +634,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/07/18/archlinux-upgrade/">archlinux更新日志：迁移/lib到/usr/lib</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/06/13/update-to-emacs24/">Emacs24的二三事</a>
       </li>
     
@@ -605,10 +651,6 @@
     
       <li class="post">
         <a href="/blog/2012/05/30/archlinuxkuai-su-she-zhi/">archlinux快速设置</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/05/30/archlinuxjian-yi-an-zhuang-zhi-nan/">Archlinux简易安装指南</a>
       </li>
     
   </ul>

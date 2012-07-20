@@ -14,7 +14,7 @@
 3
 正文开头内容，也是首页摘要显示的部分
 &lt;!--more--&gt;
-以下内容不会显示在首页文章列表中 编辑_config.yml‵‵ 1 &hellip;">
+以下内容不会显示在首页文章列表中 编辑_config.yml 1 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -23,7 +23,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.jackphil.com/blog/2012/05/16/octopress-tips">
+  <link rel="canonical" href="http://blog.jackphil.com/blog/2012/05/16/octopress-tips/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -33,6 +33,23 @@
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+
 
   
 
@@ -99,66 +116,108 @@
 
 <!--more-->
 
-
-<h2>首页文章只显示摘要</h2>
+<h2 id="section">首页文章只显示摘要</h2>
 
 <p>在正文中插入标记</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>正文开头内容，也是首页摘要显示的部分
-</span><span class='line'>&lt;!--more--&gt;
-</span><span class='line'>以下内容不会显示在首页文章列表中</span></code></pre></td></tr></table></div></figure>
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">正文开头内容，也是首页摘要显示的部分
+</span><span class="line">&lt;!--more--&gt;
+</span><span class="line">以下内容不会显示在首页文章列表中</span></code></pre></td></tr></table></div></figure></notextile></div>
 
+<p>编辑_config.yml</p>
 
-<p>编辑_config.yml‵‵</p>
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">excerpt_link: "阅读全文" # 用于提示阅读完整文章的文字链接</span></code></pre></td></tr></table></div></figure></notextile></div>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>excerpt_link: "阅读全文" # 用于提示阅读完整文章的文字链接</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>绑定自家域名</h2>
+<h2 id="section-1">绑定自家域名</h2>
 
 <p>创建一个CNAME文件</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>echo 'your-domain.com' &gt;&gt; source/CNAME</span></code></pre></td></tr></table></div></figure>
-
-
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">echo 'your-domain.com' &gt;&gt; source/CNAME</span></code></pre></td></tr></table></div></figure></notextile></div>
 <p>去你自家域名服务提供商修改设置</p>
 
 <ul>
-<li>如果是顶级域名，修改A记录，使之指向207.97.227.245</li>
-<li>如果是二级或以下域名，修改CNAME记录即可，使之指向username.github.com</li>
+  <li>如果是顶级域名，修改A记录，使之指向207.97.227.245</li>
+  <li>如果是二级或以下域名，修改CNAME记录即可，使之指向username.github.com</li>
 </ul>
-
 
 <p>一般deploy后，github这边需要10分钟左右才生效</p>
 
 <p>记得修改_config.yml中url为你绑定的域名，这样搜索框、rss等地址才会正确</p>
 
-<h2>添加统计代码</h2>
+<h2 id="section-2">添加统计代码</h2>
 
 <p>我用的是<a href="http://tongji.baidu.com">百度统计</a>，将代码添加到source/_includes/custom/footer.html中即可</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;p&gt;
-</span><span class='line'>  Copyright &copy; 2012 - Jack Phil -
-</span><span class='line'>  &lt;span class="credit"&gt;Powered by &lt;a href="http://octopress.org"&gt;Octopress&lt;/a&gt;&lt;/span&gt; -
-</span><span class='line'> &lt;script type="text/javascript"&gt;
-</span><span class='line'>var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-</span><span class='line'>document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F7b011ba580af2ede1ka05568d5d4828a' type='text/javascript'%3E%3C/script%3E"));
-</span><span class='line'>&lt;/script&gt;
-</span><span class='line'>&lt;/p&gt;</span></code></pre></td></tr></table></div></figure>
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">&lt;p&gt;
+</span><span class="line">  Copyright &copy; 2012 - Jack Phil -
+</span><span class="line">  &lt;span class="credit"&gt;Powered by &lt;a href="http://octopress.org"&gt;Octopress&lt;/a&gt;&lt;/span&gt; -
+</span><span class="line"> &lt;script type="text/javascript"&gt;
+</span><span class="line">var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+</span><span class="line">document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F7b011ba580af2ede1ka05568d5d4828a' type='text/javascript'%3E%3C/script%3E"));
+</span><span class="line">&lt;/script&gt;
+</span><span class="line">&lt;/p&gt;</span></code></pre></td></tr></table></div></figure></notextile></div>
 
+<h2 id="kramdown">使用kramdown</h2>
+
+<p>kramdown是ruby的一种markdown方言，提供了表格、脚注、LATEX公式等等更多功能</p>
+
+<p>安装</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">cd octopress
+</span><span class="line">gem install kramdown</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>修改配置文件_config.yml，替换rdiscount为kramdown</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">markdown: kramdown</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>为了能使用MathJax生成公式，还需要添加相关代码到source/_includes/custom/head.html</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">&lt;!-- mathjax config similar to math.stackexchange --&gt;
+</span><span class="line">&lt;script type="text/x-mathjax-config"&gt;
+</span><span class="line">MathJax.Hub.Config({
+</span><span class="line">  jax: ["input/TeX", "output/HTML-CSS"],
+</span><span class="line">  tex2jax: {
+</span><span class="line">    inlineMath: [ ['$', '$'] ],
+</span><span class="line">    displayMath: [ ['$$', '$$']],
+</span><span class="line">    processEscapes: true,
+</span><span class="line">    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+</span><span class="line">  },
+</span><span class="line">  messageStyle: "none",
+</span><span class="line">  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+</span><span class="line">});
+</span><span class="line">&lt;/script&gt;
+</span><span class="line">&lt;script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"&gt;&lt;/script&gt;</span></code></pre></td></tr></table></div></figure></notextile></div>
 </div>
 
 
@@ -197,23 +256,6 @@
   
   
   
-  
-  <!-- Baidu Button BEGIN -->
-  <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare">
-     <a class="bds_qzone"></a>
-     <a class="bds_tsina"></a>
-     <a class="bds_tqq"></a>
-     <a class="bds_renren"></a>
-     <span class="bds_more">更多</span>
-     <a class="shareCount"></a>
-  </div>
-  <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=685719" ></script>
-  <script type="text/javascript" id="bdshell_js"></script>
-  <script type="text/javascript">
-    document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours();
-  </script>
-  <!-- Baidu Button END -->
-  
 </div>
 
     
@@ -243,6 +285,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/07/18/archlinux-upgrade/">archlinux更新日志：迁移/lib到/usr/lib</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/06/13/update-to-emacs24/">Emacs24的二三事</a>
       </li>
     
@@ -256,10 +302,6 @@
     
       <li class="post">
         <a href="/blog/2012/05/30/archlinuxkuai-su-she-zhi/">archlinux快速设置</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/05/30/archlinuxjian-yi-an-zhuang-zhi-nan/">Archlinux简易安装指南</a>
       </li>
     
   </ul>

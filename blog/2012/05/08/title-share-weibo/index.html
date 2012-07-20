@@ -19,7 +19,7 @@ rake new_post["My first post"] # 不建议在这里使用中文标点 Octopress�
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.jackphil.com/blog/2012/05/08/title-share-weibo">
+  <link rel="canonical" href="http://blog.jackphil.com/blog/2012/05/08/title-share-weibo/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -29,6 +29,23 @@ rake new_post["My first post"] # 不建议在这里使用中文标点 Octopress�
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+
 
   
 
@@ -95,96 +112,83 @@ rake new_post["My first post"] # 不建议在这里使用中文标点 Octopress�
 
 <!--more-->
 
+<h2 id="section">不要在文件名中使用中文标点</h2>
 
-<h2>不要在文件名中使用中文标点</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rake new_post["My first post"] # 不建议在这里使用中文标点</span></code></pre></td></tr></table></div></figure>
-
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">rake new_post["My first post"] # 不建议在这里使用中文标点</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p>Octopress可以把中文文件名转换成拼音，但中文标点会造成一些麻烦，使得url中包含一些奇怪的符号，有时会造成问题。我曾碰到过在本地预览时能显示文章列表，但不能打开文章，显示找不到文件。将文件名改为英文后解决。需要说明的是提交到github在线浏览没有这个问题</p>
 
 <p>这里说的是文件名，并不影响你的文章标题中包含中文标点。你可以在文章内文的yaml front matter中的title字段随意使用中文标点，</p>
 
-<h2>分享按钮</h2>
-
+<h2 id="section-1">分享按钮</h2>
 <p>我选择了<a href="http://share.baidu.com">百度分享</a>，将获得的代码添加到source/_includes/post/sharing.html，你也可以依样画葫芦，把代码放在模板if结构中，</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>{% if site.baidu_share %}
-</span><span class='line'>代码
-</span><span class='line'>{$ endif %}</span></code></pre></td></tr></table></div></figure>
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">{% if site.baidu_share %}
+</span><span class="line">代码
+</span><span class="line">{$ endif %}</span></code></pre></td></tr></table></div></figure></notextile></div>
+<p>别忘了在_config.yml定义一下开关，如
+&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+<span class="line-number">2</span>
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line"># 百度分享
+</span><span class="line">baidu_share: true</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
 
-
-<p>别忘了在_config.yml定义一下开关，如</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'># 百度分享
-</span><span class='line'>baidu_share: true</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>微薄秀</h2>
-
+<h2 id="section-2">微薄秀</h2>
 <p>微博秀参考了<a href="http://programus.github.com/blog/2012/03/03/add-weibo-sidebar-into-octopress/">程序猎人的文章</a>，不过</p>
 
 <ul>
-<li>偷懒，直接用了从<a href="http://weibo.com/tool/weiboshow">微博秀</a>得来的代码，没有把url中的参数作变量替换。</li>
-<li>根据<em>confit.yml中default_asides的注释，把weibo.html放在了/source/</em>includes/custom/asides/目录下</li>
+  <li>偷懒，直接用了从<a href="http://weibo.com/tool/weiboshow">微博秀</a>得来的代码，没有把url中的参数作变量替换。</li>
+  <li>根据_confit.yml中default_asides的注释，把weibo.html放在了/source/_includes/custom/asides/目录下</li>
 </ul>
 
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>{% if site.weibo_sina %}
-</span><span class='line'>&lt;section&gt;
-</span><span class='line'>  &lt;h1&gt;新浪微博&lt;/h1&gt;
-</span><span class='line'>  &lt;ul id="weibo"&gt;
-</span><span class='line'>    &lt;li&gt;
-</span><span class='line'>      &lt;iframe 
-</span><span class='line'>        width="100%" 
-</span><span class='line'>        height="550" 
-</span><span class='line'>        class="share_self" 
-</span><span class='line'>        frameborder="0" 
-</span><span class='line'>        scrolling="no" 
-</span><span class='line'>        src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=2039187623&verifier=e0a28d12&dpc=1"&gt;
-</span><span class='line'>      &lt;/iframe&gt;
-</span><span class='line'>    &lt;/li&gt;
-</span><span class='line'>  &lt;/ul&gt;
-</span><span class='line'>&lt;/section&gt;
-</span><span class='line'>{% endif %}</span></code></pre></td></tr></table></div></figure>
-
-
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">{% if site.weibo_sina %}
+</span><span class="line">&lt;section&gt;
+</span><span class="line">  &lt;h1&gt;新浪微博&lt;/h1&gt;
+</span><span class="line">  &lt;ul id="weibo"&gt;
+</span><span class="line">    &lt;li&gt;
+</span><span class="line">      &lt;iframe 
+</span><span class="line">        width="100%" 
+</span><span class="line">        height="550" 
+</span><span class="line">        class="share_self" 
+</span><span class="line">        frameborder="0" 
+</span><span class="line">        scrolling="no" 
+</span><span class="line">        src="http://widget.weibo.com/weiboshow/index.php?language=&amp;width=0&amp;height=550&amp;fansRow=2&amp;ptype=1&amp;speed=0&amp;skin=1&amp;isTitle=1&amp;noborder=1&amp;isWeibo=1&amp;isFans=1&amp;uid=2039187623&amp;verifier=e0a28d12&amp;dpc=1"&gt;
+</span><span class="line">      &lt;/iframe&gt;
+</span><span class="line">    &lt;/li&gt;
+</span><span class="line">  &lt;/ul&gt;
+</span><span class="line">&lt;/section&gt;
+</span><span class="line">{% endif %}</span></code></pre></td></tr></table></div></figure></notextile></div>
 <p>`</p>
 
 <p>别忘了在_config.yml中的default_asides列表中添加微博秀并在文件尾添加开关</p>
 
-<h2>DISQUS评论</h2>
-
+<h2 id="disqus">DISQUS评论</h2>
 <p>DISQUS评论功能是内置的，开启很简单</p>
 
 <ul>
-<li>注册DISQUS帐号，添加站点</li>
-<li>在_config.yml中填入site shortname即可</li>
+  <li>注册DISQUS帐号，添加站点</li>
+  <li>在_config.yml中填入site shortname即可</li>
 </ul>
-
 </div>
 
 
@@ -223,23 +227,6 @@ rake new_post["My first post"] # 不建议在这里使用中文标点 Octopress�
   
   
   
-  
-  <!-- Baidu Button BEGIN -->
-  <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare">
-     <a class="bds_qzone"></a>
-     <a class="bds_tsina"></a>
-     <a class="bds_tqq"></a>
-     <a class="bds_renren"></a>
-     <span class="bds_more">更多</span>
-     <a class="shareCount"></a>
-  </div>
-  <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=685719" ></script>
-  <script type="text/javascript" id="bdshell_js"></script>
-  <script type="text/javascript">
-    document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours();
-  </script>
-  <!-- Baidu Button END -->
-  
 </div>
 
     
@@ -269,6 +256,10 @@ rake new_post["My first post"] # 不建议在这里使用中文标点 Octopress�
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/07/18/archlinux-upgrade/">archlinux更新日志：迁移/lib到/usr/lib</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/06/13/update-to-emacs24/">Emacs24的二三事</a>
       </li>
     
@@ -282,10 +273,6 @@ rake new_post["My first post"] # 不建议在这里使用中文标点 Octopress�
     
       <li class="post">
         <a href="/blog/2012/05/30/archlinuxkuai-su-she-zhi/">archlinux快速设置</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/05/30/archlinuxjian-yi-an-zhuang-zhi-nan/">Archlinux简易安装指南</a>
       </li>
     
   </ul>
