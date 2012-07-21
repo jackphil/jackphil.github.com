@@ -139,7 +139,7 @@ MathJax.Hub.Config({
 
 <p>这次改变是Fedora主导的，freedesktop上有一个<a href="http://www.freedesktop.org/wiki/Software/systemd/TheCaseForTheUsrMerge">说明</a>，要点如下：</p>
 
-<p>不止/lib，/bin、/sbin、/lib64都将合并到/usr目录下对应目录（Archlinux目前还只合并了/lib）</p>
+<p>不止/lib，/bin、/sbin、/lib64都将合并到/usr下对应目录。Archlinux连/lib和/lib64都合并了，它们都指向了/usr/lib，而不是说明中的/usr/lib64</p>
 
 <p>合并后将增加兼容性，给软件维护人员带来福利</p>
 
