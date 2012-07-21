@@ -9,10 +9,7 @@
   <meta name="author" content="Jack Phil">
 
   
-  <meta name="description" content="这次更新的一个变化是/lib目录和/usr/lib目录合并了，更新后/lib目录将只是一个指向/usr/lib的链接。由于这次变动牵涉到的软件比较多，Archlinux网站上提供了专门的升级指导 1
-2
-sudo pacman -Syu --ignore glibc
-sudo pacman -Su &hellip;">
+  <meta name="description" content="这篇文章主要用来测试kramdown+mathjax 题目来自今年高考全国卷大纲版理科数学： $\Delta ABC$的内角$A,B,C$的对边为$a,b,c$，已知$\cos(A-C)+\cos B=1$，$a=2c$，求$C$ 解答： $\because$ A、B、C是三角形内角，故有$B=\ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -43,7 +40,7 @@ MathJax.Hub.Config({
     skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
   },
   messageStyle: "none",
-  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"]},
 });
 </script>
 <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
@@ -84,6 +81,126 @@ MathJax.Hub.Config({
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/07/21/an-entrance-examination-problem/">一道高考数学题</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-21T11:00:00+08:00" pubdate data-updated="true">Jul 21<span>st</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>这篇文章主要用来测试kramdown+mathjax</p>
+
+<p>题目来自今年高考全国卷大纲版理科数学： $\Delta ABC$的内角$A,B,C$的对边为$a,b,c$，已知$\cos(A-C)+\cos B=1$，$a=2c$，求$C$</p>
+
+<p>解答：</p>
+
+<p>$\because$ A、B、C是三角形内角，故有$B=\pi -(A+C)$</p>
+
+<p>$\therefore$</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+
+\begin{align*}
+ & \cos(A-C)+\cos B=\cos(A-C)+\cos[\pi -(A+C)] \\
+ & =\cos(A-C)-\cos(A+C)= \\
+ & 2\sin A\sin C=1\tag{1}
+\end{align*}
+ %]]></script>
+
+<p>$\because a=2c$</p>
+
+<p>$\therefore$ 根据正弦定理，有$\sin A=2\sin C$，代入式(1)，得$\sin^{2} C=\frac{1}{4}$，</p>
+
+<p>$\because 0&lt;C&lt;\pi$，</p>
+
+<p>$\therefore$</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+
+\begin{align*}
+ & \sin C=\frac{1}{2}
+\end{align*}
+ %]]></script>
+
+<p>$\because a=2c$</p>
+
+<p>$\therefore$，根据三角形大边对大角的性质</p>
+
+<script type="math/tex; mode=display">
+\begin{align*}
+C=\frac{\pi}{6}
+\end{align*}
+</script>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/07/21/openoffice-calc-print/">OpenOffice表格横向打印</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-21T10:19:00+08:00" pubdate data-updated="true">Jul 21<span>st</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>从网上复制了一个以tab排版的表格，智能导入Calc很顺利，打印的时候却遇到了麻烦，A4纸竖着打印会丢失栏目，按MS Office下的老地方去找横向打印设置，未果，最后还是在网上找到了答案，记之备忘：</p>
+
+<p>菜单栏-&gt;格式-&gt;页，选择页标签；纸张格式-&gt;进纸方向，选择横向</p>
+
+<p>由于有多页，你可以在每一页都打印表头：菜单栏-&gt;格式-&gt;打印区域-&gt;编辑，在重复的行处填写行号，比如1，则表的第一行会打印在每页的第一行</p>
+
+<p>为了打印效果更美观，还可以设置表格文字居中，自动换行等等，用过Office的应该很容易找到，不再赘述。</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -529,101 +646,6 @@ MathJax.Hub.Config({
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/05/17/wo-ai-ming-ling-xing-zhi-sed/">我爱命令行之sed</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-05-17T19:22:00+08:00" pubdate data-updated="true">May 17<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2 id="section">语法</h2>
-
-<p>常用基本格式</p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-</pre></td><td class="code"><pre><code class=""><span class="line"> sed -i -e '指令1' -e '指令2' inputfile
-</span><span class="line"> sed -f scriptfile</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<ul>
-  <li>-i: 直接修改文件，而不是输出到标准输出，一般等调试无误后，最后使用该参数</li>
-  <li>-e: 后跟指令，可以多次使用</li>
-  <li>-f: 从文件中读取指令</li>
-</ul>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/05/17/wo-ai-ming-ling-xing-zhi-sed/">阅读全文</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/05/16/octopress-tips/">Octopress技巧集</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-05-16T21:21:00+08:00" pubdate data-updated="true">May 16<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>本文收集Octopress使用过程中学到的一些技巧，会经常更新（当然还要看我心情懒不懒得折腾）</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/05/16/octopress-tips/">阅读全文</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -639,6 +661,14 @@ MathJax.Hub.Config({
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/07/21/an-entrance-examination-problem/">一道高考数学题</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/21/openoffice-calc-print/">OpenOffice表格横向打印</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/07/18/archlinux-upgrade/">archlinux更新日志：迁移/lib到/usr/lib</a>
       </li>
     
@@ -648,14 +678,6 @@ MathJax.Hub.Config({
     
       <li class="post">
         <a href="/blog/2012/06/13/systemdnow/">高速启动，现在开始systemd</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/05/30/archlinux-and-virtualbox/">Archlinux和VirtualBox</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/05/30/archlinuxkuai-su-she-zhi/">archlinux快速设置</a>
       </li>
     
   </ul>

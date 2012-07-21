@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>安卓手机root刷机教程: 我的HTC Saga root记录 - 眼中无码，心中有码</title>
+  <title>OpenOffice表格横向打印 - 眼中无码，心中有码</title>
   <meta name="author" content="Jack Phil">
 
   
-  <meta name="description" content="整理旧文一篇，部分内容可能已经过时 HBOOT HBOOT相当于手机的bios 同时按住音量下键和电源键开机，就进入了HBOOT界面，如果有S-ON字样，则需要先解锁，才可以自由的刷机。如果已经是S-OFF，则已经解锁 解锁，简单说就是刷入一个定制的HBOOT，分软解和硬解 软解 &hellip;">
+  <meta name="description" content="从网上复制了一个以tab排版的表格，智能导入Calc很顺利，打印的时候却遇到了麻烦，A4纸竖着打印会丢失栏目，按MS Office下的老地方去找横向打印设置，未果，最后还是在网上找到了答案，记之备忘： 菜单栏-&gt;格式-&gt;页，选择页标签；纸张格式-&gt;进纸方向，选择横向 由于有多页， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.jackphil.com/blog/2012/05/28/an-zhuo-shou-ji-rootshua-ji-jiao-cheng/">
+  <link rel="canonical" href="http://blog.jackphil.com/blog/2012/07/21/openoffice-calc-print/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -84,7 +84,7 @@ MathJax.Hub.Config({
   
   <header>
     
-      <h1 class="entry-title">安卓手机root刷机教程: 我的HTC Saga Root记录</h1>
+      <h1 class="entry-title">OpenOffice表格横向打印</h1>
     
     
       <p class="meta">
@@ -100,103 +100,20 @@ MathJax.Hub.Config({
   
 
 
-<time datetime="2012-05-28T22:35:00+08:00" pubdate data-updated="true">May 28<span>th</span>, 2012</time>
+<time datetime="2012-07-21T10:19:00+08:00" pubdate data-updated="true">Jul 21<span>st</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>整理旧文一篇，部分内容可能已经过时</p>
+<div class="entry-content"><p>从网上复制了一个以tab排版的表格，智能导入Calc很顺利，打印的时候却遇到了麻烦，A4纸竖着打印会丢失栏目，按MS Office下的老地方去找横向打印设置，未果，最后还是在网上找到了答案，记之备忘：</p>
 
-<!--more-->
+<p>菜单栏-&gt;格式-&gt;页，选择页标签；纸张格式-&gt;进纸方向，选择横向</p>
 
-<h2 id="hboot">HBOOT</h2>
+<p>由于有多页，你可以在每一页都打印表头：菜单栏-&gt;格式-&gt;打印区域-&gt;编辑，在重复的行处填写行号，比如1，则表的第一行会打印在每页的第一行</p>
 
-<p>HBOOT相当于手机的bios</p>
-
-<p>同时按住音量下键和电源键开机，就进入了HBOOT界面，如果有S-ON字样，则需要先解锁，才可以自由的刷机。如果已经是S-OFF，则已经解锁</p>
-
-<p>解锁，简单说就是刷入一个定制的HBOOT，分软解和硬解</p>
-
-<h2 id="section">软解</h2>
-
-<p>软解方法由伟大的<a href="http://alpharev.nl/x/beta">AlpharevX</a>开发</p>
-
-<ul>
-  <li>去 http://revolutionary.io/ 下载相应的版本，并填写系统平台(Windows还是Linux)、机型和SN号(可以打开后盖取下电池后看到)等信息，得到一个beta key，记下这个key</li>
-  <li>用USB连接电脑，确认系统设置-应用程序-开发-USB调试已经打开</li>
-  <li>运行下载的revolutionary程序，按提示输入beta key，等待，机器会自动重启进入HBOOT界面</li>
-  <li>revolutionary会询问是否安装recovery，如果选择不安装，也可以在以后用fastboot或RomManager安装</li>
-</ul>
-
-<p>另：xda上高手开发了一个新的软解工具，<a href="http://forum.xda-developers.com/showthread.php?t=1343114">HTC Super Tool</a></p>
-
-<h2 id="section-1">硬解</h2>
-
-<p>硬解需要白卡(smartcard，HTC用于工程调试之用，因其白色而得名)或<a href="http://www.xtcclip.com/">xtc clip</a>(第三方开发的专门用来模拟白卡的设备)，不推荐</p>
-
-<ul>
-  <li>软解免费，硬解要花上一笔钱</li>
-  <li>软解可逆，就是恢复到S-ON状态，有利于保修。而硬解貌似不可逆</li>
-  <li>软解后功能更完整，如可以使用fastboot，硬解则不能</li>
-</ul>
-
-<h2 id="recovery">Recovery</h2>
-
-<p>recovery相当于电脑的一键ghost，刷recovery的前提是你的HBOOT必须是S-OFF</p>
-
-<h2 id="hboot-eng">HBOOT ENG</h2>
-
-<p>如果你进入HBOOT界面，第一行有AlpharevX字样，就是用AlpharevX软解的，是工程版(eng)HBOOT，可以直接用fastboot刷机</p>
-
-<p>启动到fastboot</p>
-
-<ul>
-  <li>拔掉USB连线，关机</li>
-  <li>同时按住音量下键和电源键开机，此时进入了HBOOT界面</li>
-  <li>选择第一项FASTBOOT，按电源键进入fastboot模式，这时上面显示红底白字的FASTBOOT USB</li>
-  <li>通过USB连接到电脑，电脑显示设备安装成功</li>
-</ul>
-
-<p>刷入recovery，一般都用<a href="http://www.clockworkmod.com/rommanager">clockworkmod</a></p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">fastboot flash recovery recovery_name.img</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<h2 id="hboot-1">硬解的HBOOT</h2>
-
-<p>有些水货机卖家已经给你硬解，特征是HBOOT界面S-OFF信息在第一行，这种机用上面的fastboot刷recovery会出现如下错误</p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-</pre></td><td class="code"><pre><code class="sh"><span class="line">writing <span class="s1">&#39;recovery&#39;</span> ... FAILED <span class="o">(</span>remote: not allowed<span class="o">)</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<p>建议用AlpharevX再软解一遍。之后就可以用fastboot随便刷recovery了。</p>
-
-<p>也可以下载专门的recovery包PG88IMG.zip，不要改名字，放在sd卡根目录，关机，再启动到HBOOT界面，稍等一会儿，HBOOT会自动搜索更新文件刷新recovery。</p>
-
-<p>注：PG88IMG.zip有中文版，可以到一些安卓论坛上搜索</p>
-
-<h2 id="rom">Rom安装</h2>
-
-<ul>
-  <li>拷贝rom包zip文件到sd卡根目录</li>
-  <li>同时按住音量下键和电源键开机，进入HBOOT界面</li>
-  <li>按音量键选择recovery</li>
-  <li>清空数据</li>
-  <li>选择rom包，刷机</li>
-</ul>
-
-<h2 id="section-2">参考资源</h2>
-
-<p><a href="http://forum.xda-developers.com/showthread.php?p=14693680">To install Clockworkmod after Revolutionary</a>：S-OFF后怎样安装Clockworkmod Recovery，并提供了recovery和工具的下载</p>
-
-<p><a href="http://www.virtuousrom.com/p/unity_23.html">Unity</a>：好用的sense rom</p>
-
-<p><a href="http://www.clockworkmod.com/rommanager">RomManager</a>：RomManager提供的clockworkmod和rom下载</p>
-
-<p><a href="http://download.cyanogenmod.com/?type=stable&amp;device=saga">CyanogenMod</a>：saga的CM rom</p>
+<p>为了打印效果更美观，还可以设置表格文字居中，自动换行等等，用过Office的应该很容易找到，不再赘述。</p>
 </div>
 
 
@@ -219,12 +136,12 @@ MathJax.Hub.Config({
   
 
 
-<time datetime="2012-05-28T22:35:00+08:00" pubdate data-updated="true">May 28<span>th</span>, 2012</time>
+<time datetime="2012-07-21T10:19:00+08:00" pubdate data-updated="true">Jul 21<span>st</span>, 2012</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/android/'>android</a>
+    <a class='category' href='/blog/categories/我爱开源/'>我爱开源</a>
   
 </span>
 
@@ -258,10 +175,10 @@ MathJax.Hub.Config({
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2012/05/20/kdede-yu-yi-xue-zhuo-mian/" title="Previous Post: KDE的语义学桌面: 看上去很美">&laquo; KDE的语义学桌面: 看上去很美</a>
+        <a class="basic-alignment left" href="/blog/2012/07/18/archlinux-upgrade/" title="Previous Post: archlinux更新日志：迁移/lib到/usr/lib">&laquo; archlinux更新日志：迁移/lib到/usr/lib</a>
       
       
-        <a class="basic-alignment right" href="/blog/2012/05/30/archlinuxjian-yi-an-zhuang-zhi-nan/" title="Next Post: Archlinux简易安装指南">Archlinux简易安装指南 &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2012/07/21/an-entrance-examination-problem/" title="Next Post: 一道高考数学题">一道高考数学题 &raquo;</a>
       
     </p>
   </footer>
@@ -378,8 +295,8 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://blog.jackphil.com/blog/2012/05/28/an-zhuo-shou-ji-rootshua-ji-jiao-cheng/';
-        var disqus_url = 'http://blog.jackphil.com/blog/2012/05/28/an-zhuo-shou-ji-rootshua-ji-jiao-cheng/';
+        var disqus_identifier = 'http://blog.jackphil.com/blog/2012/07/21/openoffice-calc-print/';
+        var disqus_url = 'http://blog.jackphil.com/blog/2012/07/21/openoffice-calc-print/';
         var disqus_script = 'embed.js';
       
     (function () {

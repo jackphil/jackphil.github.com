@@ -9,7 +9,8 @@
   <meta name="author" content="Jack Phil">
 
   
-  <meta name="description" content="github需要ssh密钥来建立push时的安全连接，虽然以前在用gitorious时也接触过，但已经不记得了，还是找了几篇教程来边看边做，笔记如下 ">
+  <meta name="description" content="语法 常用基本格式 1
+2 sed -i -e '指令1' -e '指令2' inputfile sed -f scriptfile -i: 直接修改文件，而不是输出到标准输出，一般等调试无误后，最后使用该参数 -e: 后跟指令，可以多次使用 -f: 从文件中读取指令 ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -40,7 +41,7 @@ MathJax.Hub.Config({
     skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
   },
   messageStyle: "none",
-  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"]},
 });
 </script>
 <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
@@ -81,6 +82,101 @@ MathJax.Hub.Config({
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/05/17/wo-ai-ming-ling-xing-zhi-sed/">我爱命令行之sed</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-17T19:22:00+08:00" pubdate data-updated="true">May 17<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="section">语法</h2>
+
+<p>常用基本格式</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class=""><span class="line"> sed -i -e '指令1' -e '指令2' inputfile
+</span><span class="line"> sed -f scriptfile</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<ul>
+  <li>-i: 直接修改文件，而不是输出到标准输出，一般等调试无误后，最后使用该参数</li>
+  <li>-e: 后跟指令，可以多次使用</li>
+  <li>-f: 从文件中读取指令</li>
+</ul>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/05/17/wo-ai-ming-ling-xing-zhi-sed/">阅读全文</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/05/16/octopress-tips/">Octopress技巧集</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-16T21:21:00+08:00" pubdate data-updated="true">May 16<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>本文收集Octopress使用过程中学到的一些技巧，会经常更新（当然还要看我心情懒不懒得折腾）</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/05/16/octopress-tips/">阅读全文</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -285,6 +381,14 @@ MathJax.Hub.Config({
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/07/21/an-entrance-examination-problem/">一道高考数学题</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/21/openoffice-calc-print/">OpenOffice表格横向打印</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/07/18/archlinux-upgrade/">archlinux更新日志：迁移/lib到/usr/lib</a>
       </li>
     
@@ -294,14 +398,6 @@ MathJax.Hub.Config({
     
       <li class="post">
         <a href="/blog/2012/06/13/systemdnow/">高速启动，现在开始systemd</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/05/30/archlinux-and-virtualbox/">Archlinux和VirtualBox</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/05/30/archlinuxkuai-su-she-zhi/">archlinux快速设置</a>
       </li>
     
   </ul>

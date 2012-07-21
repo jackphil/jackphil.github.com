@@ -4,7 +4,7 @@
   <title><![CDATA[眼中无码，心中有码]]></title>
   <link href="http://blog.jackphil.com/atom.xml" rel="self"/>
   <link href="http://blog.jackphil.com/"/>
-  <updated>2012-07-21T09:48:16+08:00</updated>
+  <updated>2012-07-21T15:13:46+08:00</updated>
   <id>http://blog.jackphil.com/</id>
   <author>
     <name><![CDATA[Jack Phil]]></name>
@@ -12,6 +12,72 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[一道高考数学题]]></title>
+    <link href="http://blog.jackphil.com/blog/2012/07/21/an-entrance-examination-problem/"/>
+    <updated>2012-07-21T11:00:00+08:00</updated>
+    <id>http://blog.jackphil.com/blog/2012/07/21/an-entrance-examination-problem</id>
+    <content type="html"><![CDATA[<p>这篇文章主要用来测试kramdown+mathjax</p>
+
+<p>题目来自今年高考全国卷大纲版理科数学： $\Delta ABC$的内角$A,B,C$的对边为$a,b,c$，已知$\cos(A-C)+\cos B=1$，$a=2c$，求$C$</p>
+
+<p>解答：</p>
+
+<p>$\because$ A、B、C是三角形内角，故有$B=\pi -(A+C)$</p>
+
+<p>$\therefore$</p>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+
+\begin{align*}
+ & \cos(A-C)+\cos B=\cos(A-C)+\cos[\pi -(A+C)] \\
+ & =\cos(A-C)-\cos(A+C)= \\
+ & 2\sin A\sin C=1\tag{1}
+\end{align*}
+ %]]&gt;</script>
+
+<p>$\because a=2c$</p>
+
+<p>$\therefore$ 根据正弦定理，有$\sin A=2\sin C$，代入式(1)，得$\sin^{2} C=\frac{1}{4}$，</p>
+
+<p>$\because 0&lt;C&lt;\pi$，</p>
+
+<p>$\therefore$</p>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+
+\begin{align*}
+ & \sin C=\frac{1}{2}
+\end{align*}
+ %]]&gt;</script>
+
+<p>$\because a=2c$</p>
+
+<p>$\therefore$，根据三角形大边对大角的性质</p>
+
+<script type="math/tex; mode=display">
+\begin{align*}
+C=\frac{\pi}{6}
+\end{align*}
+</script>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[OpenOffice表格横向打印]]></title>
+    <link href="http://blog.jackphil.com/blog/2012/07/21/openoffice-calc-print/"/>
+    <updated>2012-07-21T10:19:00+08:00</updated>
+    <id>http://blog.jackphil.com/blog/2012/07/21/openoffice-calc-print</id>
+    <content type="html"><![CDATA[<p>从网上复制了一个以tab排版的表格，智能导入Calc很顺利，打印的时候却遇到了麻烦，A4纸竖着打印会丢失栏目，按MS Office下的老地方去找横向打印设置，未果，最后还是在网上找到了答案，记之备忘：</p>
+
+<p>菜单栏-&gt;格式-&gt;页，选择页标签；纸张格式-&gt;进纸方向，选择横向</p>
+
+<p>由于有多页，你可以在每一页都打印表头：菜单栏-&gt;格式-&gt;打印区域-&gt;编辑，在重复的行处填写行号，比如1，则表的第一行会打印在每页的第一行</p>
+
+<p>为了打印效果更美观，还可以设置表格文字居中，自动换行等等，用过Office的应该很容易找到，不再赘述。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[archlinux更新日志：迁移/lib到/usr/lib]]></title>
