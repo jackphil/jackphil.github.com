@@ -3,7 +3,7 @@ layout: post
 title: "OpenSSH密钥管理初步"
 date: 2012-05-16 20:09
 comments: true
-categories: 
+categories: 我爱开源
 ---
 
 github需要ssh密钥来建立push时的安全连接，虽然以前在用gitorious时也接触过，但已经不记得了，还是找了几篇教程来边看边做，笔记如下
@@ -18,6 +18,7 @@ ssh-keygen -t rsa
 ```
 
 一路默认回车即可。你也可以在出现如下提示时为你的私钥添加密码短句进行加密
+
 ```
 Enter passphrase (empty for no passphrase):
 Enter same passphrase again:
@@ -29,6 +30,7 @@ Enter same passphrase again:
 根据[github官方文档](http://help.github.com/linux-set-up-git/)，一些教程里提到的GitHub token不再会有支持
 
 你可以测试一下
+
 ```
 ssh -T git@github.com
 ```

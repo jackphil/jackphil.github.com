@@ -3,7 +3,7 @@ layout: post
 title: "安卓手机root刷机教程: 我的HTC Saga root记录"
 date: 2012-05-28 22:35
 comments: true
-categories: 
+categories: android
 ---
 
 整理旧文一篇，部分内容可能已经过时
@@ -63,7 +63,8 @@ fastboot flash recovery recovery_name.img
 ## 硬解的HBOOT
 
 有些水货机卖家已经给你硬解，特征是HBOOT界面S-OFF信息在第一行，这种机用上面的fastboot刷recovery会出现如下错误
-```
+
+```sh
 writing 'recovery' ... FAILED (remote: not allowed)
 ```
 

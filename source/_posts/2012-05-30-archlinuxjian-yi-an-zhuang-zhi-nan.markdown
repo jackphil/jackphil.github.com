@@ -19,6 +19,7 @@ categories: 我爱开源
 [Universal USB Installer](http://www.pendrivelinux.com/universal-usb-installer-easy-as-1-2-3/)可以方便的将iso文件制作为启动U盘。这个方法的一个缺点是你要准备一个干净的U盘，上面原有的文件都会被抹去。
 
 其实我使用的是移动硬盘，大量文档备份转移的话会很麻烦，幸好我装有[grub4dos](http://code.google.com/p/grub4dos-chenall/)。archlinux的iso镜像使用syslinux作为启动引导，稍微研究一下它的配置文件syslinux.cfg，可以很容易的转换为grub的配置格式，以archlinux-2011.08.19-core-x86_64.iso为例，下面是我的menu.lst
+
 ```
 title Boot Arch Linux Live CD
 kernel /arch/boot/x86_64/vmlinuz archisobasedir=arch archisolabel=MYLABEL
@@ -34,6 +35,7 @@ initrd /arch/boot/x86_64/archiso.img
 
 * 软件源选163的，我这里能满速
 * 网络设置如果是无线网卡，Ctrl+Alt+Fn切换到别的控制台
+
 ```
 wpa_passphrase mywireless_ssid "secretpassphrase" > /etc/wpa_supplicant.conf
 ip link set wlan0 up

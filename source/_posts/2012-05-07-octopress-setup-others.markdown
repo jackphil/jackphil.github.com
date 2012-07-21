@@ -3,7 +3,7 @@ layout: post
 title: "Octopress第一篇：安装、ruby以及轻量级标记语言"
 date: 2012-05-07 23:23
 comments: true
-categories: 
+categories: 我爱开源 
 ---
 
 作为一个pythoner，知道jekyll/octopress是ruby所写后，首先想到的是有没有相应的pythonic工具，[这里](http://wiki.python.org/moin/PythonBlogSoftware)有一个不完全列表

@@ -3,7 +3,7 @@ layout: post
 title: "KDE的语义学桌面: 看上去很美"
 date: 2012-05-20 15:52
 comments: true
-categories: 
+categories: KDE
 ---
 
 目前，貌似只有KDE4的家伙们热衷于语义学桌面，并把它强推给了用户。在我看来，这只不过是旧式图书馆技术。这些家伙都是图书馆学毕业的吗？
@@ -41,12 +41,14 @@ Akonadi是KDE的PIM(Personal Information Management: 个人信息管理)数据�
 Nepomuk是KDE4的核心组件，仍不掉，唯一的办法只能关掉它！
 
 打开 ~/.kde4/share/config/nepomukserverrc，将“Start Nepomuk”设置为false（你也可以在系统设置-桌面搜索中，不启用Nepomuk语义学桌面来关闭）
+
 ```
 [Basic Settings]
 Start Nepomuk=false
 ```
 
 打开~/.kde4/share/config/kdedrc，将nepomuksearchmodule的“autoload”设置为false:
+
 ```
 [Module-nepomuksearchmodule]
 autoload=false
@@ -57,6 +59,7 @@ Strigi依赖Nepomuk，关闭Nepomuk后，Strigi也就自动关闭了
 Akonadi作为PIM数据统一存取框架，与Nepomuk相对独立，需要单独关闭
 
 打开~/.config/akonadi/akonadiserverrc，设置“StartServer”为false
+
 ```
 [QMYSQL]
 StartServer=false
@@ -66,6 +69,7 @@ StartServer=false
 我的测试环境下，Akonadi服务还是会自动启动(没找到是哪个应用触发了它)，所以选用了MySQL后端，但不配置相应的MySQL数据库，甚至大多数情况下，KDE启动的时候MySQL服务都没启动，Akonadi启动失败，自动停止。使用SQLITE后端的话，由于不需要数据库特殊配置，就会成功启动
 
 你可以使用命令行控制Akonadi服务
+
 ```
 ubuntuku@satellite:~$ akonadictl --help
 Akonadi server manipulation tool

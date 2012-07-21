@@ -27,11 +27,13 @@ sudo gpasswd -a $USER vboxusers
 virtualbox安装后，系统中多了个vboxusers用户组，只有属于该组的用户能使用虚拟机
 
 /etc/rc.conf
+
 ```
 MODULES=(…… vboxdrv vboxnetflt)
 ```
 
 /etc/rc.local
+
 ```
 # Dry-load vbox* modules and trigger a rebuild if modprobe fails
 modprobe -nqs vbox{drv,pci,net{flt,adp}} >/dev/null 2>&1 || ( /usr/bin/vboxbuild && . /etc/rc.conf && modprobe -ab ${MODULES[*]} )
@@ -52,6 +54,7 @@ sudo gpasswd -a $USER vboxsf
 要实现开机自动加载共享目录等功能，用户必须是vboxsf组成员，你需要手工创建该用户组
 
 /etc/rc.conf
+
 ```
 MODULES=(... vboxguest vboxsf vboxvideo)
 ……
@@ -60,6 +63,7 @@ DAEMONS=(... vbox-service ...)
 vbox-service默认开启了很多实用功能，如与host主机同步时间，开机加载共享目录等，你也可以用VBoxService命令手动控制它们
 
 .xinitrc
+
 ```
 VBoxClient-all &
 exec ck-launch-session startkde
@@ -67,6 +71,7 @@ exec ck-launch-session startkde
 VBoxClient命令提供了剪贴板共享等高级桌面功能，VBoxClient-all用来开启所有这些功能
 
 创建/etc/modprobe.d/blacklist.conf
+
 ```
 blacklist i2c_piix4
 ```

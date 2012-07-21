@@ -14,6 +14,7 @@ categories: 我爱开源
 笔记本是ATI显卡，我选择了开源驱动
 
 添加源，在/etc/pacman.conf最后添加
+
 ```
 [radeon]
 Server = http://spiralinear.org/perry3d/x86_64
@@ -24,12 +25,14 @@ pacman -S xf86-video-ati-git #安装驱动
 ```
 
 建议开机加载驱动，/etc/rc.conf
+
 ```
 MODULES=(... radeon ...)
 ```
 
 ## 桌面
 桌面我选择的是KDE
+
 ```
 sudo pacman -S kdebase kde-l10n-zh_cn xorg-server xorg-xinit ttf-dejavu
 ```
@@ -47,6 +50,7 @@ sudo pacman -S kdebase kde-l10n-zh_cn xorg-server xorg-xinit ttf-dejavu
 * xorg的配置文件在/etc/X11/xorg.conf.d/目录下，你可以依样创建自己的配置文件，不过现在大部分情况下，xorg都能很好的识别设备（显卡、鼠标键盘等）并加载相应的模块，不需要额外配置
 
 /etc/rc.conf
+
 ```
 DAEMONS=(... dbus ...)
 ```
@@ -57,6 +61,7 @@ KDE使用dbus作为进程间通信机制
 kdm在kdebase-workspace包里，即使是最小安装kde，也已经顺带装上了
 
 开机运行，建议修改/etc/inittab，取消注释以下两行
+
 ```
 id:5:initdefault:
 ...
