@@ -4,7 +4,7 @@
   <title><![CDATA[眼中无码，心中有码]]></title>
   <link href="http://blog.jackphil.com/atom.xml" rel="self"/>
   <link href="http://blog.jackphil.com/"/>
-  <updated>2012-07-21T16:05:24+08:00</updated>
+  <updated>2012-07-21T16:12:03+08:00</updated>
   <id>http://blog.jackphil.com/</id>
   <author>
     <name><![CDATA[Jack Phil]]></name>
@@ -52,9 +52,9 @@
 \end{align*}
  %]]&gt;</script>
 
-<p>$\because a=2c$，有$a&gt;C$</p>
+<p>$\because a=2c$，有$a&gt;c$，根据三角形大边对大角的性质，C不可能是钝角</p>
 
-<p>$\therefore$ 根据三角形大边对大角的性质</p>
+<p>$\therefore$</p>
 
 <script type="math/tex; mode=display">
 \begin{align*}
