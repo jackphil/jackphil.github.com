@@ -4,7 +4,7 @@
   <title><![CDATA[眼中无码，心中有码]]></title>
   <link href="http://blog.jackphil.com/atom.xml" rel="self"/>
   <link href="http://blog.jackphil.com/"/>
-  <updated>2012-07-21T15:13:46+08:00</updated>
+  <updated>2012-07-21T16:05:24+08:00</updated>
   <id>http://blog.jackphil.com/</id>
   <author>
     <name><![CDATA[Jack Phil]]></name>
@@ -18,7 +18,7 @@
     <link href="http://blog.jackphil.com/blog/2012/07/21/an-entrance-examination-problem/"/>
     <updated>2012-07-21T11:00:00+08:00</updated>
     <id>http://blog.jackphil.com/blog/2012/07/21/an-entrance-examination-problem</id>
-    <content type="html"><![CDATA[<p>这篇文章主要用来测试kramdown+mathjax</p>
+    <content type="html"><![CDATA[<p>本篇主要用来测试kramdown+mathjax。符号表达参考<a href="http://zh.wikipedia.org/zh/Help:%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F#.E6.A0.87.E5.87.86.E5.87.BD.E6.95.B0">维基百科</a>，具体用法则参考了<a href="http://kramdown.rubyforge.org/syntax.html#math-blocks">kramdown文档</a></p>
 
 <p>题目来自今年高考全国卷大纲版理科数学： $\Delta ABC$的内角$A,B,C$的对边为$a,b,c$，已知$\cos(A-C)+\cos B=1$，$a=2c$，求$C$</p>
 
@@ -52,15 +52,18 @@
 \end{align*}
  %]]&gt;</script>
 
-<p>$\because a=2c$</p>
+<p>$\because a=2c$，有$a&gt;C$</p>
 
-<p>$\therefore$，根据三角形大边对大角的性质</p>
+<p>$\therefore$ 根据三角形大边对大角的性质</p>
 
 <script type="math/tex; mode=display">
 \begin{align*}
 C=\frac{\pi}{6}
 \end{align*}
 </script>
+
+<p>$Q.E.D$</p>
+
 ]]></content>
   </entry>
   
@@ -1041,7 +1044,9 @@ ibus-daemon -x -d</code></pre></noscript></div>
 <div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 </pre></td><td class="code"><pre><code class=""><span class="line">markdown: kramdown</span></code></pre></td></tr></table></div></figure></notextile></div>
 
-<p>为了能使用MathJax生成公式，还需要添加相关代码到source/_includes/custom/head.html</p>
+<h2 id="mathjax">数学表达式：mathjax</h2>
+
+<p>kramdown支持使用Latex语法嵌入数学公式，但kramdown本身并<a href="http://kramdown.rubyforge.org/converter/html.html">不包含MathJax库</a>，为了能正确显示公式，还需要添加相关代码到source/_includes/custom/head.html</p>
 
 <div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
@@ -1073,6 +1078,26 @@ ibus-daemon -x -d</code></pre></noscript></div>
 </span><span class="line">});
 </span><span class="line">&lt;/script&gt;
 </span><span class="line">&lt;script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"&gt;&lt;/script&gt;</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>修改<code>sass/base/_theme.scss</code>，以解决一个右键点击公式页面瞬间白化的小bug。修改前：</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class="css"><span class="line"><span class="nt">body</span> <span class="p">{</span>
+</span><span class="line">  <span class="o">&gt;</span> <span class="n">div</span> <span class="err">{</span>
+</span><span class="line">    <span class="k">background</span><span class="o">:</span> <span class="err">$</span><span class="n">sidebar</span><span class="o">-</span><span class="n">bg</span> <span class="err">$</span><span class="n">noise</span><span class="o">-</span><span class="n">bg</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>修改后</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class="css"><span class="line"><span class="nt">body</span> <span class="p">{</span>
+</span><span class="line">  <span class="o">&gt;</span> <span class="n">div</span><span class="m">#main</span> <span class="err">{</span>
+</span><span class="line">    <span class="k">background</span><span class="o">:</span> <span class="err">$</span><span class="n">sidebar</span><span class="o">-</span><span class="n">bg</span> <span class="err">$</span><span class="n">noise</span><span class="o">-</span><span class="n">bg</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 ]]></content>
   </entry>
   
