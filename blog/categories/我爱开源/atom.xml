@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 我爱开源 | 眼中无码，心中有码]]></title>
   <link href="http://blog.jackphil.com/blog/categories/我爱开源/atom.xml" rel="self"/>
   <link href="http://blog.jackphil.com/"/>
-  <updated>2012-07-21T16:12:03+08:00</updated>
+  <updated>2012-10-02T14:36:59+08:00</updated>
   <id>http://blog.jackphil.com/</id>
   <author>
     <name><![CDATA[Jack Phil]]></name>
@@ -50,6 +50,8 @@ sudo rm -rf /lib/modules
 <p>我的情况是/lib/modules目录及其子目录下有一些文件，查了一下，没有自己编译的内核模块，所以直接给删了。</p>
 
 <p>升级成功</p>
+
+<!--more-->
 
 <h2 id="section">为什么要合并？</h2>
 
@@ -220,7 +222,7 @@ sudo systemctl suspend
 
 <p><a href="http://www.freedesktop.org/software/systemd/man/systemd.service.html">systemd on freedesktop</a>: systemd官方文档，如欲进一步研究，比如service文件中各项含义等，请移步</p>
 
-<p><a href="http://linuxtoy.org/archives/interview-creater-of-systemd-and-pulseaudio-lennart.html">采访 Systemd 和 PulseAudio 创始人 Lennart</a>: Lennart是可有趣的人，文后链接中还能找到许多有用的文章</p>
+<p><a href="http://linuxtoy.org/archives/interview-creater-of-systemd-and-pulseaudio-lennart.html">采访 Systemd 和 PulseAudio 创始人 Lennart</a>: Lennart是个有趣的人，文后链接中还能找到许多有用的文章</p>
 ]]></content>
   </entry>
   
@@ -341,11 +343,11 @@ MODULES=(... radeon ...)
 <p>桌面我选择的是KDE</p>
 
 <p><code>
-sudo pacman -S kdebase kde-l10n-zh_cn xorg-server xorg-xinit ttf-dejavu
+sudo pacman -S kde-meta-kdebase kde-l10n-zh_cn xorg-server xorg-xinit ttf-dejavu
 </code></p>
 
 <ul>
-  <li>我这里选择了最小安装: kdebase</li>
+  <li>我这里选择了最小安装: kde-meta-kdebase</li>
   <li>如果你不使用kdm或gdm这类登录管理器，而使用startx启动桌面，则需要装xorg-xinit</li>
   <li>最小安装kde甚至都不安装英文字体，如果没有合适的字体，kde启动后将停在splash画面，所以你需要安装一个字体，如ttf-dejavu，同样的如果你的locale是中文，但却没有中文字体，你也会进不了桌面，建议安装wqy-bitmapfont、wqy-zenhei</li>
   <li>如果使用startx启动桌面，环境配置文件是.xinitrc</li>

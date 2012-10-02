@@ -137,10 +137,10 @@ MathJax.Hub.Config({
 <p>桌面我选择的是KDE</p>
 
 <div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">sudo pacman -S kdebase kde-l10n-zh_cn xorg-server xorg-xinit ttf-dejavu</span></code></pre></td></tr></table></div></figure></notextile></div>
+</pre></td><td class="code"><pre><code class=""><span class="line">sudo pacman -S kde-meta-kdebase kde-l10n-zh_cn xorg-server xorg-xinit ttf-dejavu</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <ul>
-  <li>我这里选择了最小安装: kdebase</li>
+  <li>我这里选择了最小安装: kde-meta-kdebase</li>
   <li>如果你不使用kdm或gdm这类登录管理器，而使用startx启动桌面，则需要装xorg-xinit</li>
   <li>最小安装kde甚至都不安装英文字体，如果没有合适的字体，kde启动后将停在splash画面，所以你需要安装一个字体，如ttf-dejavu，同样的如果你的locale是中文，但却没有中文字体，你也会进不了桌面，建议安装wqy-bitmapfont、wqy-zenhei</li>
   <li>如果使用startx启动桌面，环境配置文件是.xinitrc</li>
@@ -319,6 +319,14 @@ ibus-daemon -x -d</code></pre></noscript></div>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/10/02/insomnia/">失眠症：好警察坏警察，阿尔帕西诺的独角戏</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/02/the-world-is-too-small/">藏身之所：世界很小小得容不下你我</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/07/21/an-entrance-examination-problem/">一道高考数学题</a>
       </li>
     
@@ -328,14 +336,6 @@ ibus-daemon -x -d</code></pre></noscript></div>
     
       <li class="post">
         <a href="/blog/2012/07/18/archlinux-upgrade/">archlinux更新日志：迁移/lib到/usr/lib</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/06/13/update-to-emacs24/">Emacs24的二三事</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/06/13/systemdnow/">高速启动，现在开始systemd</a>
       </li>
     
   </ul>
