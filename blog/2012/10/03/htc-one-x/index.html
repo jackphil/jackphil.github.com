@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>失眠症：好警察坏警察，阿尔帕西诺的独角戏 - 眼中无码，心中有码</title>
+  <title>HTC One X刷机记 - 眼中无码，心中有码</title>
   <meta name="author" content="Jack Phil">
 
   
-  <meta name="description" content="白夜追凶，片名愿意为失眠症。 阿尔帕西诺来到阿拉斯加极昼小镇办理少女凶案，追踪嫌犯时误杀搭档，自己也说不清是否心存故意。他们俩正因在一起案件中为给凶手定罪而捏造证据受到调查，搭档准备自首。阿尔帕西诺从此失眠，斯万克对阿尔帕西诺说好警察失眠为破案线索坏警察失眠因为良心煎熬。受罪犯罗宾威廉姆斯（ &hellip;">
+  <meta name="description" content="同事见我的sweep2wake也想要，说他老婆的HTC电源键已经不灵光了，按好几次才能成功一次。于是上xda给他找了个bricked kernel，刚刷好一切正常，晚上来电说玩游戏过程中不知哪里碰了一下，现在不断重启，进不了桌面，已经1个多小时了，机器烫手。One X把苹果的缺点学了去， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.jackphil.com/blog/2012/10/02/insomnia/">
+  <link rel="canonical" href="http://blog.jackphil.com/blog/2012/10/03/htc-one-x/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -84,7 +84,7 @@ MathJax.Hub.Config({
   
   <header>
     
-      <h1 class="entry-title">失眠症：好警察坏警察，阿尔帕西诺的独角戏</h1>
+      <h1 class="entry-title">HTC One X刷机记</h1>
     
     
       <p class="meta">
@@ -100,20 +100,76 @@ MathJax.Hub.Config({
   
 
 
-<time datetime="2012-10-02T13:52:00+08:00" pubdate data-updated="true">Oct 2<span>nd</span>, 2012</time>
+<time datetime="2012-10-03T15:49:00+08:00" pubdate data-updated="true">Oct 3<span>rd</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>白夜追凶，片名愿意为失眠症。</p>
+<div class="entry-content"><p>同事见我的sweep2wake也想要，说他老婆的HTC电源键已经不灵光了，按好几次才能成功一次。于是上xda给他找了个<a href="http://forum.xda-developers.com/showthread.php?t=1643692">bricked kernel</a>，刚刷好一切正常，晚上来电说玩游戏过程中不知哪里碰了一下，现在不断重启，进不了桌面，已经1个多小时了，机器烫手。One X把苹果的缺点学了去，电池不可拆卸，他有点束手无策了，我遥控他进入fastboot，选择power down关机。</p>
 
-<p>阿尔帕西诺来到阿拉斯加极昼小镇办理少女凶案，追踪嫌犯时误杀搭档，自己也说不清是否心存故意。他们俩正因在一起案件中为给凶手定罪而捏造证据受到调查，搭档准备自首。阿尔帕西诺从此失眠，斯万克对阿尔帕西诺说好警察失眠为破案线索坏警察失眠因为良心煎熬。受罪犯罗宾威廉姆斯（推理小说作家）威逼利诱做了交易，陷害受害者的出轨男友，最后良心发现同归于尽。</p>
+<p>第二天问他，说已经拿去电子市场花了70元叫人刷机了。通讯录、短信、照片等等都没了。这帮奸商简直是屠夫医生，无论收钱和刷机，下刀真狠</p>
 
-<p>全片几乎都是阿尔帕西诺的独角戏，张弛之间，大师风范 </p>
+<p>看了一下，刷的是基于官方台湾版的一个rom，已经root，sweep2wake自然没了，他知道我上次只刷了内核，说这次刷个rom试试。于是帮他刷了个ARHD，faux123 repack内核，DisableSweep2Wake开启s2w功能。测试了一天，一切正常。</p>
 
-<p><img src="https://lh6.googleusercontent.com/-nEyCz6xMVS8/UGqJxMzLlkI/AAAAAAAAKdY/FEB_0ERG1Ys/s800/p1150166946.jpg" /></p>
+<!--more-->
+
+<h2 id="section">解锁</h2>
+
+<p>HTC提供官方解锁服务，可以参考这个<a href="http://forum.xda-developers.com/showthread.php?t=1592355">帖子</a>。</p>
+
+<p>官方解锁后hboot依然显示s-off，但第一行会显示Unlocked字样。有个缺点是recovery不能刷boot分区，下面刷内核或rom都要单独用命令行手动刷boot.img</p>
+
+<h2 id="recovery">recovery</h2>
+
+<p>进hboot的方法和我的saga一样，按住音量下键再按电源键直到显示三色屏</p>
+
+<p>我选择了<a href="http://forum.xda-developers.com/showthread.php?t=1594819">Clockworkmod Touch Recovery 5.8.4.0</a>，现在Recovery都是触屏操作了</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">fastboot flash recovery cwm.img</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<h2 id="rom">刷rom</h2>
+
+<p>我刷的是<a href="http://forum.xda-developers.com/showthread.php?t=1562603">Android Revolution HD</a></p>
+
+<p>先刷boot分区，boot.img有单独下载</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">fastboot flash boot boot.img
+</span><span class="line">fastboot erase cache</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>接下来清理和准备分区，通过recovery刷Super Wipe包。</p>
+
+<p>最后，通过recovery刷rom包，全程触屏操作，完成后重启</p>
+
+<h2 id="section-1">刷内核</h2>
+
+<p>按ARHD内核的说明，刷第三方内核或模块，需刷系统后至少进一次桌面</p>
+
+<p>这次我选择的内核是<a href="http://forum.xda-developers.com/showthread.php?t=1647993">Faux123</a>，有专门针对ARHD的<a href="http://forum.xda-developers.com/showthread.php?t=1654982">repack版</a></p>
+
+<p>kernel选择版本号带m的通用版，没有超频，更加稳定</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">fastboot flash boot faux_010m_arhd_9.0.0.img
+</span><span class="line">fastboot erase cache</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>与kernel相应的modules通过recovery刷入</p>
+
+<p>重启后进入系统，安装<a href="http://forum.xda-developers.com/showthread.php?t=1736258&amp;highlight=sweep2wake">DisableSweep2Wake</a>来打开sweep2wake功能</p>
+
+<h2 id="root">root</h2>
+
+<p>ARHD已经root，这个是之前单刷内核时做的功课</p>
+
+<p>安装<a href="https://play.google.com/store/apps/details?id=com.joeykrim.rootcheckp">root checker pro</a>，检查系统是否已root</p>
+
+<p>若没root，建议刷<a href="http://forum.xda-developers.com/showthread.php?t=1538053">SuperSU</a>（选择zip包），非常简单</p>
+
 </div>
 
 
@@ -136,12 +192,12 @@ MathJax.Hub.Config({
   
 
 
-<time datetime="2012-10-02T13:52:00+08:00" pubdate data-updated="true">Oct 2<span>nd</span>, 2012</time>
+<time datetime="2012-10-03T15:49:00+08:00" pubdate data-updated="true">Oct 3<span>rd</span>, 2012</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/我看/'>我看</a>
+    <a class='category' href='/blog/categories/android/'>android</a>
   
 </span>
 
@@ -175,10 +231,8 @@ MathJax.Hub.Config({
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2012/10/02/the-world-is-too-small/" title="Previous Post: 藏身之所：世界很小小得容不下你我">&laquo; 藏身之所：世界很小小得容不下你我</a>
+        <a class="basic-alignment left" href="/blog/2012/10/02/saga-upgrade-to-ics/" title="Previous Post: 我的Desire S，我的ICS">&laquo; 我的Desire S，我的ICS</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2012/10/02/saga-upgrade-to-ics/" title="Next Post: 我的Desire S，我的ICS">我的Desire S，我的ICS &raquo;</a>
       
     </p>
   </footer>
@@ -295,8 +349,8 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://blog.jackphil.com/blog/2012/10/02/insomnia/';
-        var disqus_url = 'http://blog.jackphil.com/blog/2012/10/02/insomnia/';
+        var disqus_identifier = 'http://blog.jackphil.com/blog/2012/10/03/htc-one-x/';
+        var disqus_url = 'http://blog.jackphil.com/blog/2012/10/03/htc-one-x/';
         var disqus_script = 'embed.js';
       
     (function () {

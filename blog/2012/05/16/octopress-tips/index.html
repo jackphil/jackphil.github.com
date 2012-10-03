@@ -240,6 +240,36 @@ MathJax.Hub.Config({
 </span><span class="line">  <span class="o">&gt;</span> <span class="n">div</span><span class="m">#main</span> <span class="err">{</span>
 </span><span class="line">    <span class="k">background</span><span class="o">:</span> <span class="err">$</span><span class="n">sidebar</span><span class="o">-</span><span class="n">bg</span> <span class="err">$</span><span class="n">noise</span><span class="o">-</span><span class="n">bg</span><span class="p">;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<h2 id="section-3">新建文章后在编辑器中打开</h2>
+
+<p><code>rake new_post</code>后立刻在编辑器中打开进行编辑，就象喝完可乐就要打嗝一样自然。为什么每次都要手动输入命令和一长串路径呢。只需一句命令就可以一劳永逸头屑不再来</p>
+
+<p>在Rakefile中找到new_post任务，在最后添加一句systme调用：</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+</pre></td><td class="code"><pre><code class="ruby"><span class="line">  <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">post</span><span class="o">|</span>
+</span><span class="line">    <span class="n">post</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;---&quot;</span>
+</span><span class="line">    <span class="n">post</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;layout: post&quot;</span>
+</span><span class="line">    <span class="n">post</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;title: </span><span class="se">\&quot;</span><span class="si">#{</span><span class="n">title</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/&amp;/</span><span class="p">,</span><span class="s1">&#39;&amp;amp;&#39;</span><span class="p">)</span><span class="si">}</span><span class="se">\&quot;</span><span class="s2">&quot;</span>
+</span><span class="line">    <span class="n">post</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;date: </span><span class="si">#{</span><span class="no">Time</span><span class="o">.</span><span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-%d %H:%M&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class="line">    <span class="n">post</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;comments: true&quot;</span>
+</span><span class="line">    <span class="n">post</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;categories: &quot;</span>
+</span><span class="line">    <span class="n">post</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;---&quot;</span>
+</span><span class="line">  <span class="k">end</span>
+</span><span class="line">  <span class="nb">system</span><span class="p">(</span><span class="s2">&quot;emacsclient </span><span class="si">#{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span class="line"><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 </div>
 
 
@@ -325,6 +355,14 @@ MathJax.Hub.Config({
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/10/03/htc-one-x/">HTC One X刷机记</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/02/saga-upgrade-to-ics/">我的Desire S，我的ICS</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/10/02/insomnia/">失眠症：好警察坏警察，阿尔帕西诺的独角戏</a>
       </li>
     
@@ -334,14 +372,6 @@ MathJax.Hub.Config({
     
       <li class="post">
         <a href="/blog/2012/07/21/an-entrance-examination-problem/">一道高考数学题</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/07/21/openoffice-calc-print/">OpenOffice表格横向打印</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/07/18/archlinux-upgrade/">archlinux更新日志：迁移/lib到/usr/lib</a>
       </li>
     
   </ul>
