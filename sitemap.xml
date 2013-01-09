@@ -76,18 +76,24 @@
     </url>
     <url>
         <loc>http://blog.jackphil.com/blog/2012/10/02/saga-upgrade-to-ics/</loc>
-        <lastmod>2012-10-03T15:17:08+08:00</lastmod>
+        <lastmod>2013-01-01T21:34:53+08:00</lastmod>
     </url>
     <url>
         <loc>http://blog.jackphil.com/blog/2012/10/03/htc-one-x/</loc>
         <lastmod>2012-10-03T17:15:35+08:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://blog.jackphil.com/blog/2012/10/04/lemony-snickets-a-series-of-unfortunate-events/
+        </loc>
+        <lastmod>2013-01-10T00:00:00+08:00</lastmod>
+    </url>
+    <url>
         <loc>http://blog.jackphil.com/</loc>
-        <lastmod>2012-10-03T22:04:25+08:00</lastmod>
+        <lastmod>2013-01-10T00:00:00+08:00</lastmod>
     </url>
     <url>
         <loc>http://blog.jackphil.com/blog/archives/</loc>
-        <lastmod>2012-10-03T22:04:25+08:00</lastmod>
+        <lastmod>2013-01-10T00:00:00+08:00</lastmod>
     </url>
 </urlset>
