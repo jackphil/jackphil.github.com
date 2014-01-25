@@ -34,10 +34,10 @@ MODULES=(... radeon ...)
 桌面我选择的是KDE
 
 ```
-sudo pacman -S kdebase kde-l10n-zh_cn xorg-server xorg-xinit ttf-dejavu
+sudo pacman -S kde-meta-kdebase kde-l10n-zh_cn xorg-server xorg-xinit ttf-dejavu
 ```
 
-* 我这里选择了最小安装: kdebase
+* 我这里选择了最小安装: kde-meta-kdebase
 * 如果你不使用kdm或gdm这类登录管理器，而使用startx启动桌面，则需要装xorg-xinit
 * 最小安装kde甚至都不安装英文字体，如果没有合适的字体，kde启动后将停在splash画面，所以你需要安装一个字体，如ttf-dejavu，同样的如果你的locale是中文，但却没有中文字体，你也会进不了桌面，建议安装wqy-bitmapfont、wqy-zenhei
 * 如果使用startx启动桌面，环境配置文件是.xinitrc

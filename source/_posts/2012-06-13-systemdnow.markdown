@@ -145,4 +145,4 @@ sudo systemctl suspend
 
 [systemd on freedesktop](http://www.freedesktop.org/software/systemd/man/systemd.service.html): systemd官方文档，如欲进一步研究，比如service文件中各项含义等，请移步
 
-[采访 Systemd 和 PulseAudio 创始人 Lennart](http://linuxtoy.org/archives/interview-creater-of-systemd-and-pulseaudio-lennart.html): Lennart是可有趣的人，文后链接中还能找到许多有用的文章
+[采访 Systemd 和 PulseAudio 创始人 Lennart](http://linuxtoy.org/archives/interview-creater-of-systemd-and-pulseaudio-lennart.html): Lennart是个有趣的人，文后链接中还能找到许多有用的文章

@@ -30,6 +30,7 @@ initrd /arch/boot/x86_64/archiso.img
 * MYLABEL是移动硬盘启动分区卷标
 * 网络环境允许（如无线网卡驱动能自动识别），还是建议选择netinstall镜像
 
+[UNetbootin](http://unetbootin.sourceforge.net/)似乎可以自动化上面的工作，有兴趣可以尝试一下。
 
 ## 安装界面
 

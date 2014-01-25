@@ -24,6 +24,8 @@ sudo rm -rf /lib/modules
 
 升级成功
 
+<!--more-->
+
 ## 为什么要合并？
 
 也许你和我一样，脑子里有十万个为什么：为什么要合并，合并的好处是什么，我的/usr单独分区怎么办，[FHS](http://www.pathname.com/fhs/)标准改了么

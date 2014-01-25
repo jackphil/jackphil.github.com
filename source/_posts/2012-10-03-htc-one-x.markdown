@@ -1,0 +1,72 @@
+---
+layout: post
+title: "HTC One X刷机记"
+date: 2012-10-03 15:49
+comments: true
+categories: android
+---
+
+同事见我的sweep2wake也想要，说他老婆的HTC电源键已经不灵光了，按好几次才能成功一次。于是上xda给他找了个[bricked kernel](http://forum.xda-developers.com/showthread.php?t=1643692)，刚刷好一切正常，晚上来电说玩游戏过程中不知哪里碰了一下，现在不断重启，进不了桌面，已经1个多小时了，机器烫手。One X把苹果的缺点学了去，电池不可拆卸，他有点束手无策了，我遥控他进入fastboot，选择power down关机。
+
+第二天问他，说已经拿去电子市场花了70元叫人刷机了。通讯录、短信、照片等等都没了。这帮奸商简直是屠夫医生，无论收钱和刷机，下刀真狠
+
+看了一下，刷的是基于官方台湾版的一个rom，已经root，sweep2wake自然没了，他知道我上次只刷了内核，说这次刷个rom试试。于是帮他刷了个ARHD，faux123 repack内核，DisableSweep2Wake开启s2w功能。测试了一天，一切正常。
+
+<!--more-->
+
+## 解锁
+
+HTC提供官方解锁服务，可以参考这个[帖子](http://forum.xda-developers.com/showthread.php?t=1592355)。
+
+官方解锁后hboot依然显示s-on，但第一行会显示Unlocked字样。有个缺点是recovery不能刷boot分区，下面刷内核或rom都要单独用命令行手动刷boot.img
+
+## recovery
+
+进hboot的方法和我的saga一样，按住音量下键再按电源键直到显示三色屏
+
+我选择了[Clockworkmod Touch Recovery 5.8.4.0](http://forum.xda-developers.com/showthread.php?t=1594819)，现在Recovery都是触屏操作了
+
+```
+fastboot flash recovery cwm.img
+```
+
+## 刷rom
+
+我刷的是[Android Revolution HD](http://forum.xda-developers.com/showthread.php?t=1562603)
+
+先刷boot分区，boot.img有单独下载
+
+```
+fastboot flash boot boot.img
+fastboot erase cache
+```
+
+接下来清理和准备分区，通过recovery刷Super Wipe包。
+
+最后，通过recovery刷rom包，全程触屏操作，完成后重启
+
+## 刷内核
+
+按ARHD内核的说明，刷第三方内核或模块，需刷系统后至少进一次桌面
+
+这次我选择的内核是[Faux123](http://forum.xda-developers.com/showthread.php?t=1647993)，有专门针对ARHD的[repack版](http://forum.xda-developers.com/showthread.php?t=1654982)
+
+kernel选择版本号带m的通用版，没有超频，更加稳定
+
+```
+fastboot flash boot faux_010m_arhd_9.0.0.img
+fastboot erase cache
+```
+
+与kernel相应的modules通过recovery刷入
+
+重启后进入系统，安装[DisableSweep2Wake](http://forum.xda-developers.com/showthread.php?t=1736258&highlight=sweep2wake)来打开sweep2wake功能
+
+## root
+
+ARHD已经root，这个是之前单刷内核时做的功课
+
+安装[root checker pro](https://play.google.com/store/apps/details?id=com.joeykrim.rootcheckp)，检查系统是否已root
+
+若没root，建议刷[SuperSU](http://forum.xda-developers.com/showthread.php?t=1538053)（选择zip包），非常简单
+

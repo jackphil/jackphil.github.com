@@ -74,7 +74,9 @@ gem install kramdown
 markdown: kramdown
 ```
 
-为了能使用MathJax生成公式，还需要添加相关代码到source/_includes/custom/head.html
+## 数学表达式：mathjax
+
+kramdown支持使用Latex语法嵌入数学公式，但kramdown本身并[不包含MathJax库](http://kramdown.rubyforge.org/converter/html.html)，为了能正确显示公式，还需要添加相关代码到source/_includes/custom/head.html
 
 ```
 <!-- mathjax config similar to math.stackexchange -->
@@ -92,4 +94,40 @@ MathJax.Hub.Config({
 });
 </script>
 <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+```
+
+修改```sass/base/_theme.scss```，以解决一个右键点击公式页面瞬间白化的小bug。修改前：
+
+```css
+body {
+  > div {
+    background: $sidebar-bg $noise-bg;
+```
+
+修改后
+
+```css
+body {
+  > div#main {
+    background: $sidebar-bg $noise-bg;
+```
+
+## 新建文章后在编辑器中打开
+
+`rake new_post`后立刻在编辑器中打开进行编辑，就象喝完可乐就要打嗝一样自然。为什么每次都要手动输入命令和一长串路径呢。只需一句命令就可以一劳永逸头屑不再来
+
+在Rakefile中找到new_post任务，在最后添加一句systme调用：
+
+```ruby
+  open(filename, 'w') do |post|
+    post.puts "---"
+    post.puts "layout: post"
+    post.puts "title: \"#{title.gsub(/&/,'&amp;')}\""
+    post.puts "date: #{Time.now.strftime('%Y-%m-%d %H:%M')}"
+    post.puts "comments: true"
+    post.puts "categories: "
+    post.puts "---"
+  end
+  system("emacsclient #{filename}")
+end
 ```
