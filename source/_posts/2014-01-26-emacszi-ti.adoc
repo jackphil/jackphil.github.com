@@ -1,0 +1,27 @@
+---
+layout: post
+title: "Emacs字体"
+date: 2014-01-26 19:57:59 +0800
+comments: true
+categories: emacs
+---
+
+Emacs字体
+======
+:Author: Jack Phil
+
+emacs23开始支持xft字体系统，建议升级。
+
+推荐使用等宽字体，我一般在windows上使用文泉驿等宽正黑，Linux上使用雅黑MONO（来自碧海潮声，有修改）
+
+.查看Emacs可用字体
+
++++ M-x set-default-font +++ ，然后按tab就可得到可用字体列表
+
+.配置
+
+以下内容可以加入到init.el：
+----
+;; 默认字体：等宽，中英文1:2
+(set-default-font "雅黑MONO:size=18")
+----

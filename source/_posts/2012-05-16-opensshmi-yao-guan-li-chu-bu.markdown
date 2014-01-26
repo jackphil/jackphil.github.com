@@ -46,6 +46,16 @@ ssh-add ~/.ssh/id_rsa # 会询问你密码短句
 
 每次启动kde会话后，都要手动添加私钥到ssh-agent，你只需在此输入一次密码短句，此后只要ssh-agent进程不重启，你都不再需要输入密码短句
 
+### 更新
+
+2014-1-26: kde-agent从20140102-1版本起，取消了ssh-agent的相关功能。要随kde会话启动和退出ssh-agent，可以使用如下脚本：
+
+```
+echo -e '#!/bin/sh\n[ -n "$SSH_AGENT_PID" ] || eval "$(ssh-agent -s)"' > ~/.kde4/env/ssh-agent-startup.sh
+echo -e '#!/bin/sh\n[ -z "$SSH_AGENT_PID" ] || eval "$(ssh-agent -k)"' > ~/.kde4/shutdown/ssh-agent-shutdown.sh
+chmod 755 ~/.kde4/env/ssh-agent-startup.sh ~/.kde4/shutdown/ssh-agent-shutdown.sh
+```
+
 ## 参考资源
 
 [通用线程: OpenSSH 密钥管理](http://www.ibm.com/developerworks/cn/linux/security/openssh/part1/index.html): IBM网站上2001年的一篇教程，是由gentoo创始人写的，共有两部分，这是第一部分介绍基础知识，第二部分介绍ssh-agent和keychain

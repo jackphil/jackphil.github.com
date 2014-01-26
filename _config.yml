@@ -3,7 +3,7 @@
 # ----------------------- #
 
 url: http://blog.jackphil.com
-title: 眼中无码，心中有码
+title: 藏宝图
 subtitle: 臣之所好者，道也，进乎技矣
 author: Jack Phil
 simple_search: http://google.com/search
@@ -36,6 +36,11 @@ category_dir: blog/categories
 markdown: kramdown
 asciidoc: asciidoctor
 asciidoc_ext: asciidoc,adoc,ad
+asciidoctor:
+  attributes:
+    - notitle
+    - source-highlighter=coderay
+    - coderay-css=style
 pygments: true # default python pygments have been replaced by pygments.rb
 
 paginate: 10          # Posts per page on the blog index
@@ -68,7 +73,7 @@ github_skip_forks: true
 
 # Twitter
 twitter_user:
-twitter_tweet_button: true
+twitter_tweet_button: false
 
 # Google +1
 google_plus_one: false
