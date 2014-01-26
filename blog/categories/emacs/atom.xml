@@ -4,7 +4,7 @@
   <title><![CDATA[Category: emacs | 藏宝图]]></title>
   <link href="http://blog.jackphil.com/blog/categories/emacs/atom.xml" rel="self"/>
   <link href="http://blog.jackphil.com/"/>
-  <updated>2014-01-26T21:10:49+08:00</updated>
+  <updated>2014-01-26T22:13:48+08:00</updated>
   <id>http://blog.jackphil.com/</id>
   <author>
     <name><![CDATA[Jack Phil]]></name>
@@ -12,6 +12,31 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Emacs字体]]></title>
+    <link href="http://blog.jackphil.com/blog/2014/01/26/emacszi-ti/"/>
+    <updated>2014-01-26T19:57:59+08:00</updated>
+    <id>http://blog.jackphil.com/blog/2014/01/26/emacszi-ti</id>
+    <content type="html"><![CDATA[<h1 id="emacs">Emacs字体</h1>
+<p>:Author: Jack Phil</p>
+
+<p>emacs23开始支持xft字体系统，建议升级。</p>
+
+<p>推荐使用等宽字体，我一般在windows上使用文泉驿等宽正黑，Linux上使用雅黑MONO（来自碧海潮声，有修改）</p>
+
+<p>.查看Emacs可用字体</p>
+
+<p>+++ M-x set-default-font +++ ，然后按tab就可得到可用字体列表</p>
+
+<p>.配置</p>
+
+<h2 id="initel">以下内容可以加入到init.el：</h2>
+<p>;; 默认字体：等宽，中英文1:2
+(set-default-font “雅黑MONO:size=18”)
+—-</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Emacs24的二三事]]></title>
