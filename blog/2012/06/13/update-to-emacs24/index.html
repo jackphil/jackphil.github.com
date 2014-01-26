@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Emacs24的二三事 - 眼中无码，心中有码</title>
+  <title>Emacs24的二三事 - 藏宝图</title>
   <meta name="author" content="Jack Phil">
 
   
@@ -18,13 +18,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.jackphil.com/blog/2012/06/13/update-to-emacs24/">
+  <link rel="canonical" href="http://blog.jackphil.com/blog/2012/06/13/update-to-emacs24">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="藏宝图" type="application/atom+xml">
   <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="/javascripts/ender.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <link href="/atom.xml" rel="alternate" title="眼中无码，心中有码" type="application/atom+xml">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -52,7 +53,7 @@ MathJax.Hub.Config({
 
 <body   >
   <header role="banner"><hgroup>
-  <h1><a href="/">眼中无码，心中有码</a></h1>
+  <h1><a href="/">藏宝图</a></h1>
   
     <h2>臣之所好者，道也，进乎技矣</h2>
   
@@ -202,22 +203,31 @@ MathJax.Hub.Config({
   
   
   
-    <!-- Baidu Button BEGIN -->
-    <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare">
-        <a class="bds_qzone"></a>
-        <a class="bds_tsina"></a>
-        <a class="bds_tqq"></a>
-        <a class="bds_renren"></a>
-        <a class="bds_douban"></a>
-        <span class="bds_more">更多</span>
-		<a class="shareCount"></a>
+    <div class="bdsharebuttonbox">
+      <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+      <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+      <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+      <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+      <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+      <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+      <a href="#" class="bds_more" data-cmd="more"></a>
+      <a class="bds_count" data-cmd="count"></a>
     </div>
-    <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=685719" ></script>
-    <script type="text/javascript" id="bdshell_js"></script>
-    <script type="text/javascript">
-	document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours();
+    <script>
+      window._bd_share_config={
+        "common":{
+          "bdSnsKey":{},
+          "bdText":"",
+          "bdMini":"2",
+          "bdMiniList":false,
+          "bdPic":"",
+          "bdStyle":"0",
+          "bdSize":"32"
+        },
+        "share":{}
+      };
+      with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
     </script>
-<!-- Baidu Button END -->
   
 </div>
 
@@ -248,6 +258,10 @@ MathJax.Hub.Config({
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/01/26/emacszi-ti/">Emacs字体</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/10/04/lemony-snickets-a-series-of-unfortunate-events/">雷蒙斯尼奇的不幸历险：孩子的话大人永远不听</a>
       </li>
     
@@ -261,10 +275,6 @@ MathJax.Hub.Config({
     
       <li class="post">
         <a href="/blog/2012/10/02/insomnia/">失眠症：好警察坏警察，阿尔帕西诺的独角戏</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/10/02/the-world-is-too-small/">藏身之所：世界很小小得容不下你我</a>
       </li>
     
   </ul>
@@ -296,7 +306,7 @@ MathJax.Hub.Config({
   <a href="https://github.com/jackphil">@jackphil</a> on GitHub
   
   <script type="text/javascript">
-    $.domReady(function(){
+    $(document).ready(function(){
         if (!window.jXHR){
             var jxhr = document.createElement('script');
             jxhr.type = 'text/javascript';
@@ -320,7 +330,6 @@ MathJax.Hub.Config({
 
 
 
-
   
 </aside>
 
@@ -328,7 +337,7 @@ MathJax.Hub.Config({
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2013 - Jack Phil -
+  Copyright &copy; 2014 - Jack Phil -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span> -
  <script type="text/javascript">
 var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
@@ -350,7 +359,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     }());
 </script>

@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>眼中无码，心中有码</title>
+  <title>藏宝图</title>
   <meta name="author" content="Jack Phil">
 
   
-  <meta name="description" content="看完片子，我有点疑惑，雷蒙·斯尼奇是谁？小说原名A Series of Unfortunate Events，作者是Lemony Snicket（笔名），电影名Lemony Snicket’s A Series of Unfortunate Events，翻译的人估计没看过电影更没看过原著， &hellip;">
+  <meta name="description" content="emacs23开始支持xft字体系统，建议升级。 推荐使用等宽字体，我一般在windows上使用文泉驿等宽正黑，Linux上使用雅黑MONO（来自碧海潮声，有修改） 查看Emacs可用字体 M-x set-default-font ，然后按tab就可得到可用字体列表 配置 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,13 +18,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.jackphil.com/">
+  <link rel="canonical" href="http://blog.jackphil.com">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="藏宝图" type="application/atom+xml">
   <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="/javascripts/ender.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <link href="/atom.xml" rel="alternate" title="眼中无码，心中有码" type="application/atom+xml">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -52,7 +53,7 @@ MathJax.Hub.Config({
 
 <body   >
   <header role="banner"><hgroup>
-  <h1><a href="/">眼中无码，心中有码</a></h1>
+  <h1><a href="/">藏宝图</a></h1>
   
     <h2>臣之所好者，道也，进乎技矣</h2>
   
@@ -81,6 +82,64 @@ MathJax.Hub.Config({
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/01/26/emacszi-ti/">Emacs字体</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-26T19:57:59+08:00" pubdate data-updated="true">Jan 26<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>emacs23开始支持xft字体系统，建议升级。</p>
+</div>
+<div class="paragraph">
+<p>推荐使用等宽字体，我一般在windows上使用文泉驿等宽正黑，Linux上使用雅黑MONO（来自碧海潮声，有修改）</p>
+</div>
+<div class="paragraph">
+<div class="title">查看Emacs可用字体</div>
+<p> M-x set-default-font  ，然后按tab就可得到可用字体列表</p>
+</div>
+<div class="paragraph">
+<div class="title">配置</div>
+<p>以下内容可以加入到init.el：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>;; 默认字体：等宽，中英文1:2
+(set-default-font "雅黑MONO:size=18")</pre>
+</div>
+</div>
+</div>
+</div></div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -568,69 +627,6 @@ MathJax.Hub.Config({
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/06/13/systemdnow/">高速启动，现在开始systemd</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-06-13T13:15:00+08:00" pubdate data-updated="true">Jun 13<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>最近一次系统更新，Archlinux用systmed-tools替换了udev。</p>
-
-<p>我年纪渐大，响应胡总号召，不象以前那么爱折腾了。</p>
-
-<p>有人问Lennart创建systemd的动机，回答是“爱折腾”</p>
-
-<p>该折腾还得折腾，与各位Linuxer共勉</p>
-
-<h2 id="systemd-">什么是systemd： 一些八卦</h2>
-
-<p>systemd被设计用来改进sysvinit的缺点，它和ubuntu的upstart是竞争对手，预计会取代它们</p>
-
-<p>systemd的很多概念来源于苹果的launchd</p>
-
-<p>创始人Lennart是redhat员工，但systemd不是redhat项目</p>
-
-<p>systemd的目标是：尽可能启动更少进程；尽可能将更多进程并行启动</p>
-
-<p>systemd尽可能减少对shell脚本的依赖。传统sysvinit使用inittab来决定运行哪些shell脚本，大量使用shell脚本被认为是效率低下无法并行的原因</p>
-
-<p>systemd使用了Linux专属技术，不再顾及POSIX兼容，一度谣传Debian为了它的BSD项目将不会使用systemd</p>
-
-<p>天下武功，唯快不破，加速吧，Linux！</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/06/13/systemdnow/">阅读全文</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -646,6 +642,10 @@ MathJax.Hub.Config({
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/01/26/emacszi-ti/">Emacs字体</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/10/04/lemony-snickets-a-series-of-unfortunate-events/">雷蒙斯尼奇的不幸历险：孩子的话大人永远不听</a>
       </li>
     
@@ -659,10 +659,6 @@ MathJax.Hub.Config({
     
       <li class="post">
         <a href="/blog/2012/10/02/insomnia/">失眠症：好警察坏警察，阿尔帕西诺的独角戏</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/10/02/the-world-is-too-small/">藏身之所：世界很小小得容不下你我</a>
       </li>
     
   </ul>
@@ -694,7 +690,7 @@ MathJax.Hub.Config({
   <a href="https://github.com/jackphil">@jackphil</a> on GitHub
   
   <script type="text/javascript">
-    $.domReady(function(){
+    $(document).ready(function(){
         if (!window.jXHR){
             var jxhr = document.createElement('script');
             jxhr.type = 'text/javascript';
@@ -718,14 +714,13 @@ MathJax.Hub.Config({
 
 
 
-
   
 </aside>
 
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2013 - Jack Phil -
+  Copyright &copy; 2014 - Jack Phil -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span> -
  <script type="text/javascript">
 var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
@@ -744,7 +739,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     }());
 </script>

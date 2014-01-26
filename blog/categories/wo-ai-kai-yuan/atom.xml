@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: 我爱开源 | 眼中无码，心中有码]]></title>
-  <link href="http://blog.jackphil.com/blog/categories/我爱开源/atom.xml" rel="self"/>
+  <title><![CDATA[Category: 我爱开源 | 藏宝图]]></title>
+  <link href="http://blog.jackphil.com/blog/categories/wo-ai-kai-yuan/atom.xml" rel="self"/>
   <link href="http://blog.jackphil.com/"/>
-  <updated>2013-01-10T00:18:55+08:00</updated>
+  <updated>2014-01-26T21:10:49+08:00</updated>
   <id>http://blog.jackphil.com/</id>
   <author>
     <name><![CDATA[Jack Phil]]></name>
@@ -353,7 +353,7 @@ sudo pacman -S kde-meta-kdebase kde-l10n-zh_cn xorg-server xorg-xinit ttf-dejavu
   <li>如果使用startx启动桌面，环境配置文件是.xinitrc</li>
 </ul>
 
-<p><div><script src='https://gist.github.com/2834391.js?file='></script>
+<p><div><script src='https://gist.github.com/2834391.js'></script>
 <noscript><pre><code># 不使用LC_ALL，因为它会强制所有LC_*变量使用统一的locale
 export LANG=zh_CN.UTF-8
 
@@ -380,7 +380,7 @@ exec ck-launch-session startkde</code></pre></noscript></div>
 <ul>
   <li>
     <p>如果使用kdm登录管理器，环境配置文件是.xprofile
-<div><script src='https://gist.github.com/2834351.js?file='></script>
+<div><script src='https://gist.github.com/2834351.js'></script>
 <noscript><pre><code># locale setting
 export LANG=zh_CN.UTF-8
 

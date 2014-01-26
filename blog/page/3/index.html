@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>眼中无码，心中有码</title>
+  <title>藏宝图</title>
   <meta name="author" content="Jack Phil">
 
   
-  <meta name="description" content="作为一个pythoner，知道jekyll/octopress是ruby所写后，首先想到的是有没有相应的pythonic工具，这里有一个不完全列表 尝试过hyde 它最吸引我的是支持我喜爱的Asciidoc 可是默认模板实在太丑陋 文档简陋，没用过django，连添加文章的命令都没有， &hellip;">
+  <meta name="description" content="今天对博客进行了一番装修和调整，我对美工要求不高，对现在的样子基本满意了 ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,13 +18,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.jackphil.com/blog/page/3/">
+  <link rel="canonical" href="http://blog.jackphil.com/blog/page/3">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="藏宝图" type="application/atom+xml">
   <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="/javascripts/ender.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <link href="/atom.xml" rel="alternate" title="眼中无码，心中有码" type="application/atom+xml">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -52,7 +53,7 @@ MathJax.Hub.Config({
 
 <body   >
   <header role="banner"><hgroup>
-  <h1><a href="/">眼中无码，心中有码</a></h1>
+  <h1><a href="/">藏宝图</a></h1>
   
     <h2>臣之所好者，道也，进乎技矣</h2>
   
@@ -81,6 +82,47 @@ MathJax.Hub.Config({
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/05/08/title-share-weibo/">Octopress第二弹：中文文件名、分享按钮、侧边栏上微博秀、disqus评论</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-08T22:32:00+08:00" pubdate data-updated="true">May 8<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天对博客进行了一番装修和调整，我对美工要求不高，对现在的样子基本满意了</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/05/08/title-share-weibo/">阅读全文</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -153,6 +195,10 @@ MathJax.Hub.Config({
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/01/26/emacszi-ti/">Emacs字体</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/10/04/lemony-snickets-a-series-of-unfortunate-events/">雷蒙斯尼奇的不幸历险：孩子的话大人永远不听</a>
       </li>
     
@@ -166,10 +212,6 @@ MathJax.Hub.Config({
     
       <li class="post">
         <a href="/blog/2012/10/02/insomnia/">失眠症：好警察坏警察，阿尔帕西诺的独角戏</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/10/02/the-world-is-too-small/">藏身之所：世界很小小得容不下你我</a>
       </li>
     
   </ul>
@@ -201,7 +243,7 @@ MathJax.Hub.Config({
   <a href="https://github.com/jackphil">@jackphil</a> on GitHub
   
   <script type="text/javascript">
-    $.domReady(function(){
+    $(document).ready(function(){
         if (!window.jXHR){
             var jxhr = document.createElement('script');
             jxhr.type = 'text/javascript';
@@ -225,14 +267,13 @@ MathJax.Hub.Config({
 
 
 
-
   
 </aside>
 
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2013 - Jack Phil -
+  Copyright &copy; 2014 - Jack Phil -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span> -
  <script type="text/javascript">
 var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
@@ -251,7 +292,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     }());
 </script>

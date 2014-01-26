@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[眼中无码，心中有码]]></title>
+  <title><![CDATA[藏宝图]]></title>
   <link href="http://blog.jackphil.com/atom.xml" rel="self"/>
   <link href="http://blog.jackphil.com/"/>
-  <updated>2013-01-10T00:18:55+08:00</updated>
+  <updated>2014-01-26T21:10:49+08:00</updated>
   <id>http://blog.jackphil.com/</id>
   <author>
     <name><![CDATA[Jack Phil]]></name>
@@ -12,6 +12,37 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Emacs字体]]></title>
+    <link href="http://blog.jackphil.com/blog/2014/01/26/emacszi-ti/"/>
+    <updated>2014-01-26T19:57:59+08:00</updated>
+    <id>http://blog.jackphil.com/blog/2014/01/26/emacszi-ti</id>
+    <content type="html"><![CDATA[<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>emacs23开始支持xft字体系统，建议升级。</p>
+</div>
+<div class="paragraph">
+<p>推荐使用等宽字体，我一般在windows上使用文泉驿等宽正黑，Linux上使用雅黑MONO（来自碧海潮声，有修改）</p>
+</div>
+<div class="paragraph">
+<div class="title">查看Emacs可用字体</div>
+<p> M-x set-default-font  ，然后按tab就可得到可用字体列表</p>
+</div>
+<div class="paragraph">
+<div class="title">配置</div>
+<p>以下内容可以加入到init.el：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>;; 默认字体：等宽，中英文1:2
+(set-default-font "雅黑MONO:size=18")</pre>
+</div>
+</div>
+</div>
+</div>]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[雷蒙斯尼奇的不幸历险：孩子的话大人永远不听]]></title>
@@ -67,7 +98,7 @@
 
 <p>HTC提供官方解锁服务，可以参考这个<a href="http://forum.xda-developers.com/showthread.php?t=1592355">帖子</a>。</p>
 
-<p>官方解锁后hboot依然显示s-off，但第一行会显示Unlocked字样。有个缺点是recovery不能刷boot分区，下面刷内核或rom都要单独用命令行手动刷boot.img</p>
+<p>官方解锁后hboot依然显示s-on，但第一行会显示Unlocked字样。有个缺点是recovery不能刷boot分区，下面刷内核或rom都要单独用命令行手动刷boot.img</p>
 
 <h2 id="recovery">recovery</h2>
 
@@ -279,7 +310,7 @@ C=\frac{\pi}{6}
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[archlinux更新日志：迁移/lib到/usr/lib]]></title>
+    <title type="html"><![CDATA[Archlinux更新日志：迁移/lib到/usr/lib]]></title>
     <link href="http://blog.jackphil.com/blog/2012/07/18/archlinux-upgrade/"/>
     <updated>2012-07-18T22:16:00+08:00</updated>
     <id>http://blog.jackphil.com/blog/2012/07/18/archlinux-upgrade</id>
@@ -639,7 +670,7 @@ C=\frac{\pi}{6}
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[archlinux快速设置]]></title>
+    <title type="html"><![CDATA[Archlinux快速设置]]></title>
     <link href="http://blog.jackphil.com/blog/2012/05/30/archlinuxkuai-su-she-zhi/"/>
     <updated>2012-05-30T14:45:00+08:00</updated>
     <id>http://blog.jackphil.com/blog/2012/05/30/archlinuxkuai-su-she-zhi</id>
@@ -678,7 +709,7 @@ C=\frac{\pi}{6}
   <li>如果使用startx启动桌面，环境配置文件是.xinitrc</li>
 </ul>
 
-<div><script src="https://gist.github.com/2834391.js?file="></script>
+<div><script src="https://gist.github.com/2834391.js"></script>
 <noscript><pre><code># 不使用LC_ALL，因为它会强制所有LC_*变量使用统一的locale
 export LANG=zh_CN.UTF-8
 
@@ -704,7 +735,7 @@ exec ck-launch-session startkde</code></pre></noscript></div>
 <ul>
   <li>如果使用kdm登录管理器，环境配置文件是.xprofile</li>
 </ul>
-<div><script src="https://gist.github.com/2834351.js?file="></script>
+<div><script src="https://gist.github.com/2834351.js"></script>
 <noscript><pre><code># locale setting
 export LANG=zh_CN.UTF-8
 
@@ -855,7 +886,7 @@ ibus-daemon -x -d</code></pre></noscript></div>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[安卓手机root刷机教程: 我的HTC Saga root记录]]></title>
+    <title type="html"><![CDATA[安卓手机root刷机教程: 我的HTC Saga Root记录]]></title>
     <link href="http://blog.jackphil.com/blog/2012/05/28/an-zhuo-shou-ji-rootshua-ji-jiao-cheng/"/>
     <updated>2012-05-28T22:35:00+08:00</updated>
     <id>http://blog.jackphil.com/blog/2012/05/28/an-zhuo-shou-ji-rootshua-ji-jiao-cheng</id>
@@ -1220,7 +1251,7 @@ ibus-daemon -x -d</code></pre></noscript></div>
 <span class="line-number">7</span>
 <span class="line-number">8</span>
 </pre></td><td class="code"><pre><code class=""><span class="line">&lt;p&gt;
-</span><span class="line">  Copyright &copy; 2013 - Jack Phil -
+</span><span class="line">  Copyright &copy; 2014 - Jack Phil -
 </span><span class="line">  &lt;span class="credit"&gt;Powered by &lt;a href="http://octopress.org"&gt;Octopress&lt;/a&gt;&lt;/span&gt; -
 </span><span class="line"> &lt;script type="text/javascript"&gt;
 </span><span class="line">var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
@@ -1405,102 +1436,6 @@ ibus-daemon -x -d</code></pre></noscript></div>
 </pre></td><td class="code"><pre><code class=""><span class="line">sudo alsactl -f /var/lib/alsa/asound.state store</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p>参考：<a href="https://wiki.archlinux.org/index.php/Advanced_Linux_Sound_Architecture#Error_.27Unkown_hardware.27_Appears_After_a_Kernel_Update">Error ‘Unkown hardware’ Appears After a Kernel Update</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Octopress第二弹：中文文件名、分享按钮、侧边栏上微博秀、disqus评论]]></title>
-    <link href="http://blog.jackphil.com/blog/2012/05/08/title-share-weibo/"/>
-    <updated>2012-05-08T22:32:00+08:00</updated>
-    <id>http://blog.jackphil.com/blog/2012/05/08/title-share-weibo</id>
-    <content type="html"><![CDATA[<p>今天对博客进行了一番装修和调整，我对美工要求不高，对现在的样子基本满意了</p>
-
-<!--more-->
-
-<h2 id="section">不要在文件名中使用中文标点</h2>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">rake new_post["My first post"] # 不建议在这里使用中文标点</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<p>Octopress可以把中文文件名转换成拼音，但中文标点会造成一些麻烦，使得url中包含一些奇怪的符号，有时会造成问题。我曾碰到过在本地预览时能显示文章列表，但不能打开文章，显示找不到文件。将文件名改为英文后解决。需要说明的是提交到github在线浏览没有这个问题</p>
-
-<p>这里说的是文件名，并不影响你的文章标题中包含中文标点。你可以在文章内文的yaml front matter中的title字段随意使用中文标点，</p>
-
-<h2 id="section-1">分享按钮</h2>
-
-<p>我选择了<a href="http://share.baidu.com">百度分享</a>，将获得的代码添加到source/_includes/post/sharing.html，你也可以依样画葫芦，把代码放在模板if结构中，</p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-</pre></td><td class="code"><pre><code class="sh"><span class="line"><span class="o">{</span>% <span class="k">if </span>site.baidu_share %<span class="o">}</span>
-</span><span class="line">代码
-</span><span class="line"><span class="o">{</span>% endif %<span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<p>别忘了在_config.yml定义一下开关，如</p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-</pre></td><td class="code"><pre><code class="sh"><span class="line">// 百度分享
-</span><span class="line">baidu_share: <span class="nb">true</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<h2 id="section-2">微薄秀</h2>
-
-<p>微博秀参考了<a href="http://programus.github.com/blog/2012/03/03/add-weibo-sidebar-into-octopress/">程序猎人的文章</a>，不过</p>
-
-<ul>
-  <li>偷懒，直接用了从<a href="http://weibo.com/tool/weiboshow">微博秀</a>得来的代码，没有把url中的参数作变量替换。</li>
-  <li>根据_confit.yml中default_asides的注释，把weibo.html放在了/source/_includes/custom/asides/目录下</li>
-</ul>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-<span class="line-number">4</span>
-<span class="line-number">5</span>
-<span class="line-number">6</span>
-<span class="line-number">7</span>
-<span class="line-number">8</span>
-<span class="line-number">9</span>
-<span class="line-number">10</span>
-<span class="line-number">11</span>
-<span class="line-number">12</span>
-<span class="line-number">13</span>
-<span class="line-number">14</span>
-<span class="line-number">15</span>
-<span class="line-number">16</span>
-<span class="line-number">17</span>
-</pre></td><td class="code"><pre><code class="sh"><span class="line"><span class="o">{</span>% <span class="k">if </span>site.weibo_sina %<span class="o">}</span>
-</span><span class="line">&lt;section&gt;
-</span><span class="line">  &lt;h1&gt;新浪微博&lt;/h1&gt;
-</span><span class="line">  &lt;ul <span class="nv">id</span><span class="o">=</span><span class="s2">&quot;weibo&quot;</span>&gt;
-</span><span class="line">    &lt;li&gt;
-</span><span class="line">      &lt;iframe
-</span><span class="line">        <span class="nv">width</span><span class="o">=</span><span class="s2">&quot;100%&quot;</span>
-</span><span class="line">        <span class="nv">height</span><span class="o">=</span><span class="s2">&quot;550&quot;</span>
-</span><span class="line">        <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;share_self&quot;</span>
-</span><span class="line">        <span class="nv">frameborder</span><span class="o">=</span><span class="s2">&quot;0&quot;</span>
-</span><span class="line">        <span class="nv">scrolling</span><span class="o">=</span><span class="s2">&quot;no&quot;</span>
-</span><span class="line">        <span class="nv">src</span><span class="o">=</span><span class="s2">&quot;http://widget.weibo.com/weiboshow/index.php?language=&amp;width=0&amp;height=550&amp;fansRow=2&amp;ptype=1&amp;speed=0&amp;skin=1&amp;isTitle=1&amp;noborder=1&amp;isWeibo=1&amp;isFans=1&amp;uid=2039187623&amp;verifier=e0a28d12&amp;dpc=1&quot;</span>&gt;
-</span><span class="line">      &lt;/iframe&gt;
-</span><span class="line">    &lt;/li&gt;
-</span><span class="line">  &lt;/ul&gt;
-</span><span class="line">&lt;/section&gt;
-</span><span class="line"><span class="o">{</span>% endif %<span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<p>别忘了在_config.yml中的default_asides列表中添加微博秀并在文件尾添加开关</p>
-
-<h2 id="disqus">DISQUS评论</h2>
-
-<p>DISQUS评论功能是内置的，开启很简单</p>
-
-<ul>
-  <li>注册DISQUS帐号，添加站点</li>
-  <li>在_config.yml中填入site shortname即可</li>
-</ul>
 ]]></content>
   </entry>
   

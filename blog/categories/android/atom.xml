@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: android | 眼中无码，心中有码]]></title>
+  <title><![CDATA[Category: android | 藏宝图]]></title>
   <link href="http://blog.jackphil.com/blog/categories/android/atom.xml" rel="self"/>
   <link href="http://blog.jackphil.com/"/>
-  <updated>2013-01-10T00:18:55+08:00</updated>
+  <updated>2014-01-26T21:10:49+08:00</updated>
   <id>http://blog.jackphil.com/</id>
   <author>
     <name><![CDATA[Jack Phil]]></name>
@@ -30,7 +30,7 @@
 
 <p>HTC提供官方解锁服务，可以参考这个<a href="http://forum.xda-developers.com/showthread.php?t=1592355">帖子</a>。</p>
 
-<p>官方解锁后hboot依然显示s-off，但第一行会显示Unlocked字样。有个缺点是recovery不能刷boot分区，下面刷内核或rom都要单独用命令行手动刷boot.img</p>
+<p>官方解锁后hboot依然显示s-on，但第一行会显示Unlocked字样。有个缺点是recovery不能刷boot分区，下面刷内核或rom都要单独用命令行手动刷boot.img</p>
 
 <h2 id="recovery">recovery</h2>
 
