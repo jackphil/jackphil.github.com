@@ -9,7 +9,10 @@
   <meta name="author" content="Jack Phil">
 
   
-  <meta name="description" content="最近一次系统更新，Archlinux用systmed-tools替换了udev。 我年纪渐大，响应胡总号召，不象以前那么爱折腾了。 有人问Lennart创建systemd的动机，回答是“爱折腾” 该折腾还得折腾，与各位Linuxer共勉 什么是systemd： 一些八卦 &hellip;">
+  <meta name="description" content="这次更新的一个变化是/lib目录和/usr/lib目录合并了，更新后/lib目录将只是一个指向/usr/lib的链接。由于这次变动牵涉到的软件比较多，Archlinux网站上提供了专门的升级指导 1
+2
+sudo pacman -Syu --ignore glibc
+sudo pacman -Su &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -82,6 +85,154 @@ MathJax.Hub.Config({
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/07/18/archlinux-upgrade/">Archlinux更新日志：迁移/lib到/usr/lib</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-18T22:16:00+08:00" pubdate data-updated="true">Jul 18<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>这次更新的一个变化是/lib目录和/usr/lib目录合并了，更新后/lib目录将只是一个指向/usr/lib的链接。由于这次变动牵涉到的软件比较多，Archlinux网站上提供了专门的<a href="https://wiki.archlinux.org/index.php/DeveloperWiki:usrlib">升级指导</a></p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">sudo pacman -Syu --ignore glibc
+</span><span class="line">sudo pacman -Su</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>正如指导中提到的，第二个命令后还是报/lib已经存在的错误，用如下命令查看哪些目录不属于glibc</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">find /lib -exec pacman -Qo -- {} +
+</span><span class="line">sudo rm -rf /lib/modules</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>我的情况是/lib/modules目录及其子目录下有一些文件，查了一下，没有自己编译的内核模块，所以直接给删了。</p>
+
+<p>升级成功</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/07/18/archlinux-upgrade/">阅读全文</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/06/13/update-to-emacs24/">Emacs24的二三事</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-13T21:39:00+08:00" pubdate data-updated="true">Jun 13<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天，NBA总决赛第一场，24再次爽约，站在23对面的，是更年轻的35，23似乎要再度饮恨。</p>
+
+<p>Emacs23和Emacs24也不那么和谐，原来的配置，启动直接报错，调教一番是免不了了</p>
+
+<h2 id="color-theme">color theme</h2>
+
+<p>根据<a href="http://batsov.com/articles/2012/02/19/color-theming-in-emacs-reloaded/">Color Theming in Emacs: Reloaded</a>，Emacs24自带了几个颜色主题，我的选择是</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">(load-theme 'tango-dark t)</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>原来的color-theme不兼容24，可以删除之</p>
+
+<h2 id="section">菜单栏和工具栏</h2>
+
+<p>隐藏菜单栏和工具栏，原来给变量赋值nil不再有效，其实nil不再被用来开关minor-mode，有人解释了<a href="http://stackoverflow.com/questions/9423974/emacs-menu-bar-mode-and-tool-bar-mode-automatically-set-to-t">原因</a></p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">;;#隐藏菜单和工具栏
+</span><span class="line">(tool-bar-mode -1) 
+</span><span class="line">(menu-bar-mode -1)</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<h2 id="section-1">行号</h2>
+
+<p>setnu+是另一个引起麻烦的包，24自带的功能似乎也不错，删除之</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">M-x linum-mode</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<h2 id="tabbar">tabbar</h2>
+
+<p>标签栏只能显示当前buffer，功能不正常，平时几乎很少用到，也把它删了</p>
+
+<h2 id="elpa-emacs-lisp-package-archive">软件包管理(ELPA: Emacs Lisp Package Archive)</h2>
+
+<p>Emacs24的一大亮点是自带了<a href="Emacs Lisp Package Archive">包管理器</a>(不过并非24独享，22都可以装)，自动安装管理各种lisp功能包</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">;;#软件包服务器
+</span><span class="line">(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+</span><span class="line">			 ("marmalade" . "http://marmalade-repo.org/packages/")))</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>试用了一下，列出所有软件包：</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">M-x package-list-packages</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>C-s搜索，i标记安装，d标记删除，x执行，.emacs.d目录下会生成elpa目录</p>
+
+<p>装了个markdown-mode.el，还是要手动改一下配置，自己在auto-mode-alist注册文件类型。</p>
+
+<p>总的来说很清爽，软件包都在elpa下自己的目录里，也没有自作主张的修改init.el，值得一试</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -456,97 +607,6 @@ MathJax.Hub.Config({
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/05/16/opensshmi-yao-guan-li-chu-bu/">OpenSSH密钥管理初步</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-05-16T20:09:00+08:00" pubdate data-updated="true">May 16<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>github需要ssh密钥来建立push时的安全连接，虽然以前在用gitorious时也接触过，但已经不记得了，还是找了几篇教程来边看边做，笔记如下</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/05/16/opensshmi-yao-guan-li-chu-bu/">阅读全文</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/05/16/archlinuxgeng-xin-ji-lu-20120516/">Archlinux更新记录20120516</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-05-16T15:27:00+08:00" pubdate data-updated="true">May 16<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>某次更新系统后重启，发现有触目的红色警告，由于屏幕滚动很快，没看清具体是什么内容。遂去/etc/rc.local中添加一句read，以使启动最后暂停，等待用户输入，任意键继续。</p>
-
-<p>这次看清是ALSA出错了</p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">Unknown hardware "foo" "bar" ...
-</span><span class="line">Hardware is initialized using a guess method</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<p>搜索后发现可能跟内核升级有关，解决也很简单</p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">sudo alsactl -f /var/lib/alsa/asound.state store</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<p>参考：<a href="https://wiki.archlinux.org/index.php/Advanced_Linux_Sound_Architecture#Error_.27Unkown_hardware.27_Appears_After_a_Kernel_Update">Error ‘Unkown hardware’ Appears After a Kernel Update</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -564,6 +624,14 @@ MathJax.Hub.Config({
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/03/10/breath/">呼吸</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/29/voip-how-to/">哎，请呼叫转移：voip入门</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/01/26/emacszi-ti/">Emacs字体</a>
       </li>
     
@@ -573,14 +641,6 @@ MathJax.Hub.Config({
     
       <li class="post">
         <a href="/blog/2012/10/03/htc-one-x/">HTC One X刷机记</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/10/02/saga-upgrade-to-ics/">我的Desire S，我的ICS</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/10/02/insomnia/">失眠症：好警察坏警察，阿尔帕西诺的独角戏</a>
       </li>
     
   </ul>

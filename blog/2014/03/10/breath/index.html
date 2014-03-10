@@ -5,11 +5,20 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Emacs24的二三事 - 藏宝图</title>
+  <title>呼吸 - 藏宝图</title>
   <meta name="author" content="Jack Phil">
 
   
-  <meta name="description" content="今天，NBA总决赛第一场，24再次爽约，站在23对面的，是更年轻的35，23似乎要再度饮恨。 Emacs23和Emacs24也不那么和谐，原来的配置，启动直接报错，调教一番是免不了了 color theme 根据Color Theming in Emacs: Reloaded， &hellip;">
+  <meta name="description" content=" 同着你的呼吸
+爱是我们的飞机
+升高 升高
+一直到极度的窒息 连着你的心跳
+爱是我们的钟表
+扑通 扑通
+一直到末日的拂晓 和着你的脚步
+爱是我们的公路
+呼啸 呼啸
+一直到我们的坟墓 ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +27,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.jackphil.com/blog/2012/06/13/update-to-emacs24">
+  <link rel="canonical" href="http://blog.jackphil.com/blog/2014/03/10/breath">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="藏宝图" type="application/atom+xml">
@@ -85,7 +94,7 @@ MathJax.Hub.Config({
   
   <header>
     
-      <h1 class="entry-title">Emacs24的二三事</h1>
+      <h1 class="entry-title">呼吸</h1>
     
     
       <p class="meta">
@@ -101,70 +110,35 @@ MathJax.Hub.Config({
   
 
 
-<time datetime="2012-06-13T21:39:00+08:00" pubdate data-updated="true">Jun 13<span>th</span>, 2012</time>
+<time datetime="2014-03-10T22:52:35+08:00" pubdate data-updated="true">Mar 10<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>今天，NBA总决赛第一场，24再次爽约，站在23对面的，是更年轻的35，23似乎要再度饮恨。</p>
-
-<p>Emacs23和Emacs24也不那么和谐，原来的配置，启动直接报错，调教一番是免不了了</p>
-
-<h2 id="color-theme">color theme</h2>
-
-<p>根据<a href="http://batsov.com/articles/2012/02/19/color-theming-in-emacs-reloaded/">Color Theming in Emacs: Reloaded</a>，Emacs24自带了几个颜色主题，我的选择是</p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">(load-theme 'tango-dark t)</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<p>原来的color-theme不兼容24，可以删除之</p>
-
-<h2 id="section">菜单栏和工具栏</h2>
-
-<p>隐藏菜单栏和工具栏，原来给变量赋值nil不再有效，其实nil不再被用来开关minor-mode，有人解释了<a href="http://stackoverflow.com/questions/9423974/emacs-menu-bar-mode-and-tool-bar-mode-automatically-set-to-t">原因</a></p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">;;#隐藏菜单和工具栏
-</span><span class="line">(tool-bar-mode -1) 
-</span><span class="line">(menu-bar-mode -1)</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<h2 id="section-1">行号</h2>
-
-<p>setnu+是另一个引起麻烦的包，24自带的功能似乎也不错，删除之</p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">M-x linum-mode</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<h2 id="tabbar">tabbar</h2>
-
-<p>标签栏只能显示当前buffer，功能不正常，平时几乎很少用到，也把它删了</p>
-
-<h2 id="elpa-emacs-lisp-package-archive">软件包管理(ELPA: Emacs Lisp Package Archive)</h2>
-
-<p>Emacs24的一大亮点是自带了<a href="Emacs Lisp Package Archive">包管理器</a>(不过并非24独享，22都可以装)，自动安装管理各种lisp功能包</p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">;;#软件包服务器
-</span><span class="line">(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-</span><span class="line">			 ("marmalade" . "http://marmalade-repo.org/packages/")))</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<p>试用了一下，列出所有软件包：</p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">M-x package-list-packages</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<p>C-s搜索，i标记安装，d标记删除，x执行，.emacs.d目录下会生成elpa目录</p>
-
-<p>装了个markdown-mode.el，还是要手动改一下配置，自己在auto-mode-alist注册文件类型。</p>
-
-<p>总的来说很清爽，软件包都在elpa下自己的目录里，也没有自作主张的修改init.el，值得一试</p>
+<div class="entry-content"><div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>同着你的呼吸<br>
+爱是我们的飞机<br>
+升高 升高<br>
+一直到极度的窒息</p>
 </div>
+<div class="paragraph">
+<p>连着你的心跳<br>
+爱是我们的钟表<br>
+扑通 扑通<br>
+一直到末日的拂晓</p>
+</div>
+<div class="paragraph">
+<p>和着你的脚步<br>
+爱是我们的公路<br>
+呼啸 呼啸<br>
+一直到我们的坟墓</p>
+</div>
+</div>
+</div></div>
 
 
   <footer>
@@ -186,14 +160,8 @@ MathJax.Hub.Config({
   
 
 
-<time datetime="2012-06-13T21:39:00+08:00" pubdate data-updated="true">Jun 13<span>th</span>, 2012</time>
+<time datetime="2014-03-10T22:52:35+08:00" pubdate data-updated="true">Mar 10<span>th</span>, 2014</time>
       
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/emacs/'>emacs</a>
-  
-</span>
 
 
     </p>
@@ -234,10 +202,8 @@ MathJax.Hub.Config({
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2012/06/13/systemdnow/" title="Previous Post: 高速启动，现在开始systemd">&laquo; 高速启动，现在开始systemd</a>
+        <a class="basic-alignment left" href="/blog/2014/01/29/voip-how-to/" title="Previous Post: 哎，请呼叫转移：voip入门">&laquo; 哎，请呼叫转移：voip入门</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2012/07/18/archlinux-upgrade/" title="Next Post: archlinux更新日志：迁移/lib到/usr/lib">archlinux更新日志：迁移/lib到/usr/lib &raquo;</a>
       
     </p>
   </footer>
@@ -353,8 +319,8 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://blog.jackphil.com/blog/2012/06/13/update-to-emacs24/';
-        var disqus_url = 'http://blog.jackphil.com/blog/2012/06/13/update-to-emacs24/';
+        var disqus_identifier = 'http://blog.jackphil.com/blog/2014/03/10/breath/';
+        var disqus_url = 'http://blog.jackphil.com/blog/2014/03/10/breath/';
         var disqus_script = 'embed.js';
       
     (function () {

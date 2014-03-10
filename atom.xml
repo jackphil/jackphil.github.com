@@ -4,7 +4,7 @@
   <title><![CDATA[藏宝图]]></title>
   <link href="http://blog.jackphil.com/atom.xml" rel="self"/>
   <link href="http://blog.jackphil.com/"/>
-  <updated>2014-01-26T22:13:48+08:00</updated>
+  <updated>2014-03-10T23:28:22+08:00</updated>
   <id>http://blog.jackphil.com/</id>
   <author>
     <name><![CDATA[Jack Phil]]></name>
@@ -12,6 +12,194 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[呼吸]]></title>
+    <link href="http://blog.jackphil.com/blog/2014/03/10/breath/"/>
+    <updated>2014-03-10T22:52:35+08:00</updated>
+    <id>http://blog.jackphil.com/blog/2014/03/10/breath</id>
+    <content type="html"><![CDATA[<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>同着你的呼吸<br>
+爱是我们的飞机<br>
+升高 升高<br>
+一直到极度的窒息</p>
+</div>
+<div class="paragraph">
+<p>连着你的心跳<br>
+爱是我们的钟表<br>
+扑通 扑通<br>
+一直到末日的拂晓</p>
+</div>
+<div class="paragraph">
+<p>和着你的脚步<br>
+爱是我们的公路<br>
+呼啸 呼啸<br>
+一直到我们的坟墓</p>
+</div>
+</div>
+</div>]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[哎，请呼叫转移：voip入门]]></title>
+    <link href="http://blog.jackphil.com/blog/2014/01/29/voip-how-to/"/>
+    <updated>2014-01-29T10:59:49+08:00</updated>
+    <id>http://blog.jackphil.com/blog/2014/01/29/voip-how-to</id>
+    <content type="html"><![CDATA[<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>旧文整理，内容或有过时</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="sip">什么是sip</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>sip相当于程控交换机，一个sip服务商可以看作一家移动运营商，市场上有很多sip服务商，就好比我们有中移动、联通和电信等等。</p>
+</div>
+<div class="paragraph">
+<p>sip地址形如email地址，如 <a href="mailto:foo@foobar.com">foo@foobar.com</a> ，相当于你的手机号码。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="">呼叫流程</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>在了解呼叫流程时需要记住一点，A能呼叫B，并不意味着B也能呼叫A，原因很多，如一台nokia手机并不能直接呼叫sip地址(当然可以借助手机上的sip客户端实现)，或者sip服务商仅提供接听免费，但呼叫需要收费，而你帐户里又没钱</p>
+</div>
+<div class="paragraph">
+<p>参考 <a href="http://www.lxvoip.com/viewthread.php?tid=18711">你用什么接听Google Voice？</a>，里面提到了很多呼叫流程</p>
+</div>
+<div class="sect2">
+<h3 id="sip-2">sip客户端</h3>
+<div class="paragraph">
+<p>首先你需要一台手机，这里叫sip客户端，你必须使用在某个sip服务商处的注册信息登录，该sip登录地址也就相当于这台手机的手机号，然后就可以接收对该sip地址的呼叫了。许多voip提供商都有自己的客户端，如nonoh，gzimo5。也有通用的客户端，如eyebeam，x-lite，fring等等</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+gtalk2voip可以将你的gtalk变成sip客户端，你只需将 <a href="mailto:service@gtalk2voip.com">service@gtalk2voip.com</a> 添加为好友
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="voip-voip">voip到voip</h3>
+<div class="paragraph">
+<p>就象在手机中添加通讯录，你也可以在sip客户端里添加其它sip地址，如你可以在你的gtalk里添加 <a href="mailto:foo%gizmo5.com@gtalk2voip.com">foo%gizmo5.com@gtalk2voip.com</a> 。注意，这里有些特殊情况，因为gtalk本身并不支持sip用户，需通过gtalk2voip实现，所以我们需要额外的 @gtalk2voip.com 后缀，而真正的sip地址中的@使用百分号%代替了，也可以用<code>_at_</code>代替 @，然后你就可以和gizmo5用户foo通话了。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="voip-pstn">voip到pstn</h3>
+<div class="paragraph">
+<p>pstn号码指你的真实座机或手机号码，大多数voip服务商都提供到pstn号的呼叫，不过都是要收费的</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="pstn-voip">pstn到voip</h3>
+<div class="paragraph">
+<p>有些sip服务商会提供一个pstn号，如ipkall，gizmo5等，有人呼叫这个pstn号，会被转移到指定的sip地址甚至im(一般通过gtalk2voip)</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="voip">常见voip服务商</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>参考 <a href="http://www.shtion.com/1484.html">国外免费VoIP服务汇总</a></p>
+</div>
+<div class="paragraph">
+<div class="title">ipkall</div>
+<p>ipkall提供一个真实的美国电话号码(pstn号)，并将对该好码的呼叫转移到你指定的sip地址，如果30天内该号码没被呼叫并接通，将被收回。</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+注册时SIP Phone number和SIP Proxy分别是sip地址中@的前后部分
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<div class="title">Goolge Voice</div>
+<p>Google Voice提供一个pstn号(GV号)，用于管理你的所有pstn号码，GV号被叫时会接通你指定的pstn号，回拨时先呼叫绑定的pstn号，接通后再转接被叫号码。所以原则上它是pstn to pstn，但你可以绑定一个虚拟pstn号，并把它转发到其它sip</p>
+</div>
+<div class="paragraph">
+<div class="title">iptel.org</div>
+<p>开源的sip服务器软件，也提供免费sip服务，将ipkall转发到iptel，是一个不错的选择</p>
+</div>
+<div class="paragraph">
+<div class="title">gtalk2voip</div>
+<p>其实比名字厉害的多，它还支持yahoo通，msn等。如果是gtalk，你的sip地址就是gmail地址。如果是yahoo通，则是 <a href="mailto:username%example.com@yahoo.gtalk2voip.com">username%example.com@yahoo.gtalk2voip.com</a></p>
+</div>
+<div class="paragraph">
+<div class="title">gizmo5</div>
+<p>也提供pstn号，已被Google收购，暂停注册（2011-02-11）</p>
+</div>
+<div class="paragraph">
+<div class="title">virtualphoneline</div>
+<p>提供pstn，可以转发到多种服务，skype，gtalk，msn等等，免费体验30天</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="-2">应用实例</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="google-voice">注册Google Voice</h3>
+<div class="paragraph">
+<p>参见http://subacme.rerouted.org/2010/02/easily-activating-google-voice/[在美国以外验证 Google Voice 的简单方法]，这应该是最简单的方法了</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>需要美国ip访问 <a href="http://www.google.com/voice">google voice</a>，可以使用vpn或自由门</p>
+</li>
+<li>
+<p>注册ipkall，并设置转发到gtalk2voip</p>
+</li>
+<li>
+<p>使用ipkall号注册Google Voice，google会拨打这个号码验证</p>
+</li>
+<li>
+<p>我们可以在gtalk里接听并验证</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="gtalk-skype">从gtalk拨打skype</h3>
+<div class="paragraph">
+<p>参见 <a href="http://www.lxvoip.net/voip-beginner/gmail2skype.html">用Gmail直接与Skype 免费通话</a>，利用gizmo5提供的功能，将来电转发到skype</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>添加gizmo5 sip地址到gtalk2voip</p>
+</li>
+<li>
+<p>去gizmo5帐号设置转发所有来电到skype</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Emacs字体]]></title>
@@ -1359,94 +1547,6 @@ ibus-daemon -x -d</code></pre></noscript></div>
 </span><span class="line">  <span class="nb">system</span><span class="p">(</span><span class="s2">&quot;emacsclient </span><span class="si">#{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </span><span class="line"><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[OpenSSH密钥管理初步]]></title>
-    <link href="http://blog.jackphil.com/blog/2012/05/16/opensshmi-yao-guan-li-chu-bu/"/>
-    <updated>2012-05-16T20:09:00+08:00</updated>
-    <id>http://blog.jackphil.com/blog/2012/05/16/opensshmi-yao-guan-li-chu-bu</id>
-    <content type="html"><![CDATA[<p>github需要ssh密钥来建立push时的安全连接，虽然以前在用gitorious时也接触过，但已经不记得了，还是找了几篇教程来边看边做，笔记如下</p>
-
-<!--more-->
-
-<h2 id="section">生成密钥对</h2>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">sudo pacman -S openssh # ssh-keygen在openssh包里
-</span><span class="line">ssh-keygen -t rsa</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<p>一路默认回车即可。你也可以在出现如下提示时为你的私钥添加密码短句进行加密</p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">Enter passphrase (empty for no passphrase):
-</span><span class="line">Enter same passphrase again:</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<h2 id="github">配置github</h2>
-<p>默认会在~/.ssh目录下生成私钥id_rsa和公钥id_rsa.pub，将公钥文件内容添加到github.com：账户设置-SSH Keys</p>
-
-<p>根据<a href="http://help.github.com/linux-set-up-git/">github官方文档</a>，一些教程里提到的GitHub token不再会有支持</p>
-
-<p>你可以测试一下</p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">ssh -T git@github.com</span></code></pre></td></tr></table></div></figure></notextile></div>
-<p>如果出现You’ve successfully authenticated字样，说明一切正常</p>
-
-<h2 id="passphrase">安全但麻烦的passphrase(密码短句)</h2>
-<p>如果你在生成密钥对时设置了密码短句，则每次提交连接github都会询问你密码短句来解密私钥，我虽然平时除了github，很少用到ssh，但也颇感麻烦，一个简单解决办法是使用ssh-agent</p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">sudo pacman -S kde-agent # ssh-agent随kde启动
-</span><span class="line">ssh-add ~/.ssh/id_rsa # 会询问你密码短句</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<p>每次启动kde会话后，都要手动添加私钥到ssh-agent，你只需在此输入一次密码短句，此后只要ssh-agent进程不重启，你都不再需要输入密码短句</p>
-
-<h3 id="section-1">更新</h3>
-
-<p>2014-1-26: kde-agent从20140102-1版本起，取消了ssh-agent的相关功能。要随kde会话启动和退出ssh-agent，可以使用如下脚本：</p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">echo -e '#!/bin/sh\n[ -n "$SSH_AGENT_PID" ] || eval "$(ssh-agent -s)"' &gt; ~/.kde4/env/ssh-agent-startup.sh
-</span><span class="line">echo -e '#!/bin/sh\n[ -z "$SSH_AGENT_PID" ] || eval "$(ssh-agent -k)"' &gt; ~/.kde4/shutdown/ssh-agent-shutdown.sh
-</span><span class="line">chmod 755 ~/.kde4/env/ssh-agent-startup.sh ~/.kde4/shutdown/ssh-agent-shutdown.sh</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<h2 id="section-2">参考资源</h2>
-
-<p><a href="http://www.ibm.com/developerworks/cn/linux/security/openssh/part1/index.html">通用线程: OpenSSH 密钥管理</a>: IBM网站上2001年的一篇教程，是由gentoo创始人写的，共有两部分，这是第一部分介绍基础知识，第二部分介绍ssh-agent和keychain</p>
-
-<p><a href="http://www.gentoo.org/doc/zh_cn/keychain-guide.xml">Gentoo Linux Keychain指南</a>: Gentoo的一篇教程</p>
-
-<p><a href="https://wiki.archlinux.org/index.php/SSH_Keys#ssh-agent">SSH Keys</a>: Archlinux的wiki文档</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Archlinux更新记录20120516]]></title>
-    <link href="http://blog.jackphil.com/blog/2012/05/16/archlinuxgeng-xin-ji-lu-20120516/"/>
-    <updated>2012-05-16T15:27:00+08:00</updated>
-    <id>http://blog.jackphil.com/blog/2012/05/16/archlinuxgeng-xin-ji-lu-20120516</id>
-    <content type="html"><![CDATA[<p>某次更新系统后重启，发现有触目的红色警告，由于屏幕滚动很快，没看清具体是什么内容。遂去/etc/rc.local中添加一句read，以使启动最后暂停，等待用户输入，任意键继续。</p>
-
-<p>这次看清是ALSA出错了</p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">Unknown hardware "foo" "bar" ...
-</span><span class="line">Hardware is initialized using a guess method</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<p>搜索后发现可能跟内核升级有关，解决也很简单</p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">sudo alsactl -f /var/lib/alsa/asound.state store</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<p>参考：<a href="https://wiki.archlinux.org/index.php/Advanced_Linux_Sound_Architecture#Error_.27Unkown_hardware.27_Appears_After_a_Kernel_Update">Error ‘Unkown hardware’ Appears After a Kernel Update</a></p>
 ]]></content>
   </entry>
   

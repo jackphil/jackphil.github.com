@@ -9,7 +9,16 @@
   <meta name="author" content="Jack Phil">
 
   
-  <meta name="description" content="emacs23开始支持xft字体系统，建议升级。 推荐使用等宽字体，我一般在windows上使用文泉驿等宽正黑，Linux上使用雅黑MONO（来自碧海潮声，有修改） 查看Emacs可用字体 M-x set-default-font ，然后按tab就可得到可用字体列表 配置 &hellip;">
+  <meta name="description" content=" 同着你的呼吸
+爱是我们的飞机
+升高 升高
+一直到极度的窒息 连着你的心跳
+爱是我们的钟表
+扑通 扑通
+一直到末日的拂晓 和着你的脚步
+爱是我们的公路
+呼啸 呼啸
+一直到我们的坟墓 ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -82,6 +91,248 @@ MathJax.Hub.Config({
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/03/10/breath/">呼吸</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-10T22:52:35+08:00" pubdate data-updated="true">Mar 10<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>同着你的呼吸<br>
+爱是我们的飞机<br>
+升高 升高<br>
+一直到极度的窒息</p>
+</div>
+<div class="paragraph">
+<p>连着你的心跳<br>
+爱是我们的钟表<br>
+扑通 扑通<br>
+一直到末日的拂晓</p>
+</div>
+<div class="paragraph">
+<p>和着你的脚步<br>
+爱是我们的公路<br>
+呼啸 呼啸<br>
+一直到我们的坟墓</p>
+</div>
+</div>
+</div></div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/01/29/voip-how-to/">哎，请呼叫转移：voip入门</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-29T10:59:49+08:00" pubdate data-updated="true">Jan 29<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>旧文整理，内容或有过时</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="sip">什么是sip</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>sip相当于程控交换机，一个sip服务商可以看作一家移动运营商，市场上有很多sip服务商，就好比我们有中移动、联通和电信等等。</p>
+</div>
+<div class="paragraph">
+<p>sip地址形如email地址，如 <a href="mailto:foo@foobar.com">foo@foobar.com</a> ，相当于你的手机号码。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="">呼叫流程</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>在了解呼叫流程时需要记住一点，A能呼叫B，并不意味着B也能呼叫A，原因很多，如一台nokia手机并不能直接呼叫sip地址(当然可以借助手机上的sip客户端实现)，或者sip服务商仅提供接听免费，但呼叫需要收费，而你帐户里又没钱</p>
+</div>
+<div class="paragraph">
+<p>参考 <a href="http://www.lxvoip.com/viewthread.php?tid=18711">你用什么接听Google Voice？</a>，里面提到了很多呼叫流程</p>
+</div>
+<div class="sect2">
+<h3 id="sip-2">sip客户端</h3>
+<div class="paragraph">
+<p>首先你需要一台手机，这里叫sip客户端，你必须使用在某个sip服务商处的注册信息登录，该sip登录地址也就相当于这台手机的手机号，然后就可以接收对该sip地址的呼叫了。许多voip提供商都有自己的客户端，如nonoh，gzimo5。也有通用的客户端，如eyebeam，x-lite，fring等等</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+gtalk2voip可以将你的gtalk变成sip客户端，你只需将 <a href="mailto:service@gtalk2voip.com">service@gtalk2voip.com</a> 添加为好友
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="voip-voip">voip到voip</h3>
+<div class="paragraph">
+<p>就象在手机中添加通讯录，你也可以在sip客户端里添加其它sip地址，如你可以在你的gtalk里添加 <a href="mailto:foo%gizmo5.com@gtalk2voip.com">foo%gizmo5.com@gtalk2voip.com</a> 。注意，这里有些特殊情况，因为gtalk本身并不支持sip用户，需通过gtalk2voip实现，所以我们需要额外的 @gtalk2voip.com 后缀，而真正的sip地址中的@使用百分号%代替了，也可以用<code>_at_</code>代替 @，然后你就可以和gizmo5用户foo通话了。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="voip-pstn">voip到pstn</h3>
+<div class="paragraph">
+<p>pstn号码指你的真实座机或手机号码，大多数voip服务商都提供到pstn号的呼叫，不过都是要收费的</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="pstn-voip">pstn到voip</h3>
+<div class="paragraph">
+<p>有些sip服务商会提供一个pstn号，如ipkall，gizmo5等，有人呼叫这个pstn号，会被转移到指定的sip地址甚至im(一般通过gtalk2voip)</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="voip">常见voip服务商</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>参考 <a href="http://www.shtion.com/1484.html">国外免费VoIP服务汇总</a></p>
+</div>
+<div class="paragraph">
+<div class="title">ipkall</div>
+<p>ipkall提供一个真实的美国电话号码(pstn号)，并将对该好码的呼叫转移到你指定的sip地址，如果30天内该号码没被呼叫并接通，将被收回。</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+注册时SIP Phone number和SIP Proxy分别是sip地址中@的前后部分
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<div class="title">Goolge Voice</div>
+<p>Google Voice提供一个pstn号(GV号)，用于管理你的所有pstn号码，GV号被叫时会接通你指定的pstn号，回拨时先呼叫绑定的pstn号，接通后再转接被叫号码。所以原则上它是pstn to pstn，但你可以绑定一个虚拟pstn号，并把它转发到其它sip</p>
+</div>
+<div class="paragraph">
+<div class="title">iptel.org</div>
+<p>开源的sip服务器软件，也提供免费sip服务，将ipkall转发到iptel，是一个不错的选择</p>
+</div>
+<div class="paragraph">
+<div class="title">gtalk2voip</div>
+<p>其实比名字厉害的多，它还支持yahoo通，msn等。如果是gtalk，你的sip地址就是gmail地址。如果是yahoo通，则是 <a href="mailto:username%example.com@yahoo.gtalk2voip.com">username%example.com@yahoo.gtalk2voip.com</a></p>
+</div>
+<div class="paragraph">
+<div class="title">gizmo5</div>
+<p>也提供pstn号，已被Google收购，暂停注册（2011-02-11）</p>
+</div>
+<div class="paragraph">
+<div class="title">virtualphoneline</div>
+<p>提供pstn，可以转发到多种服务，skype，gtalk，msn等等，免费体验30天</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="-2">应用实例</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="google-voice">注册Google Voice</h3>
+<div class="paragraph">
+<p>参见http://subacme.rerouted.org/2010/02/easily-activating-google-voice/[在美国以外验证 Google Voice 的简单方法]，这应该是最简单的方法了</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>需要美国ip访问 <a href="http://www.google.com/voice">google voice</a>，可以使用vpn或自由门</p>
+</li>
+<li>
+<p>注册ipkall，并设置转发到gtalk2voip</p>
+</li>
+<li>
+<p>使用ipkall号注册Google Voice，google会拨打这个号码验证</p>
+</li>
+<li>
+<p>我们可以在gtalk里接听并验证</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="gtalk-skype">从gtalk拨打skype</h3>
+<div class="paragraph">
+<p>参见 <a href="http://www.lxvoip.net/voip-beginner/gmail2skype.html">用Gmail直接与Skype 免费通话</a>，利用gizmo5提供的功能，将来电转发到skype</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>添加gizmo5 sip地址到gtalk2voip</p>
+</li>
+<li>
+<p>去gizmo5帐号设置转发所有来电到skype</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div></div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -479,154 +730,6 @@ MathJax.Hub.Config({
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/07/18/archlinux-upgrade/">Archlinux更新日志：迁移/lib到/usr/lib</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-07-18T22:16:00+08:00" pubdate data-updated="true">Jul 18<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>这次更新的一个变化是/lib目录和/usr/lib目录合并了，更新后/lib目录将只是一个指向/usr/lib的链接。由于这次变动牵涉到的软件比较多，Archlinux网站上提供了专门的<a href="https://wiki.archlinux.org/index.php/DeveloperWiki:usrlib">升级指导</a></p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">sudo pacman -Syu --ignore glibc
-</span><span class="line">sudo pacman -Su</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<p>正如指导中提到的，第二个命令后还是报/lib已经存在的错误，用如下命令查看哪些目录不属于glibc</p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">find /lib -exec pacman -Qo -- {} +
-</span><span class="line">sudo rm -rf /lib/modules</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<p>我的情况是/lib/modules目录及其子目录下有一些文件，查了一下，没有自己编译的内核模块，所以直接给删了。</p>
-
-<p>升级成功</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/07/18/archlinux-upgrade/">阅读全文</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/06/13/update-to-emacs24/">Emacs24的二三事</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-06-13T21:39:00+08:00" pubdate data-updated="true">Jun 13<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>今天，NBA总决赛第一场，24再次爽约，站在23对面的，是更年轻的35，23似乎要再度饮恨。</p>
-
-<p>Emacs23和Emacs24也不那么和谐，原来的配置，启动直接报错，调教一番是免不了了</p>
-
-<h2 id="color-theme">color theme</h2>
-
-<p>根据<a href="http://batsov.com/articles/2012/02/19/color-theming-in-emacs-reloaded/">Color Theming in Emacs: Reloaded</a>，Emacs24自带了几个颜色主题，我的选择是</p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">(load-theme 'tango-dark t)</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<p>原来的color-theme不兼容24，可以删除之</p>
-
-<h2 id="section">菜单栏和工具栏</h2>
-
-<p>隐藏菜单栏和工具栏，原来给变量赋值nil不再有效，其实nil不再被用来开关minor-mode，有人解释了<a href="http://stackoverflow.com/questions/9423974/emacs-menu-bar-mode-and-tool-bar-mode-automatically-set-to-t">原因</a></p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">;;#隐藏菜单和工具栏
-</span><span class="line">(tool-bar-mode -1) 
-</span><span class="line">(menu-bar-mode -1)</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<h2 id="section-1">行号</h2>
-
-<p>setnu+是另一个引起麻烦的包，24自带的功能似乎也不错，删除之</p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">M-x linum-mode</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<h2 id="tabbar">tabbar</h2>
-
-<p>标签栏只能显示当前buffer，功能不正常，平时几乎很少用到，也把它删了</p>
-
-<h2 id="elpa-emacs-lisp-package-archive">软件包管理(ELPA: Emacs Lisp Package Archive)</h2>
-
-<p>Emacs24的一大亮点是自带了<a href="Emacs Lisp Package Archive">包管理器</a>(不过并非24独享，22都可以装)，自动安装管理各种lisp功能包</p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">;;#软件包服务器
-</span><span class="line">(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-</span><span class="line">			 ("marmalade" . "http://marmalade-repo.org/packages/")))</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<p>试用了一下，列出所有软件包：</p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">M-x package-list-packages</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<p>C-s搜索，i标记安装，d标记删除，x执行，.emacs.d目录下会生成elpa目录</p>
-
-<p>装了个markdown-mode.el，还是要手动改一下配置，自己在auto-mode-alist注册文件类型。</p>
-
-<p>总的来说很清爽，软件包都在elpa下自己的目录里，也没有自作主张的修改init.el，值得一试</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -642,6 +745,14 @@ MathJax.Hub.Config({
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/03/10/breath/">呼吸</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/29/voip-how-to/">哎，请呼叫转移：voip入门</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/01/26/emacszi-ti/">Emacs字体</a>
       </li>
     
@@ -651,14 +762,6 @@ MathJax.Hub.Config({
     
       <li class="post">
         <a href="/blog/2012/10/03/htc-one-x/">HTC One X刷机记</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/10/02/saga-upgrade-to-ics/">我的Desire S，我的ICS</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/10/02/insomnia/">失眠症：好警察坏警察，阿尔帕西诺的独角戏</a>
       </li>
     
   </ul>
