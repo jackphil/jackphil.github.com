@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: 种豆得豆 | 藏宝图]]></title>
+  <link href="http://blog.jackphil.com/blog/categories/chong-dou-de-dou/atom.xml" rel="self"/>
+  <link href="http://blog.jackphil.com/"/>
+  <updated>2014-03-10T23:41:48+08:00</updated>
+  <id>http://blog.jackphil.com/</id>
+  <author>
+    <name><![CDATA[Jack Phil]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[呼吸]]></title>
+    <link href="http://blog.jackphil.com/blog/2014/03/10/breath/"/>
+    <updated>2014-03-10T22:52:35+08:00</updated>
+    <id>http://blog.jackphil.com/blog/2014/03/10/breath</id>
+    <content type="html"><![CDATA[<p>= 呼吸
+:hardbreaks:</p>
+
+<p>同着你的呼吸
+爱是我们的飞机
+升高 升高
+一直到极度的窒息</p>
+
+<p>连着你的心跳
+爱是我们的钟表
+扑通 扑通
+一直到末日的拂晓</p>
+
+<p>和着你的脚步
+爱是我们的公路
+呼啸 呼啸
+一直到我们的坟墓</p>
+]]></content>
+  </entry>
+  
+</feed>
